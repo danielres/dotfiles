@@ -108,9 +108,11 @@ export PATH="$PATH:/nix/var/nix/profiles/default/bin"
 
 eval "$(direnv hook zsh)"
 
+# pnpm ------------------------------------------------------------------------
 alias p="pnpm"
 alias pd="pnpm dev"
 
+# nvim ------------------------------------------------------------------------
 v() {
   # runs nvim in a nix-shell with nodejs_20
   NODE_PKG="nodejs_20"
@@ -128,4 +130,9 @@ alias vv="v ."
 alias vz="v ~/.zshrc"
 alias voh="v ~/.oh-my-zsh"
 alias vc="v ~/.config/lvim/config.lua"
+
+# vscode ----------------------------------------------------------------------
+c() { NIXPKGS_ALLOW_UNFREE=1 nix-shell -p vscode --command zsh --run "code $1" }
+alias cc="c ."
+
 
