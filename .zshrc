@@ -113,12 +113,15 @@ alias pd="pnpm dev"
 
 v() {
   # runs nvim in a nix-shell with nodejs_20
-  NODE_STR="nodejs_20"
-  NPM_GLOBAL_DIR="/home/$USER/.npm-global/$NODE_STR"
+  NODE_PKG="nodejs_20"
+  PACKAGES=($NODE_PKG lazygit)
+  NPM_GLOBAL_DIR="/home/$USER/.npm-global/$NODE_PKG"
   mkdir -p $NPM_GLOBAL_DIR
+  PATH=$NPM_GLOBAL_DIR/bin:$PATH 
+  NPM_CONFIG_PREFIX=$NPM_GLOBAL_DIR
   echo "running lvim $1"
-  echo "within nix-shell -p $NODE_STR"
-  PATH=$NPM_GLOBAL_DIR/bin:$PATH NPM_CONFIG_PREFIX=$NPM_GLOBAL_DIR nix-shell -p $NODE_STR lazygit --run "lvim $1" 
+  echo "using nix-shell with packages: "${PACKAGES[@]}""
+  nix-shell -p "${PACKAGES[@]}" --run "lvim $1" 
 }
 
 alias vv="v ."
