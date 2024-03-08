@@ -1,0 +1,10 @@
+modmap:
+  - name: terminal
+    application:
+      only: [/.*tilix.*/]
+      # only: [/.*/]
+    remap:
+      CapsLock: 
+        held: CapsLock 
+        alone: esc
+        alone_timeout_milis: 50
