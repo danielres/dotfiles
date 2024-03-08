@@ -118,7 +118,7 @@ v() {
   mkdir -p $NPM_GLOBAL_DIR
   echo "running lvim $1"
   echo "within nix-shell -p $NODE_STR"
-  PATH=$NPM_GLOBAL_DIR/bin:$PATH NPM_CONFIG_PREFIX=$NPM_GLOBAL_DIR nix-shell -p $NODE_STR --run "lvim $1" 
+  PATH=$NPM_GLOBAL_DIR/bin:$PATH NPM_CONFIG_PREFIX=$NPM_GLOBAL_DIR nix-shell -p $NODE_STR lazygit --run "lvim $1" 
 }
 
 alias vv="v ."
