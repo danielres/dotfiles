@@ -24,8 +24,8 @@ IntensityAmount=0
 IntensityEffect=0
 
 [Colors:Button]
-BackgroundAlternate=175,82,52
-BackgroundNormal=41,41,41
+BackgroundAlternate=177,86,58
+BackgroundNormal=49,54,59
 DecorationFocus=233,100,58
 DecorationHover=233,100,58
 ForegroundActive=233,100,58
@@ -38,22 +38,8 @@ ForegroundPositive=39,174,96
 ForegroundVisited=155,89,182
 
 [Colors:Complementary]
-BackgroundAlternate=255,255,255
-BackgroundNormal=239,240,241
-DecorationFocus=233,100,58
-DecorationHover=233,100,58
-ForegroundActive=233,100,58
-ForegroundInactive=112,125,138
-ForegroundLink=233,100,58
-ForegroundNegative=218,68,83
-ForegroundNeutral=246,116,0
-ForegroundNormal=27,30,32
-ForegroundPositive=39,174,96
-ForegroundVisited=155,89,182
-
-[Colors:Header]
-BackgroundAlternate=38,38,38
-BackgroundNormal=38,38,38
+BackgroundAlternate=30,87,116
+BackgroundNormal=42,46,50
 DecorationFocus=233,100,58
 DecorationHover=233,100,58
 ForegroundActive=233,100,58
@@ -65,18 +51,46 @@ ForegroundNormal=252,252,252
 ForegroundPositive=39,174,96
 ForegroundVisited=155,89,182
 
+[Colors:Header]
+BackgroundAlternate=42,46,50
+BackgroundNormal=49,54,59
+DecorationFocus=233,100,58
+DecorationHover=233,100,58
+ForegroundActive=233,100,58
+ForegroundInactive=161,169,177
+ForegroundLink=233,100,58
+ForegroundNegative=218,68,83
+ForegroundNeutral=246,116,0
+ForegroundNormal=252,252,252
+ForegroundPositive=39,174,96
+ForegroundVisited=155,89,182
+
+[Colors:Header][Inactive]
+BackgroundAlternate=49,54,59
+BackgroundNormal=42,46,50
+DecorationFocus=61,174,233
+DecorationHover=61,174,233
+ForegroundActive=61,174,233
+ForegroundInactive=161,169,177
+ForegroundLink=29,153,243
+ForegroundNegative=218,68,83
+ForegroundNeutral=246,116,0
+ForegroundNormal=252,252,252
+ForegroundPositive=39,174,96
+ForegroundVisited=155,89,182
+
 [Colors:Selection]
-BackgroundAlternate=175,82,52
-BackgroundNormal=175,82,52
+BackgroundAlternate=171,79,50
+BackgroundNormal=171,79,50
 DecorationFocus=233,100,58
 DecorationHover=233,100,58
 ForegroundActive=233,100,58
 ForegroundInactive=255,255,255
 ForegroundLink=233,100,58
-ForegroundNegative=218,68,83
-ForegroundNeutral=246,116,0
+ForegroundNegative=176,55,69
+ForegroundNeutral=198,92,0
 ForegroundNormal=255,255,255
-ForegroundPositive=39,174,96
+ForegroundPositive=23,104,57
 ForegroundVisited=155,89,182
 
 [Colors:Tooltip]
@@ -95,7 +109,7 @@ ForegroundVisited=155,89,182
 
 [Colors:View]
 BackgroundAlternate=35,38,41
-BackgroundNormal=40,40,40
+BackgroundNormal=27,30,32
 DecorationFocus=233,100,58
 DecorationHover=233,100,58
 ForegroundActive=233,100,58
@@ -109,7 +123,7 @@ ForegroundVisited=155,89,182
 
 [Colors:Window]
 BackgroundAlternate=49,54,59
-BackgroundNormal=33,33,33
+BackgroundNormal=42,46,50
 DecorationFocus=233,100,58
 DecorationHover=233,100,58
 ForegroundActive=233,100,58
@@ -128,7 +142,7 @@ LastUsedCustomAccentColor=233,100,58
 
 [KDE]
 AnimationDurationFactor=0
-LookAndFeelPackage=org.tuxedodark.desktop
+LookAndFeelPackage=org.kde.breezedark.desktop
 widgetStyle=Fusion
 
 [KFileDialog Settings]
@@ -156,11 +170,11 @@ ScaleFactor=1.5
 ScreenScaleFactors=eDP=1.5;HDMI-A-0=1.5;DisplayPort-0=1.5;DisplayPort-1=1.5;DisplayPort-2=1.5;DisplayPort-3=1.5;DisplayPort-4=1.5;DisplayPort-5=1.5;
 
 [WM]
-activeBackground=255,0,0
-activeBlend=255,0,0
+activeBackground=49,54,59
+activeBlend=252,252,252
 activeForeground=252,252,252
 frame=252,252,233
-inactiveBackground=38,38,38
-inactiveBlend=85,0,0
-inactiveForeground=252,252,252
+inactiveBackground=42,46,50
+inactiveBlend=161,169,177
+inactiveForeground=161,169,177
 inactiveFrame=239,240,241
