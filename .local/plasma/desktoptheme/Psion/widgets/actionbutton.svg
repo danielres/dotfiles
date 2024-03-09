@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   id="svg2"
+   width="64"
+   version="1.0"
+   height="32"
+   sodipodi:docname="actionbutton.svg"
+   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <sodipodi:namedview
+     pagecolor="#d1d1d1"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1552"
+     inkscape:window-height="924"
+     id="namedview34"
+     showgrid="true"
+     inkscape:zoom="2.8781845"
+     inkscape:cx="35.091565"
+     inkscape:cy="15.808576"
+     inkscape:window-x="120"
+     inkscape:window-y="53"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg2"
+     inkscape:pagecheckerboard="true"
+     inkscape:showpageshadow="false"
+     fit-margin-top="10"
+     fit-margin-left="10"
+     fit-margin-right="10"
+     fit-margin-bottom="10"
+     inkscape:deskcolor="#d1d1d1">
+    <inkscape:grid
+       id="grid1"
+       units="px"
+       originx="-15"
+       originy="-5"
+       spacingx="1"
+       spacingy="1"
+       empcolor="#0099e5"
+       empopacity="0.30196078"
+       color="#0099e5"
+       opacity="0.14901961"
+       empspacing="5"
+       dotted="false"
+       gridanglex="30"
+       gridanglez="30"
+       visible="true" />
+  </sodipodi:namedview>
+  <defs
+     id="defs36" />
+  <style
+     id="current-color-scheme"
+     type="text/css">&#10;      .ColorScheme-Text {&#10;      }&#10;      .ColorScheme-Background{&#10;      }&#10;      .ColorScheme-Highlight{&#10;      }&#10;      .ColorScheme-ViewText {&#10;      }&#10;      .ColorScheme-ViewBackground{&#10;      }&#10;      .ColorScheme-ViewHover {&#10;      }&#10;      .ColorScheme-ViewFocus{&#10;      }&#10;      .ColorScheme-ButtonText {&#10;      }&#10;      .ColorScheme-ButtonBackground{&#10;      }&#10;      .ColorScheme-ButtonHover {&#10;      }&#10;      .ColorScheme-ButtonFocus{&#10;      }&#10;    </style>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <circle
+     style="opacity:1;fill:none;stroke:#847865;stroke-width:2;stroke-linecap:square;stroke-linejoin:round;stroke-opacity:1;paint-order:markers stroke fill"
+     id="normal"
+     class="ColorScheme-Highlight"
+     cx="16"
+     cy="16"
+     r="15" />
+  <circle
+     style="opacity:1;fill:none;stroke:#a3947c;stroke-width:2;stroke-linecap:square;stroke-linejoin:round;stroke-opacity:1;paint-order:markers stroke fill"
+     id="hover"
+     class="ColorScheme-Highlight"
+     cx="48"
+     cy="16"
+     r="15" />
+</svg>
