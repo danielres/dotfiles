@@ -6,3 +6,11 @@ Seen=true
 
 [Applications][telegramdesktop]
 Seen=true
+
+[DoNotDisturb]
+NotificationSoundsMuted=true
+Until=2025,3,9,17,4,37.946
+
+[Notifications]
+LowPriorityHistory=true
+LowPriorityPopups=false

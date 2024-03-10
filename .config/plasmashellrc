@@ -1,16 +1,20 @@
 [KPropertiesDialog]
 2880x1800 screen: Height=692
-2880x1800 screen: Width=713
+2880x1800 screen: Width=754
 3 screens: Height=692
 3 screens: Width=600
 
 [PlasmaTransientsConfig]
-PreloadWeight=26
+PreloadWeight=0
+
+[PlasmaViews][Panel 123][Defaults]
+thickness=70
 
 [PlasmaViews][Panel 2][Defaults]
 thickness=70
 
 [PlasmaViews][Panel 25]
+panelOpacity=0
 panelVisibility=0
 
 [PlasmaViews][Panel 25][Defaults]
