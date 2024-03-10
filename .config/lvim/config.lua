@@ -6,7 +6,7 @@
 
 
 lvim.format_on_save.enabled = true
-
+vim.opt.relativenumber = true
 
 -- Add Copilot plugin
 -- https://medium.com/aimonks/a-guide-to-integrating-lunarvim-github-copilot-61d92f764913
