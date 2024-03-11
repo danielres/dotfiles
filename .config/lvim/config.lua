@@ -8,9 +8,9 @@
 lvim.format_on_save.enabled = true
 vim.opt.relativenumber = true
 
--- Add Copilot plugin
--- https://medium.com/aimonks/a-guide-to-integrating-lunarvim-github-copilot-61d92f764913
 lvim.plugins = {
+  -- Add Copilot plugin
+  -- https://medium.com/aimonks/a-guide-to-integrating-lunarvim-github-copilot-61d92f764913
   {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
@@ -26,8 +26,11 @@ lvim.plugins = {
       require("copilot_cmp").setup()
     end,
   },
+  -- End add Copilot plugin
+  {
+    'easymotion/vim-easymotion'
+  },
 }
--- End add Copilot plugin
 
 
 -- Configure Copilot
