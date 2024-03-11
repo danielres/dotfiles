@@ -139,3 +139,4 @@ c() { NIXPKGS_ALLOW_UNFREE=1 nix-shell -p vscode --command zsh --run "code $1" }
 alias cc="c ."
 
 
+alias btop="/usr/local/bin/btop --utf-force"
