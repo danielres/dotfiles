@@ -1,0 +1,2 @@
+# ignore vim spellcheck files
+**/lvim/spell/**
