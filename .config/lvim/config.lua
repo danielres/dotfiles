@@ -7,6 +7,17 @@
 
 lvim.format_on_save.enabled = true
 vim.opt.relativenumber = true
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "text", "markdown" },
+  callback = function()
+    vim.opt.wrap = true
+    vim.opt.linebreak = true
+    vim.opt.breakindent = true
+    vim.opt_local.showbreak = '↪ '
+    vim.opt_local.spell = true
+    vim.opt_local.spelllang = { "en", "fr" }
+  end,
+})
 
 lvim.plugins = {
   -- Add Copilot plugin
