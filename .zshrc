@@ -1,3 +1,5 @@
+# vim: filetype=sh
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -25,11 +27,11 @@ ZSH_THEME="robbyrussell"
 
 # Uncomment one of the following lines to change the auto-update behavior
 # zstyle ':omz:update' mode disabled  # disable automatic updates
-zstyle ':omz:update' mode auto      # update automatically without asking
+zstyle ':omz:update' mode auto # update automatically without asking
 # zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 # Uncomment the following line to change how often to auto-update (in days).
-# zstyle ':omz:update' frequency 13
+zstyle ':omz:update' frequency 13
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
@@ -61,6 +63,7 @@ COMPLETION_WAITING_DOTS="true"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="yyy/mm/dd"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -72,12 +75,12 @@ COMPLETION_WAITING_DOTS="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git autojump magic-enter sudo web-search colorize vi-mode)
 
-  VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
-  VI_MODE_SET_CURSOR=true
+VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
+VI_MODE_SET_CURSOR=true
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
+# USER CONFIGURATION ========================================================================
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -91,7 +94,6 @@ source $ZSH/oh-my-zsh.sh
 #   export EDITOR='mvim'
 # fi
 
-
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -99,17 +101,19 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export EDITOR=lvim
+export NVIM_APPNAME=LazyVim # default nvim
+export EDITOR=nvim
 export PATH="$PATH:/opt/nvim-linux64/bin"
 export PATH="$PATH:/home/$USER/.local/bin"
 export PATH="$PATH:/nix/var/nix/profiles/default/bin"
 
 eval "$(direnv hook zsh)"
+
+# fix for tilix : https://gnunn1.github.io/tilix-web/manual/vteconfig/ --------
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+	source /etc/profile.d/vte.sh
+fi
 
 # pnpm ------------------------------------------------------------------------
 alias p="pnpm"
@@ -117,16 +121,16 @@ alias pd="pnpm dev"
 
 # nvim ------------------------------------------------------------------------
 v() {
-  # runs nvim in a nix-shell with nodejs_20
-  NODE_PKG="nodejs_20"
-  PACKAGES=($NODE_PKG lazygit)
-  NPM_GLOBAL_DIR="/home/$USER/.npm-global/$NODE_PKG"
-  mkdir -p $NPM_GLOBAL_DIR
-  PATH=$NPM_GLOBAL_DIR/bin:$PATH 
-  NPM_CONFIG_PREFIX=$NPM_GLOBAL_DIR
-  echo "running lvim $1"
-  echo "using nix-shell with packages: "${PACKAGES[@]}""
-  nix-shell -p "${PACKAGES[@]}" --run "lvim $1" 
+	# runs nvim in a nix-shell with nodejs_20 + extra packages
+	NODE_PKG="nodejs_20"
+	PACKAGES=($NODE_PKG lazygit)
+	NPM_GLOBAL_DIR="/home/$USER/.npm-global/$NODE_PKG"
+	mkdir -p $NPM_GLOBAL_DIR
+	PATH=$NPM_GLOBAL_DIR/bin:$PATH
+	NPM_CONFIG_PREFIX=$NPM_GLOBAL_DIR
+	echo "running vim $1 ($NVIM_APPNAME)"
+	echo "using nix-shell with packages: "${PACKAGES[@]}""
+	nix-shell -p "${PACKAGES[@]}" --run "nvim $1"
 }
 
 alias vv="v ."
@@ -135,8 +139,33 @@ alias voh="v ~/.oh-my-zsh"
 alias vc="v ~/.config/lvim/config.lua"
 
 # vscode ----------------------------------------------------------------------
-c() { NIXPKGS_ALLOW_UNFREE=1 nix-shell -p vscode --command zsh --run "code $1" }
+c() {
+	NIXPKGS_ALLOW_UNFREE=1 nix-shell -p vscode --command zsh --run "code $1"
+}
 alias cc="c ."
 
-
+# various ---------------------------------------------------------------------
 alias btop="/usr/local/bin/btop --utf-force"
+alias micro="nix-shell -p micro --run micro"
+alias nano="echo 'Using micro instead of nano'; micro"
+
+# NVIM SWITCHER ---------------------------------------------------------------
+# https://gist.github.com/elijahmanor/b279553c0132bfad7eae23e34ceb593b
+alias nvim-lazy="NVIM_APPNAME=LazyVim nvim"
+alias nvim-kick="NVIM_APPNAME=kickstart nvim"
+alias nvim-chad="NVIM_APPNAME=NvChad nvim"
+alias nvim-astro="NVIM_APPNAME=AstroNvim nvim"
+
+function nvims() {
+	items=("default" "kickstart" "LazyVim" "NvChad" "AstroNvim")
+	config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
+	if [[ -z $config ]]; then
+		echo "Nothing selected"
+		return 0
+	elif [[ $config == "default" ]]; then
+		config=""
+	fi
+	NVIM_APPNAME=$config nvim $@
+}
+bindkey -s ^a "nvims\n"
+# END NVIM SWITCHER -----------------------------------------------------------
