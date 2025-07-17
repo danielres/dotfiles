@@ -9,60 +9,39 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ./locales.nix
     # ./firefox.nix
   ];
+
+  nix.settings.experimental-features = [
+    "nix-command"
+      "flakes"
+  ];
+  # nix.settings.auto-optimize-store = true;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = false;
   boot.kernelParams = [ "video=1280x720" ];
+  boot.kernelModules = [ "amdgpu" ];
 
-  networking.hostName = "nixos"; # Define your hostname.
+  hardware.enableAllFirmware = true;
+
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
   networking.networkmanager.enable = true;
+  networking.hostName = "nixos"; # Define your hostname.
 
-  # Set your time zone.
-  time.timeZone = "Europe/Berlin";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "de_DE.UTF-8";
-    LC_IDENTIFICATION = "de_DE.UTF-8";
-    LC_MEASUREMENT = "de_DE.UTF-8";
-    LC_MONETARY = "de_DE.UTF-8";
-    LC_NAME = "de_DE.UTF-8";
-    LC_NUMERIC = "de_DE.UTF-8";
-    LC_PAPER = "de_DE.UTF-8";
-    LC_TELEPHONE = "de_DE.UTF-8";
-    LC_TIME = "de_DE.UTF-8";
-  };
-
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
-  # nix.settings.auto-optimize-store = true;
-
-  # Enable the X11 windowing system.
+  # Display
   services.xserver.enable = true;
-
   services.xserver.videoDrivers = [ "amdgpu" ];
 
-  # Enable the GNOME Desktop Environment.
+  # Enable GNOME
   services.displayManager.gdm.enable = true;
   services.displayManager.gdm.wayland = false;
   services.desktopManager.gnome.enable = true;
-
-  hardware.enableAllFirmware = true;
-  boot.kernelModules = [ "amdgpu" ];
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -89,7 +68,7 @@
 
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
-    #media-session.enable = true;
+    # media-session.enable = true;
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
@@ -100,7 +79,10 @@
     isNormalUser = true;
     description = "daniel";
     shell = pkgs.fish;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     packages = with pkgs; [
       #  thunderbird
     ];
@@ -204,15 +186,12 @@
   # List all gnome kbd shortcuts using <Super>:
   # gsettings list-recursively | grep '<Super>'
 
-
   xdg.mime = {
-    enable = true;                    # generate /etc/xdg/mimeapps.list
+    enable = true; # generate /etc/xdg/mimeapps.list
     defaultApplications = {
-      # Ordinary HTML files
-      "text/html" = "firefox.desktop";
-
+      "text/html" = "firefox.desktop"; # Ordinary HTML files
       # URL schemes
-      "x-scheme-handler/http"  = "firefox.desktop";
+      "x-scheme-handler/http" = "firefox.desktop";
       "x-scheme-handler/https" = "firefox.desktop";
       "x-scheme-handler/about" = "firefox.desktop";
       "x-scheme-handler/unknown" = "firefox.desktop";
@@ -235,11 +214,6 @@
           # maximize = [ "<Super>m" ];
           close = [ "<Control>q" ];
         };
-
-        # "org/gnome/desktop/wm/keybindings" = {
-        # minimize = [];
-        # lock = [];
-        # };
       };
     }
   ];
@@ -270,5 +244,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.05"; # Did you read the comment?
-
 }
