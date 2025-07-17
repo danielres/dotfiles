@@ -1,0 +1,8 @@
+#!/bin/sh
+
+echo hello
+
+# function dotstow
+  cd ~/.dotfiles
+  stow -t ~ .
+# end
