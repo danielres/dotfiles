@@ -98,13 +98,6 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-
-  # environment.variables.EDITOR = "nvim";
-
-  environment.variables = {
-    EDITOR = "nvim";
-  };
-
   environment.systemPackages = with pkgs; [
     any-nix-shell # fish support for nix shell
     atuin
