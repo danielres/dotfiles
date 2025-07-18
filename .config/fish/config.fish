@@ -1,6 +1,1 @@
-if status is-interactive
-    # Commands to run in interactive sessions can go here
-    fish_vi_cursor
-    fish_vi_key_bindings
-    atuin init fish | source
-end
+/nix/store/8i1bbgcw39vscww0qrv3535a4z5mqwic-home-manager-files/.config/fish/config.fish
