@@ -195,6 +195,8 @@
     };
   };
 
+  programs.dconf.enable = true;
+
   programs.dconf.profiles.user.databases = [
     {
       lockAll = true; # prevents overriding
@@ -205,9 +207,10 @@
         "org/gnome/desktop/input-sources" = {
           xkb-options = [ "caps:swapescape" ];
         };
-        "org/gnome/shell/keybindings" = {
+        "org/gnome/desktop/wm/keybindings" = {
           toggle-message-tray = [ "<Super>v" ];
-          toggle-maximized = [ "<Super>m" ];
+          toggle-maximized = [ "<Super>m" ];  
+          minimize = [""];
           # maximize = [ "<Super>m" ];
           close = [ "<Control>q" ];
         };
