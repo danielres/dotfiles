@@ -20,4 +20,9 @@
     # nixvim.packages.${pkgs.system}.default
     # nix-software-center.packages.${pkgs.system}.default
   ];
+
+  programs.fish = {
+    enable = true;
+  };
+
 }
