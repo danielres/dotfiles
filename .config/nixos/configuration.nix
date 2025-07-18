@@ -27,6 +27,7 @@
 
   hardware.enableAllFirmware = true;
 
+  boot.initrd.luks.devices."luks-afe22410-6111-47b4-acb2-74c37cdc9cc9".device = "/dev/disk/by-uuid/afe22410-6111-47b4-acb2-74c37cdc9cc9";
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
