@@ -23,5 +23,15 @@ config.color_scheme = "N0tch2k"
 config.color_scheme = "Nord (Gogh)"
 config.color_scheme = "Dracula"
 
+config.keys = {
+  -- Turn off the default CMD-m Hide action, allowing CMD-m to
+  -- be potentially recognized and handled by the tab
+  {
+    key = 'm',
+    mods = 'CMD',
+    action = wezterm.action.DisableDefaultAssignment,
+  },
+}
+
 -- Finally, return the configuration to wezterm:
 return config
