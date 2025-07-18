@@ -25,4 +25,10 @@
     enable = true;
   };
 
+  programs.git = {
+    enable = true;
+    userName  = "Daniel Reszka";
+    userEmail = "dannn.r@gmail.com";
+  };
+
 }
