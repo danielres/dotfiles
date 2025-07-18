@@ -40,12 +40,13 @@
   services.xserver.videoDrivers = [ "amdgpu" ];
 
   # Enable GNOME
-  # services.xserver.displayManager.gdm.enable = true;
+  services.displayManager.gdm.enable = true;
   # services.xserver.displayManager.gdm.wayland = false;
-  # services.xserver.desktopManager.gnome.enable = true;
+  services.desktopManager.gnome.enable = true;
 
-  services.xserver.desktopManager.xfce.enable = true;
-  services.xserver.displayManager.lightdm.enable = true;
+  # services.xserver.desktopManager.xfce.enable = true;
+  # services.xserver.displayManager.lightdm.enable = true;
+
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
