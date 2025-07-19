@@ -114,6 +114,7 @@
     fish
     gcc
     git
+    gh
     glow # terminal markdown viewer
     gnomeExtensions.dash-to-dock
     gnomeExtensions.espresso
