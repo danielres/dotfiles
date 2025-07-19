@@ -123,6 +123,7 @@
     gcc
     git
     gh
+    gimp3-with-plugins
     glow # terminal markdown viewer
     gnomeExtensions.dash-to-dock
     gnomeExtensions.espresso
@@ -159,10 +160,12 @@
     tdesktop # telegram
     tldr
     tree
+    veracrypt
     vlc
     wezterm
     wget
     xsel
+    youtube-music
     zoxide
     # arandr               # simple GUI for xrandr
     # asciinema            # record the terminal
