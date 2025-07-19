@@ -153,6 +153,7 @@
     nix-output-monitor # nom: monitor nix commands
     obsidian
     oh-my-fish
+    pavucontrol
     ripgrep # fast grep
     screenkey # shows keypresses on screen
     starship
