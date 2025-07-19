@@ -100,8 +100,23 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  programs.firefox.enable = true;
-  programs.fish.enable = true;
+  programs = {
+    firefox.enable = true;
+    fish.enable = true;
+
+    gamescope.enable = true; # installs the wrapper
+    steam = {
+      enable = true;
+      gamescopeSession.enable = true; # auto‑wrap every Steam launch
+      remotePlay.openFirewall =
+        true; # Open ports in the firewall for Steam Remote Play
+      dedicatedServer.openFirewall =
+        true; # Open ports in the firewall for Source Dedicated Server
+      localNetworkGameTransfers.openFirewall =
+        true; # Open ports in the firewall for Steam Local Network Game Transfers
+    };
+
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -144,6 +159,7 @@
     # gnomeExtensions.ubuntu-appindicators
     killall # kill processes by name
     lazygit
+    mesa-demos
     neofetch
     neovim
     nerd-fonts.fira-code
@@ -238,11 +254,15 @@
       };
 
       "org/gnome/desktop/wm/keybindings" = {
-        toggle-message-tray = [ "<Super>v" ];
-        toggle-maximized = [ "<Super>m" ];
-        minimize = [ "" ];
-        # maximize = [ "<Super>m" ];
+        activate-window-menu = [ "<Super>space" ];
         close = [ "<Control>q" ];
+        minimize = [ "" ];
+        move-to-workspace-left = [ "<Shift><Super>comma" ];
+        move-to-workspace-right = [ "<Shift><Super>period" ];
+        switch-to-workspace-left = [ "<Super>comma" ];
+        switch-to-workspace-right = [ "<Super>period" ];
+        toggle-maximized = [ "<Super>m" ];
+        toggle-message-tray = [ "<Super>v" ];
       };
 
       "org/gnome/shell/extensions/bitcoin-markets" = {
