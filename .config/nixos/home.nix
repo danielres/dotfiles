@@ -18,6 +18,7 @@
     ];
 
   programs.fish = { enable = true; };
+  programs.bash = { enable = true; };
 
   programs.git = {
     enable = true;
