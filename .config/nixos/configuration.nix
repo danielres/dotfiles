@@ -104,6 +104,7 @@
     atuin
     bash
     bitwarden-cli # command-line client for the password manager
+    cargo
     dconf
     dconf2nix # dconf (gnome) files to nix converter
     direnv
@@ -124,6 +125,8 @@
     neofetch
     neovim
     nerd-fonts.fira-code
+    nixfmt
+    nixd
     nix-index # locate packages containing certain nixpkgs
     nix-output-monitor # nom: monitor nix commands
     obsidian
