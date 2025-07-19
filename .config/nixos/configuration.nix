@@ -255,6 +255,11 @@
         ];
       };
 
+      "/org/gnome/shell/extensions/emoji-copy" = {
+        # active-keybind = false;
+        # emoji-keybind = [ "" ];
+      };
+
       "org/gnome/shell/extensions/dash-to-dock" = {
         always-center-icons = false;
         apply-custom-theme = false;
