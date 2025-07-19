@@ -9,25 +9,23 @@
     ];
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "usbhid" "usb_storage" "sd_mod" ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" "amdgpu" ];
+  boot.initrd.kernelModules = [ "dm-snapshot" ];
+  boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/05fd5d91-930a-43b3-8309-7c76280e54c8";
+    { device = "/dev/disk/by-uuid/b2edf53f-5e1a-4f9e-831f-0bfc333fa442";
       fsType = "ext4";
     };
 
-  boot.initrd.luks.devices."luks-7ed60da9-7727-4df3-9c65-de1cca284dda".device = "/dev/disk/by-uuid/7ed60da9-7727-4df3-9c65-de1cca284dda";
-
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/C88B-2125";
-      fsType = "vfat";
-      options = [ "fmask=0077" "dmask=0077" ];
-    };
+fileSystems."/boot" = {
+  device = "/dev/disk/by-label/NIXOS_EFI";
+  fsType  = "vfat";
+  options = [ "noatime" "defaults" ];
+};
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/eee13525-545b-40c9-bccd-ac2231a199f8"; }
+    [ { device = "/dev/disk/by-uuid/54aa2e37-6ccd-4457-8dd2-bb1bc2f9673a"; }
     ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

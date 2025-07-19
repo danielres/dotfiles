@@ -1,51 +1,63 @@
 # Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-#
+# your system. Help is available in the configuration.nix(5) man page, on
+# https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./locales.nix
-    # ./firefox.nix
+    ./hibernate.nix
+    ./root.nix
   ];
 
-  nix.settings.experimental-features = [
-    "nix-command"
-      "flakes"
-  ];
   # nix.settings.auto-optimize-store = true;
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = false;
-  boot.kernelParams = [ "video=1280x720" ];
-  boot.kernelModules = [ "amdgpu" ];
+  # boot.kernelModules = [ "amdgpu" ];
+  boot.loader.efi.canTouchEfiVariables = true;
+  #boot.kernelParams = [ "video=1280x720" ];
+  boot.initrd.luks.devices."nixoscrypt".device = "/dev/nvme0n1p5";
+  boot.resumeDevice = "/dev/disk/by-uuid/cba6b9b8-55cf-46eb-9122-84dd99cb0138";
+  swapDevices = [{ device = "/dev/nixos/swap"; }];
+  boot.kernelParams = [ "resume=UUID=cba6b9b8-55cf-46eb-9122-84dd99cb0138" ];
 
-  hardware.enableAllFirmware = true;
+  # hardware.enableAllFirmware = true;
 
-  boot.initrd.luks.devices."luks-afe22410-6111-47b4-acb2-74c37cdc9cc9".device = "/dev/disk/by-uuid/afe22410-6111-47b4-acb2-74c37cdc9cc9";
+  # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+
+  # Set your time zone.
+  # time.timeZone = "Europe/Amsterdam";
+
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-  networking.networkmanager.enable = true;
   networking.hostName = "nixos"; # Define your hostname.
 
-  # Display
+  # Select internationalisation properties.
+  # i18n.defaultLocale = "en_US.UTF-8";
+  # console = {
+  #   font = "Lat2-Terminus16";
+  #   keyMap = "us";
+  #   useXkbConfig = true; # use xkb.options in tty.
+  # };
+
+  # Enable the X11 windowing system.
   services.xserver.enable = true;
-  services.xserver.videoDrivers = [ "amdgpu" ];
+  # services.xserver.videoDrivers = [ "amdgpu" ];
 
   # Enable GNOME
-  services.displayManager.gdm.enable = true;
-  # services.xserver.displayManager.gdm.wayland = false;
-  services.desktopManager.gnome.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
 
-  # services.xserver.desktopManager.xfce.enable = true;
-  # services.xserver.displayManager.lightdm.enable = true;
+  # Enable CUPS to print documents.
+  # services.printing.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -75,21 +87,15 @@
     # media-session.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.daniel = {
     isNormalUser = true;
     description = "daniel";
-    shell = pkgs.fish;
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-    ];
-    packages = with pkgs; [
-      #  thunderbird
-    ];
+    #shell = pkgs.fish;
+    extraGroups = [ "networkmanager" "wheel" ];
+    packages = with pkgs;
+      [
+        #  thunderbird
+      ];
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -99,6 +105,7 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
+  # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
     any-nix-shell # fish support for nix shell
     atuin
@@ -201,26 +208,24 @@
 
   programs.dconf.enable = true;
 
-  programs.dconf.profiles.user.databases = [
-    {
-      lockAll = true; # prevents overriding
-      settings = {
-        # "org/gnome/desktop/interface" = {
-        #   accent-color = "blue";
-        # };
-        "org/gnome/desktop/input-sources" = {
-          xkb-options = [ "caps:swapescape" ];
-        };
-        "org/gnome/desktop/wm/keybindings" = {
-          toggle-message-tray = [ "<Super>v" ];
-          toggle-maximized = [ "<Super>m" ];  
-          minimize = [""];
-          # maximize = [ "<Super>m" ];
-          close = [ "<Control>q" ];
-        };
+  programs.dconf.profiles.user.databases = [{
+    lockAll = true; # prevents overriding
+    settings = {
+      # "org/gnome/desktop/interface" = {
+      #   accent-color = "blue";
+      # };
+      "org/gnome/desktop/input-sources" = {
+        xkb-options = [ "caps:swapescape" ];
       };
-    }
-  ];
+      "org/gnome/desktop/wm/keybindings" = {
+        toggle-message-tray = [ "<Super>v" ];
+        toggle-maximized = [ "<Super>m" ];
+        minimize = [ "" ];
+        # maximize = [ "<Super>m" ];
+        close = [ "<Control>q" ];
+      };
+    };
+  }];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -241,11 +246,27 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+  # Copy the NixOS configuration file and link it from the resulting system
+  # (/run/current-system/configuration.nix). This is useful in case you
+  # accidentally delete configuration.nix.
+  # system.copySystemConfiguration = true;
+
+  # This option defines the first version of NixOS you have installed on this particular machine,
+  # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
+  #
+  # Most users should NEVER change this value after the initial install, for any reason,
+  # even if you've upgraded your system to a new NixOS release.
+  #
+  # This value does NOT affect the Nixpkgs version your packages and OS are pulled from,
+  # so changing it will NOT upgrade your system - see https://nixos.org/manual/nixos/stable/#sec-upgrading for how
+  # to actually do that.
+  #
+  # This value being lower than the current NixOS release does NOT mean your system is
+  # out of date, out of support, or vulnerable.
+  #
+  # Do NOT change this value unless you have manually inspected all the changes it would make to your configuration,
+  # and migrated your data accordingly.
+  #
+  # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "25.05"; # Did you read the comment?
 }
