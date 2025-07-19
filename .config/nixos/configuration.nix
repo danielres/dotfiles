@@ -2,7 +2,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   imports = [
@@ -127,6 +127,20 @@
     gnomeExtensions.dash-to-dock
     gnomeExtensions.espresso
     gnomeExtensions.pop-shell
+    gnomeExtensions.clipboard-history
+    gnomeExtensions.middle-click-to-close-in-overview
+    # gnomeExtensions.VividShade
+    gnomeExtensions.bluetooth-quick-connect
+    gnomeExtensions.sound-output-device-chooser
+    gnomeExtensions.dash-to-dock
+    gnomeExtensions.gsconnect
+    gnomeExtensions.bitcoin-markets
+    gnomeExtensions.color-picker
+    # gnomeExtensions.wayland-or-x11
+    gnomeExtensions.emoji-copy
+    gnomeExtensions.memento-mori
+    gnomeExtensions.extension-list
+    # gnomeExtensions.ubuntu-appindicators
     killall # kill processes by name
     lazygit
     neofetch
@@ -214,15 +228,64 @@
       # "org/gnome/desktop/interface" = {
       #   accent-color = "blue";
       # };
+
       "org/gnome/desktop/input-sources" = {
         xkb-options = [ "caps:swapescape" ];
       };
+
       "org/gnome/desktop/wm/keybindings" = {
         toggle-message-tray = [ "<Super>v" ];
         toggle-maximized = [ "<Super>m" ];
         minimize = [ "" ];
         # maximize = [ "<Super>m" ];
         close = [ "<Control>q" ];
+      };
+
+      "org/gnome/shell/extensions/bitcoin-markets" = {
+        first-run = false;
+        indicators = [
+          ''
+            {"api":"bitstamp","base":"BTC","quote":"USD","attribute":"last","show_change":true,"format":"{v} {q}"}''
+          ''
+            {"api":"bitstamp","base":"ETH","quote":"USD","attribute":"last","show_change":true,"format":"{v} {q}"}''
+        ];
+      };
+
+      "org/gnome/shell/extensions/dash-to-dock" = {
+        always-center-icons = false;
+        apply-custom-theme = false;
+        background-opacity = 0.8;
+        custom-background-color = false;
+        custom-theme-shrink = true;
+        dash-max-icon-size = "uint32 40";
+        disable-overview-on-startup = true;
+        dock-position = "BOTTOM";
+        extend-height = true;
+        height-fraction = 0.9;
+        intellihide-mode = "FOCUS_APPLICATION_WINDOWS";
+        isolate-monitors = false;
+        isolate-workspaces = true;
+        multi-monitor = true;
+        preferred-monitor = "int32 -2";
+        preferred-monitor-by-connector = "eDP-1";
+        running-indicator-style = "DOTS";
+        scroll-action = "cycle-windows";
+        shortcut = [ "<Super>q" ];
+        shortcut-text = "<Super>q";
+        show-favorites = true;
+        show-mounts-network = false;
+        show-show-apps-button = false;
+        show-trash = false;
+      };
+
+      "org/gnome/shell/extensions/pop-shell" = {
+        active-hint = true;
+        active-hint-border-radius = lib.gvariant.mkUint32 4;
+        gap-inner = lib.gvariant.mkUint32 0;
+        gap-outer = lib.gvariant.mkUint32 0;
+        hint-color-rgba = "rgba(187,127,57,0.557432)";
+        show-title = true;
+        tile-by-default = true;
       };
     };
   }];
