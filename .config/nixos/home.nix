@@ -17,7 +17,13 @@
       # nix-software-center.packages.${pkgs.system}.default
     ];
 
-  programs.fish = { enable = true; };
+  programs.fish = {
+    enable = true;
+    interactiveShellInit = ''
+      atuin init fish | source;
+    '';
+
+  };
   programs.bash = { enable = true; };
 
   programs.git = {
