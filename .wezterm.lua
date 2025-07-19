@@ -35,5 +35,7 @@ config.keys = {
 
 -- Disable native Wayland; use XWayland instead
 config.enable_wayland = false
+config.default_prog = { 'fish', '-l' }
+
 -- Finally, return the configuration to wezterm:
 return config
