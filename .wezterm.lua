@@ -33,5 +33,7 @@ config.keys = {
   },
 }
 
+-- Disable native Wayland; use XWayland instead
+config.enable_wayland = false
 -- Finally, return the configuration to wezterm:
 return config
