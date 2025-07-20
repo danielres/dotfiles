@@ -130,7 +130,10 @@
     any-nix-shell # fish support for nix shell
     atuin
     bash
-    bitwarden-cli # command-line client for the password manager
+    bitwarden-cli
+    bitwarden-desktop
+    brave
+    google-chrome
     cargo
     dconf
     dconf2nix # dconf (gnome) files to nix converter
@@ -140,7 +143,10 @@
     fd # "find" for files
     firefox
     fish
+    # flameshot
+    (flameshot.override { enableWlrSupport = true; })
     gcc
+    kdePackages.gwenview
     git
     gh
     gimp3-with-plugins
@@ -187,6 +193,8 @@
     wezterm
     wget
     xsel
+    yazi
+    # yaziPlugins
     youtube-music
     zoxide
     # arandr               # simple GUI for xrandr
