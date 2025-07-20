@@ -22,6 +22,9 @@
     enable = true;
     interactiveShellInit = ''
       atuin init fish | source;
+      zoxide init fish | source;
+      fish_vi_key_bindings;
+      fish_vi_cursor;
     '';
 
   };
