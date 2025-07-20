@@ -28,7 +28,16 @@
     '';
 
   };
-  programs.bash = { enable = true; };
+
+  programs.bash = {
+    enable = true;
+    # initExtra = ''
+    #   if [ -t 1 ] && [ -z "$IN_FISH_SHELL" ]; then
+    #     export IN_FISH_SHELL=1
+    #     exec ${pkgs.fish}/bin/fish --login
+    #   fi
+    # '';
+  };
 
   programs.git = {
     enable = true;
