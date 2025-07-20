@@ -152,7 +152,7 @@
     gimp3-with-plugins
     glow # terminal markdown viewer
     gnomeExtensions.dash-to-dock
-    gnomeExtensions.espresso
+    gnomeExtensions.caffeine
     gnomeExtensions.pop-shell
     gnomeExtensions.clipboard-history
     gnomeExtensions.middle-click-to-close-in-overview
