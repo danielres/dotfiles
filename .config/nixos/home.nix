@@ -9,6 +9,7 @@
   home.sessionVariables = {
     EDITOR = "nvim";
     NVIM_APPNAME = "vim-lazyvim";
+    GTK_THEME = "Adwaita:dark";
   };
 
   home.packages = with pkgs;
