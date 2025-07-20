@@ -104,6 +104,11 @@
     firefox.enable = true;
     fish.enable = true;
 
+    kdeconnect = {
+      enable = true;
+      package = pkgs.gnomeExtensions.gsconnect;
+    };
+
     gamescope.enable = true; # installs the wrapper
     steam = {
       enable = true;
@@ -149,7 +154,7 @@
     gnomeExtensions.bluetooth-quick-connect
     gnomeExtensions.sound-output-device-chooser
     gnomeExtensions.dash-to-dock
-    gnomeExtensions.gsconnect
+    # gnomeExtensions.gsconnect
     gnomeExtensions.bitcoin-markets
     gnomeExtensions.color-picker
     # gnomeExtensions.wayland-or-x11
