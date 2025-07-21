@@ -18,6 +18,11 @@ modal.apply_to_config(config)
 config.initial_cols = 120
 config.initial_rows = 28
 
+config.default_cursor_style = 'SteadyBar'
+config.cursor_blink_rate = 0
+
+-- Acceptable values are SteadyBlock, BlinkingBlock, SteadyUnderline, BlinkingUnderline, SteadyBar, and BlinkingBar.
+
 -- or, changing the font size and color scheme.
 config.font_size = 14
 config.color_scheme = "Gruvbox dark, hard (base16)"
