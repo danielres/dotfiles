@@ -27,6 +27,9 @@
       zoxide init fish | source;
       fish_vi_key_bindings;
       fish_vi_cursor;
+
+      # Enforce editor override regardless of inherited env
+      set -gx EDITOR nvim
     '';
 
   };
