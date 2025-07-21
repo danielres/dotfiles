@@ -8,6 +8,7 @@
     bash
     bitwarden-cli
     bitwarden-desktop
+    btop
     brave
     google-chrome
     cargo
@@ -69,7 +70,8 @@
     vlc
     wezterm
     wget
-    xsel
+    wl-clipboard
+    # xsel
     yazi
     # yaziPlugins
     youtube-music
