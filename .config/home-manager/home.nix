@@ -1,8 +1,6 @@
 # home.nix
 
-{ config, pkgs,
-# nix-software-center,
-... }: {
+{ pkgs, ... }: {
   home.stateVersion = "25.05";
 
   nixpkgs.config.allowUnfree = true;
@@ -15,12 +13,6 @@
     NVIM_APPNAME = "vim-lazyvim";
     GTK_THEME = "Adwaita:dark";
   };
-
-  # home.packages = with pkgs;
-  #   [
-  #     nixvim.packages.${pkgs.system}.default
-  #     nix-software-center.packages.${pkgs.system}.default
-  #   ];
 
   programs.fish = {
     enable = true;
