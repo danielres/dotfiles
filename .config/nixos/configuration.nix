@@ -127,6 +127,10 @@
 
   };
 
+  # Monitor brightness 
+  hardware.i2c.enable = true; # Optional: enable I2C for DDC/CI
+  services.udev.packages =
+    [ pkgs.ddcutil ]; # Install udev rules to access /dev/i2c-* as user
 
   xdg.mime = {
     enable = true; # generate /etc/xdg/mimeapps.list
