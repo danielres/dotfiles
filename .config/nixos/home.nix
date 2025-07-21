@@ -1,4 +1,6 @@
-{ config, pkgs, nixvim,
+# home.nix
+
+{ config, pkgs,
 # nix-software-center,
 ... }: {
   home.stateVersion = "25.05";

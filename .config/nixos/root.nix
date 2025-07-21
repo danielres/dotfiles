@@ -1,3 +1,4 @@
+# root.nix
 
 { ... }: {
   # drop the non‑existent option

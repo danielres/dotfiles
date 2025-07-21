@@ -1,4 +1,6 @@
-{ config, lib, pkgs, ... }: {
+# system-packages.nix
+
+{ pkgs, ... }: {
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   # You can use https://search.nixos.org/ to find more packages (and options).

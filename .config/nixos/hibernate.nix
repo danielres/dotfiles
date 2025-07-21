@@ -1,5 +1,6 @@
+# hibernate.nix
 
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   # logind advertises hibernate
@@ -18,19 +19,15 @@
   '';
 
   # extension package
-  environment.systemPackages = with pkgs; [
-    gnomeExtensions.hibernate-status-button
-  ];
+  environment.systemPackages = with pkgs;
+    [ gnomeExtensions.hibernate-status-button ];
 
   # dconf entry that turns the extension on
   programs.dconf.enable = true;
 
-  programs.dconf.profiles.user.databases = [
-    {
-      settings."org/gnome/shell".enabled-extensions = [
-        "hibernate-status-button@github.com"
-      ];
-    }
-  ];
+  programs.dconf.profiles.user.databases = [{
+    settings."org/gnome/shell".enabled-extensions =
+      [ "hibernate-status-button@github.com" ];
+  }];
 }
 
