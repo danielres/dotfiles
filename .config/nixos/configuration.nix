@@ -91,8 +91,17 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       (flameshot.override { enableWlrSupport = true; })
+      brave
+      cargo
+      direnv
+      duf # disk usage/free utility
+      eza # a better `ls`
+      fd # "find" for files
+      firefox
+      gh
       gimp3-with-plugins
       glow # terminal markdown viewer
+      gnome-control-center
       gnomeExtensions.bitcoin-markets
       gnomeExtensions.bluetooth-quick-connect
       gnomeExtensions.blur-my-shell
@@ -106,16 +115,30 @@
       gnomeExtensions.memento-mori
       gnomeExtensions.middle-click-to-close-in-overview
       gnomeExtensions.pop-shell
+      google-chrome
+      lazygit
       mesa-demos
+      neofetch
+      nixd
+      nixfmt-classic
       obsidian
+      oh-my-fish
       pavucontrol
       ripgrep # fast grep
       screenkey # shows keypresses on screen
       starship
       stow
       tdesktop # telegram
+      tldr
       veracrypt
       vlc
+      wezterm
+      zoxide
+      # xsel
+      wl-clipboard
+      yazi
+      # yaziPlugins
+      youtube-music
     ];
   };
 

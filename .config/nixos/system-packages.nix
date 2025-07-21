@@ -8,51 +8,27 @@
     any-nix-shell # fish support for nix shell
     atuin
     bash
-    bitwarden-cli
     bitwarden-desktop
     btop
-    brave
-    gnome-control-center
-    google-chrome
-    cargo
     ddcutil
     dconf
     dconf2nix # dconf (gnome) files to nix converter
-    direnv
-    duf # disk usage/free utility
-    eza # a better `ls`
-    fd # "find" for files
-    firefox
     fish
     # flameshot
     gcc
     kdePackages.gwenview
     git
-    gh
     # gnomeExtensions.VividShade
     # gnomeExtensions.gsconnect
     # gnomeExtensions.sound-output-device-chooser
     # gnomeExtensions.ubuntu-appindicators
     killall # kill processes by name
-    lazygit
-    neofetch
     neovim
     nerd-fonts.fira-code
-    nixfmt
-    nixd
     nix-index # locate packages containing certain nixpkgs
     nix-output-monitor # nom: monitor nix commands
-    oh-my-fish
-    tldr
     tree
-    wezterm
     wget
-    wl-clipboard
-    # xsel
-    yazi
-    # yaziPlugins
-    youtube-music
-    zoxide
     # arandr               # simple GUI for xrandr
     # asciinema            # record the terminal
     # bottom               # alternative to htop & ytop
