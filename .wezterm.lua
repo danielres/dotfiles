@@ -46,7 +46,7 @@ config.window_frame = {
 	-- font = wezterm.font { family = 'Noto Sans', weight = 'Regular' },
 }
 
-config.window_background_opacity = 0.8
+config.window_background_opacity = 1  
 -- timeout_milliseconds defaults to 1000 and can be omitted
 
 config.inactive_pane_hsb = {
