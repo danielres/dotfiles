@@ -15,6 +15,12 @@
   nix.settings.cores = 0;
   nix.settings.max-jobs = "auto";
 
+  nix.settings.substituters =
+    [ "https://nix-community.cachix.org" "https://cache.nixos.org/" ];
+  nix.settings.trusted-public-keys = [
+    "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+  ];
+
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
