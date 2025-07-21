@@ -24,18 +24,15 @@
     profiles.user.databases = [{
       # lockAll = true; # prevents overriding
       settings = {
-        # "org/gnome/desktop/interface" = {
-        #   accent-color = "blue";
+        # "org/gnome/desktop/input-sources" = {
+        #   xkb-options = [ "caps:swapescape" ];
         # };
+
         "org/gnome/mutter" = {
           experimental-features = [
             "scale-monitor-framebuffer" # fractional scaling
             "xwayland-native-scaling" # sharper XWayland apps (GNOME 47+)
           ];
-        };
-
-        "org/gnome/desktop/input-sources" = {
-          xkb-options = [ "caps:swapescape" ];
         };
 
         "org/gnome/desktop/wm/keybindings" = {
