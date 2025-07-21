@@ -18,6 +18,8 @@
     '';
   };
 
+  # List all gnome kbd shortcuts using <Super>:
+  # gsettings list-recursively | grep '<Super>'
   programs.dconf = {
     enable = true;
 

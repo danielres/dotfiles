@@ -28,8 +28,6 @@
   swapDevices = [{ device = "/dev/nixos/swap"; }];
   boot.kernelParams = [ "resume=UUID=cba6b9b8-55cf-46eb-9122-84dd99cb0138" ];
 
-  # hardware.enableAllFirmware = true;
-
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
@@ -129,9 +127,6 @@
 
   };
 
-
-  # List all gnome kbd shortcuts using <Super>:
-  # gsettings list-recursively | grep '<Super>'
 
   xdg.mime = {
     enable = true; # generate /etc/xdg/mimeapps.list
