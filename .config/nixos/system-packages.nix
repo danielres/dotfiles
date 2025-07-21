@@ -12,6 +12,7 @@
     bitwarden-desktop
     btop
     brave
+    gnome-control-center
     google-chrome
     cargo
     ddcutil
@@ -24,33 +25,16 @@
     firefox
     fish
     # flameshot
-    (flameshot.override { enableWlrSupport = true; })
     gcc
     kdePackages.gwenview
     git
     gh
-    gimp3-with-plugins
-    glow # terminal markdown viewer
     # gnomeExtensions.VividShade
     # gnomeExtensions.gsconnect
     # gnomeExtensions.sound-output-device-chooser
     # gnomeExtensions.ubuntu-appindicators
-    gnomeExtensions.bitcoin-markets
-    gnomeExtensions.bluetooth-quick-connect
-    gnomeExtensions.blur-my-shell
-    gnomeExtensions.caffeine
-    gnomeExtensions.clipboard-history
-    gnomeExtensions.color-picker
-    gnomeExtensions.control-monitor-brightness-and-volume-with-ddcutil
-    gnomeExtensions.dash-to-dock
-    gnomeExtensions.emoji-copy
-    gnomeExtensions.extension-list
-    gnomeExtensions.memento-mori
-    gnomeExtensions.middle-click-to-close-in-overview
-    gnomeExtensions.pop-shell
     killall # kill processes by name
     lazygit
-    mesa-demos
     neofetch
     neovim
     nerd-fonts.fira-code
@@ -58,18 +42,9 @@
     nixd
     nix-index # locate packages containing certain nixpkgs
     nix-output-monitor # nom: monitor nix commands
-    obsidian
     oh-my-fish
-    pavucontrol
-    ripgrep # fast grep
-    screenkey # shows keypresses on screen
-    starship
-    stow
-    tdesktop # telegram
     tldr
     tree
-    veracrypt
-    vlc
     wezterm
     wget
     wl-clipboard

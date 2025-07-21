@@ -15,6 +15,13 @@
         specialArgs = { inherit inputs; };
         system = "x86_64-linux";
         modules = [
+          ./hardware-configuration.nix
+          ./boot.nix
+          ./locales.nix
+          ./hibernate.nix
+          ./root.nix
+          ./gnome.nix
+          ./system-packages.nix
           ./configuration.nix
           home-manager.nixosModules.home-manager
           {
@@ -26,6 +33,8 @@
         ];
       };
     };
+
+    ####
   };
 }
 

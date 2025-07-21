@@ -14,11 +14,11 @@
     GTK_THEME = "Adwaita:dark";
   };
 
-  home.packages = with pkgs;
-    [
-      # nixvim.packages.${pkgs.system}.default
-      # nix-software-center.packages.${pkgs.system}.default
-    ];
+  # home.packages = with pkgs;
+  #   [
+  #     nixvim.packages.${pkgs.system}.default
+  #     nix-software-center.packages.${pkgs.system}.default
+  #   ];
 
   programs.fish = {
     enable = true;

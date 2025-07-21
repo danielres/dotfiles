@@ -7,19 +7,13 @@
 { pkgs, ... }:
 
 {
-  imports = [
-    # Include the results of the hardware scan.
-    ./hardware-configuration.nix
-    ./boot.nix
-    ./locales.nix
-    ./hibernate.nix
-    ./root.nix
-    ./gnome.nix
-    ./system-packages.nix
-  ];
+  imports = [ ];
 
   # nix.settings.auto-optimize-store = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  nix.settings.cores = 0;
+  nix.settings.max-jobs = "auto";
 
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -89,7 +83,34 @@
     description = "daniel";
     #shell = pkgs.fish;
     extraGroups = [ "networkmanager" "wheel" ];
-    # packages = with pkgs; [ ];
+    packages = with pkgs; [
+      (flameshot.override { enableWlrSupport = true; })
+      gimp3-with-plugins
+      glow # terminal markdown viewer
+      gnomeExtensions.bitcoin-markets
+      gnomeExtensions.bluetooth-quick-connect
+      gnomeExtensions.blur-my-shell
+      gnomeExtensions.caffeine
+      gnomeExtensions.clipboard-history
+      gnomeExtensions.color-picker
+      gnomeExtensions.control-monitor-brightness-and-volume-with-ddcutil
+      gnomeExtensions.dash-to-dock
+      gnomeExtensions.emoji-copy
+      gnomeExtensions.extension-list
+      gnomeExtensions.memento-mori
+      gnomeExtensions.middle-click-to-close-in-overview
+      gnomeExtensions.pop-shell
+      mesa-demos
+      obsidian
+      pavucontrol
+      ripgrep # fast grep
+      screenkey # shows keypresses on screen
+      starship
+      stow
+      tdesktop # telegram
+      veracrypt
+      vlc
+    ];
   };
 
   nixpkgs.config.allowUnfree = true;
