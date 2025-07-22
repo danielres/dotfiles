@@ -8,6 +8,19 @@
   home.username = "daniel";
   home.homeDirectory = "/home/daniel";
 
+  # home-manager.users.myuser = {
+  #   dconf = {
+  #     enable = true;
+  #     settings."org/gnome/shell" = {
+  #       disable-user-extensions = false;
+  #       enabled-extensions = with pkgs.gnomeExtensions; [
+  #         blur-my-shell.extensionUuid
+  #         gsconnect.extensionUuid
+  #       ];
+  #     };
+  #   };
+  # };
+
   home.sessionVariables = {
     EDITOR = "nvim";
     NVIM_APPNAME = "vim-lazyvim";
