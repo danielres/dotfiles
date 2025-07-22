@@ -10,6 +10,10 @@
     enable = true;
     extraGSettingsOverridePackages = with pkgs; [ gnome-settings-daemon ];
     extraGSettingsOverrides = ''
+      [org.gnome.desktop.interface]
+      gtk-theme='Adwaita'
+      icon-theme='Adwaita'
+
       [org.gnome.settings-daemon.plugins.media-keys]
       custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']
 
@@ -19,6 +23,23 @@
       name='Launch Nautilus'
     '';
   };
+
+  environment.gnome.excludePackages = (with pkgs; [
+    atomix # puzzle game
+    epiphany # web browser
+    # evince # document viewer
+    geary # email reader
+    gedit # text editor
+    gnome-characters
+    # gnome-music
+    # gnome-photos
+    gnome-terminal
+    # gnome-tour
+    # hitori # sudoku game
+    # iagno # go game
+    # tali # poker game
+    totem # video player
+  ]);
 
   # List all gnome kbd shortcuts using <Super>:
   # gsettings list-recursively | grep '<Super>'
