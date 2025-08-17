@@ -4,9 +4,9 @@
 
 {
   services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
+  services.displayManager.gdm.enable = true;
 
-  services.xserver.desktopManager.gnome = {
+  services.desktopManager.gnome = {
     enable = true;
     extraGSettingsOverridePackages = with pkgs; [ gnome-settings-daemon ];
     extraGSettingsOverrides = ''
