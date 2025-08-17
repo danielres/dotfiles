@@ -85,6 +85,12 @@
   };
 
   hardware.uinput.enable = true;
+
+  # hardware.tuxedo-rs = {
+  #   enable = true;
+  #   tailor-gui.enable = true;
+  # };
+
   # users.users.daniel.extraGroups = [ "input" ]; # read real keyboards
   users.groups.uinput.members = [ "daniel" ];
   users.groups.input.members = [ "daniel" ];
