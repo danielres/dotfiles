@@ -98,6 +98,9 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  # enables make command
+  environment.systemPackages = with pkgs; [ linuxPackages.kernel.dev ];
+
   programs = {
     firefox.enable = true;
     fish.enable = true;
