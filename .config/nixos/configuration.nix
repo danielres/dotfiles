@@ -4,7 +4,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   imports = [ ];
@@ -84,11 +84,16 @@
     # media-session.enable = true;
   };
 
+  hardware.uinput.enable = true;
+  # users.users.daniel.extraGroups = [ "input" ]; # read real keyboards
+  users.groups.uinput.members = [ "daniel" ];
+  users.groups.input.members = [ "daniel" ];
+
   users.users.daniel = {
     isNormalUser = true;
     description = "daniel";
     #shell = pkgs.fish;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "input" ];
   };
 
   nixpkgs.config.allowUnfree = true;
