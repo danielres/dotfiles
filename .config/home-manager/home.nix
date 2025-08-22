@@ -175,6 +175,7 @@
     veracrypt
     vlc
     wezterm
+    wev
     wl-clipboard
     # xsel
     yazi

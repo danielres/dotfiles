@@ -21,9 +21,10 @@
           ./locales.nix
           ./hibernate.nix
           ./root.nix
-          ./gnome.nix
+          # ./gnome.nix
           ./system-packages.nix
           ./configuration.nix
+          ./hyprland-greetd.nix
         ];
       };
     };
@@ -32,7 +33,8 @@
       daniel = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = { inherit inputs; };
-        modules = [ ../home-manager/home.nix ];
+        modules =
+          [ ../home-manager/home.nix ../home-manager/home-hyprland.nix ];
       };
     };
   };
