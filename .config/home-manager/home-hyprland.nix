@@ -17,6 +17,10 @@
     playerctl
   ];
 
+  xdg.configFile."wofi/config".text = ''
+    insensitive=true
+  '';
+
   xdg.configFile."hypr/hyprland.conf".text = ''
     monitor=,preferred,auto,1.5
     exec-once = hyprpaper &
