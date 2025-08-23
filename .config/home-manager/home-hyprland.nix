@@ -21,6 +21,44 @@
     insensitive=true
   '';
 
+  xdg.desktopEntries = {
+    lock = {
+      name = "Lock Screen";
+      exec = "hyprlock";
+      terminal = false;
+      icon = "system-lock-screen";
+      categories = [ "System" "Utility" ];
+    };
+    suspend = {
+      name = "Power - Suspend";
+      exec = "systemctl suspend";
+      terminal = false;
+      icon = "system-suspend";
+      categories = [ "System" "Utility" ];
+    };
+    reboot = {
+      name = "Power - Reboot";
+      exec = "systemctl reboot";
+      terminal = false;
+      icon = "system-reboot";
+      categories = [ "System" "Utility" ];
+    };
+    shutdown = {
+      name = "Power - Shutdown";
+      exec = "systemctl poweroff";
+      terminal = false;
+      icon = "system-shutdown";
+      categories = [ "System" "Utility" ];
+    };
+    logout = {
+      name = "Logout (Hyprland)";
+      exec = "hyprctl dispatch exit";
+      terminal = false;
+      icon = "system-log-out";
+      categories = [ "System" "Utility" ];
+    };
+  };
+
   xdg.configFile."hypr/hyprland.conf".text = ''
     monitor=,preferred,auto,1.5
     exec-once = hyprpaper &
