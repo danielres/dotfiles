@@ -259,7 +259,7 @@
       "modules-left":["hyprland/workspaces"],
       "modules-center":["clock"],
       "modules-right":["network","battery","tray"],
-      "clock":{"format":"{:%a %Y-%m-%d  %H:%M}"}
+      "clock":{"format":"{:%a %d-%m  %H:%M}"}
     }
   '';
   # xdg.configFile."waybar/style.css".text = '* { font-family: Sans; font-size: 12px; }';
