@@ -21,6 +21,55 @@
     insensitive=true
   '';
 
+  xdg.configFile."wofi/style.css".text = ''
+    window {
+    margin: 0px;
+    border: 1px solid rgba(0,0,0,0.25);
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.4); /* semi-transparent */
+    }
+
+    #input {
+    margin: 5px;
+    border: 1px solid white;
+    background-color: white;
+    color: black;
+    }
+
+    #inner-box {
+    margin: 5px;
+    border: 0px solid yellow;
+    background-color: transparent;
+    }
+
+    #outer-box {
+    margin: 5px;
+    border: 0px solid transparent;
+    background-color: transparent;
+    }
+
+    #scroll {
+    margin: 5px;
+    border: 0px solid orange;
+    background-color: transparent;
+    }
+
+    #text {
+    margin: 0px;
+    border: 0px solid cyan;
+    color: white;
+    } 
+
+    #entry:selected {
+    background-color: rgba(0,0,0,0.75);
+    color: white;
+    } 
+
+    #text:selected {
+    background-color: transparent;
+    } 
+  '';
+
   xdg.desktopEntries = {
     lock = {
       name = "Lock Screen";
