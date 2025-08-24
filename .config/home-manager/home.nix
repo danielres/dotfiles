@@ -145,6 +145,7 @@
     gnome-tweaks
     gnumake
     google-chrome
+    jq
     # kdenlive
     lazygit
     #   mesa-demos
