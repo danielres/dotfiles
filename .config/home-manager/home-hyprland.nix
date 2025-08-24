@@ -2,20 +2,21 @@
 
 { pkgs, ... }: {
   home.packages = with pkgs; [
-    waybar
-    wofi
-    mako
-    hyprpaper
-    hyprlock
-    hyprpicker
-    wlogout
-    grim
-    slurp
-    wl-clipboard
-    kitty
-    nautilus
     brightnessctl
+    grim
+    hyprlock
+    hyprpaper
+    hyprpicker
+    hyprsunset
+    kitty
+    mako
+    nautilus
     playerctl
+    slurp
+    waybar
+    wl-clipboard
+    wlogout
+    wofi
   ];
 
   xdg.configFile."wofi/config".text = ''
