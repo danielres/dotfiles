@@ -196,8 +196,11 @@
     bind = $mod SHIFT, 9, movetoworkspace, 9
     bind = , Print, exec, grim - | wl-copy
     bind = SHIFT, Print, exec, slurp | grim -g - - | wl-copy
+
     bind = $mod, period, workspace, +1
     bind = $mod, comma,  workspace, -1
+    bind = $mod SHIFT, period, movetoworkspace, +1
+    bind = $mod SHIFT, comma,  movetoworkspace, -1
 
     # Volume (PipeWire via Pulse)
     bind = , XF86AudioLowerVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%-
