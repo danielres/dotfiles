@@ -7,6 +7,7 @@
     mako
     hyprpaper
     hyprlock
+    hyprpicker
     wlogout
     grim
     slurp
@@ -104,6 +105,26 @@
       exec = "hyprctl dispatch exit";
       terminal = false;
       icon = "system-log-out";
+      categories = [ "System" "Utility" ];
+    };
+    copy_color_hex = {
+      name = "Copy color - hex";
+      exec = "hyprpicker -a";
+      terminal = false;
+      categories = [ "System" "Utility" ];
+    };
+
+    copy_color_rgb = {
+      name = "Copy color - rgb";
+      exec = "hyprpicker -f rgb -a";
+      terminal = false;
+      categories = [ "System" "Utility" ];
+    };
+
+    copy_color_hsl = {
+      name = "Copy color - hsl";
+      exec = "hyprpicker -f hsl -a";
+      terminal = false;
       categories = [ "System" "Utility" ];
     };
   };
