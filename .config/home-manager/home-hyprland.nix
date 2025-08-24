@@ -216,12 +216,12 @@
   '';
 
   xdg.configFile."hypr/hyprpaper.conf".text = ''
-    preload = /usr/share/backgrounds/gnome/adwaita-day.jpg
-    wallpaper = ,/usr/share/backgrounds/gnome/adwaita-day.jpg
+    preload = /home/daniel/Pictures/Wallpapers/hd-Jellyfish.jpg
+    wallpaper = ,/home/daniel/Pictures/Wallpapers/hd-Jellyfish.jpg
   '';
 
   xdg.configFile."hypr/hyprlock.conf".text = ''
-    background { path=/usr/share/backgrounds/gnome/adwaita-day.jpg }
+    background { path=/home/daniel/Pictures/Wallpapers/hd-Jellyfish.jpg }
   '';
 
   xdg.configFile."mako/config".text = ''
