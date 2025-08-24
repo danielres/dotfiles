@@ -252,7 +252,6 @@
   xdg.configFile."mako/config".text = ''
     font=Sans 10
     default-timeout=5000
-    corner-radius=8
   '';
 
   xdg.configFile."waybar/config.jsonc".text = ''
