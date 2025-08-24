@@ -137,6 +137,11 @@
       }
     }
 
+    layerrule = blur, wofi
+    layerrule = blur, waybar
+    layerrule = xray, wofi
+    layerrule = xray, waybar
+
     animations {
       enabled = true
       animation = windows, 1, 1.1, default
