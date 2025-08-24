@@ -152,6 +152,7 @@
     neofetch
     nixd
     nixfmt-classic
+    nodejs_latest
     obsidian
     oh-my-fish
     # openshot-qt
