@@ -134,7 +134,10 @@
   };
 
   xdg.configFile."hypr/hyprland.conf".text = ''
-    monitor=,preferred,auto,1.5
+    monitor = desc:GIGA-BYTE TECHNOLOGY CO. LTD. M28U, preferred, 0x0, auto
+    monitor = eDP-1, preferred, auto-left, auto
+    monitor = desc:AOC 2243W, preferred, auto-right, auto
+
     exec-once = hyprpaper &
     exec-once = mako &
     exec-once = waybar &
