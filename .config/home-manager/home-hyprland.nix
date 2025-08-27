@@ -197,6 +197,7 @@
     # bind = $mod, L, exec, hyprlock
     bind = $mod, Q, killactive,
     bind = $mod, F, fullscreen,
+    bind = $mod, M, fullscreen,
     bind = $mod, V, togglefloating,
     bind = $mod SHIFT, R, exec, hyprctl reload
     bind = $mod, H, movefocus, l
