@@ -2,7 +2,7 @@
 
 { pkgs, inputs, ... }: {
   home.stateVersion = "25.05";
-
+  home.sessionVariables = { GTK_THEME = "Adwaita:dark"; };
   imports = [ inputs.xremap-flake.homeManagerModules.default ];
 
   nixpkgs.config.allowUnfree = true;
