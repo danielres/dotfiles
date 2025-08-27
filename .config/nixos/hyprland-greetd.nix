@@ -6,6 +6,11 @@
     xwayland.enable = true;
   };
 
+  programs.hyprlock = { enable = true; };
+
+  # Allow hyprlock to authenticate
+  security.pam.services.hyprlock = { };
+
   services.greetd = {
     enable = true;
     settings.default_session = {
