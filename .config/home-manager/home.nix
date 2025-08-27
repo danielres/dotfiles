@@ -119,6 +119,7 @@
     calibre
     # darktable
     direnv
+    easyeffects
     #   duf # disk usage/free utility
     #   eza # a better `ls`
     #   fd # "find" for files
@@ -145,6 +146,7 @@
     gnome-tweaks
     gnumake
     google-chrome
+    gtk3
     jq
     # kdenlive
     lazygit
