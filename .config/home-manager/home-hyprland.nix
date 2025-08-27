@@ -154,6 +154,8 @@
       gaps_out = 0
       border_size = 2
       layout = dwindle
+      col.active_border=rgb(cdd6f4)
+      col.inactive_border = rgba(595959aa)
     }
 
     decoration {
