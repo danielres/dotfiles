@@ -2,7 +2,9 @@
 
 { pkgs, ... }: {
   home.packages = with pkgs; [
+    bemoji
     brightnessctl
+    fuzzel
     grim
     hyprlock
     hyprpaper
@@ -11,6 +13,7 @@
     kitty
     mako
     nautilus
+    networkmanager_dmenu
     playerctl
     slurp
     waybar
