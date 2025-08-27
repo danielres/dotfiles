@@ -141,6 +141,7 @@
     exec-once = hyprpaper &
     exec-once = mako &
     exec-once = waybar &
+    exec-once = hypersunset &
 
     input {
       kb_layout = us
