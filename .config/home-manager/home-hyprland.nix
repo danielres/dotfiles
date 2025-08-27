@@ -233,8 +233,8 @@
     bind = $mod SHIFT, comma,  movetoworkspace, -1
 
     # Volume (PipeWire via Pulse)
-    bind = , XF86AudioLowerVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%-
-    bind = , XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+
+    binde = , XF86AudioLowerVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%-
+    binde = , XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+
     bind = , XF86AudioMute,        exec, pactl set-sink-mute @DEFAULT_SINK@ toggle
     bind = , XF86AudioMicMute,     exec, pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
