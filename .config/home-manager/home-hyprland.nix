@@ -141,7 +141,7 @@
     exec-once = hyprpaper &
     exec-once = mako &
     exec-once = waybar &
-    exec-once = hypersunset &
+    exec-once = hyprsunset &
 
     input {
       kb_layout = us
@@ -262,14 +262,4 @@
     font=Sans 10
     default-timeout=5000
   '';
-
-  xdg.configFile."waybar/config.jsonc".text = ''
-    { "position":"top",
-      "modules-left":["hyprland/workspaces"],
-      "modules-center":["clock"],
-      "modules-right":["network","battery","tray"],
-      "clock":{"format":"{:%a %d-%m  %H:%M}"}
-    }
-  '';
-  # xdg.configFile."waybar/style.css".text = '* { font-family: Sans; font-size: 12px; }';
 }
