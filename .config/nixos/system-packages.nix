@@ -28,6 +28,7 @@
     nerd-fonts.fira-code
     nix-index # locate packages containing certain nixpkgs
     nix-output-monitor # nom: monitor nix commands
+    pre-commit
     tree
     wget
     # arandr               # simple GUI for xrandr
