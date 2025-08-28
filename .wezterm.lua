@@ -6,7 +6,7 @@ local modal = wezterm.plugin.require("https://github.com/MLFlexer/modal.wezterm"
 
 -- This will hold the configuration.
 local config = wezterm.config_builder()
-
+config.window_close_confirmation = 'NeverPrompt'
 modal.apply_to_config(config)
 
 -- local clickable = require("./wezterm/clickable_paths.lua")
