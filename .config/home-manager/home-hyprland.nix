@@ -13,10 +13,12 @@
     hyprsunset
     kitty
     mako
+    mpv
     nautilus
     networkmanager_dmenu
     playerctl
     slurp
+    swayimg
     waybar
     wl-clipboard
     wlogout
