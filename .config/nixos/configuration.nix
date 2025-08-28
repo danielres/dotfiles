@@ -72,6 +72,7 @@
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
+
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -85,11 +86,32 @@
     # media-session.enable = true;
   };
 
+  # gamescope
+  security.wrappers.gamescope = {
+    owner = "root";
+    group = "root";
+    capabilities = "cap_sys_nice+pie";
+    source = "${pkgs.gamescope}/bin/gamescope";
+  };
+
   # bluetooth
   services.blueman.enable = true;
   hardware.bluetooth.enable = true;
 
   hardware.uinput.enable = true;
+
+  # Graphics
+  hardware = {
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
+
+    # amdgpu.amdvlk = {
+    #   enable = true;
+    #   support32Bit.enable = true;
+    # };
+  };
 
   # hardware.tuxedo-rs = {
   #   enable = true;
@@ -132,7 +154,6 @@
       localNetworkGameTransfers.openFirewall =
         true; # Open ports in the firewall for Steam Local Network Game Transfers
     };
-
   };
 
   # Monitor brightness 
