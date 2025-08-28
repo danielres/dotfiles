@@ -133,59 +133,6 @@
     };
   };
 
-  xdg.configFile."hypr/hyprpaper.conf".text = ''
-    preload = /home/daniel/Pictures/Wallpapers/hd-Jellyfish.jpg
-    wallpaper = ,/home/daniel/Pictures/Wallpapers/hd-Jellyfish.jpg
-  '';
-
-  xdg.configFile."hypr/hyprlock.conf".text = ''
-    general {
-      grace = 0
-      hide_cursor = true
-    }
-
-    # Use either a solid/blurred background, or a wallpaper path (pick one)
-
-    # Option A: blur current screen (hides contents)
-    #background {
-    #  color = rgba(0,0,0,0.6)
-    #  blur_passes = 3
-    #  blur_size = 6
-    #}
-
-    # Option B: static image
-    background {
-      path = /home/daniel/Pictures/Wallpapers/hd-Jellyfish.jpg
-      blur_passes = 4
-    }
-
-    # Centered password field
-    input-field {
-      monitor =
-      fade_on_empty = false
-      size = 320, 48
-      position = 0, -10
-      halign = center
-      valign = center
-
-      placeholder_text =
-      outline_thickness = 0
-      dots_center = true
-
-      inner_color = rgba(255,255,255,0.6)   # semi-transparent fill
-      outer_color = rgba(255,255,255,0.8) # semi-transparent border
-      font_color = #333366
-    }
-
-    label {
-      text = $TIME
-      font_size = 16
-      halign = center
-      valign = center
-      position = 0, 40
-    }
-  '';
-
   xdg.configFile."mako/config".text = ''
     font=Sans 10
     default-timeout=5000
