@@ -5,6 +5,7 @@
     bemoji
     brightnessctl
     fuzzel
+    go
     grim
     hyprlock
     hyprpaper
