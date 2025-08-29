@@ -3,7 +3,7 @@
   "spacing":"80",
   "modules-left":["hyprland/workspaces"],
   "modules-center":["clock"],
-  "modules-right":["custom/crypto","network","battery","backlight","pulseaudio","bluetooth","tray"],
+  "modules-right":["custom/powerprofile","custom/crypto","network","battery","backlight","pulseaudio","bluetooth","tray"],
   "bluetooth": {
     "format": " {status}",
     "format-disabled": "", // an empty format will hide the module
@@ -20,6 +20,11 @@
   "custom/crypto": {
     "exec": "bash ~/.config/waybar/crypto.sh",
     "interval": 30,
+    "return-type": "json"
+  },
+  "custom/powerprofile": {
+    "exec": "bash ~/.config/waybar/power-profile.sh",
+    "interval": 1,
     "return-type": "json"
   },
   "pulseaudio": {

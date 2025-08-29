@@ -45,9 +45,30 @@ tooltip label {
 #network,
 #tray,
 #custom-crypto,
+#custom-powerprofile,
 #pulseaudio,
 #backlight {
   padding: 0 10px;
+}
+
+#custom-powerprofile {
+  padding-bottom: 2px;
+}
+
+#custom-powerprofile.performance {
+  color: #FF8888;
+}
+
+#custom-powerprofile.balanced {
+  color: white;
+}
+
+#custom-powerprofile.power-saver {
+  color: #AAAAFF;
+}
+
+#tray * {
+  padding: 0 4px;
 }
 
 /* #backlight label { */
