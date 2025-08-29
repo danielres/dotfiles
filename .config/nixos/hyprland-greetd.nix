@@ -4,6 +4,7 @@
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
+    portalPackage = pkgs.xdg-desktop-portal-hyprland;
   };
 
   programs.hyprlock = { enable = true; };
@@ -22,10 +23,8 @@
 
   xdg.portal = {
     enable = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-gtk
-      xdg-desktop-portal-hyprland
-    ];
+    extraPortals = with pkgs; [ xdg-desktop-portal-hyprland ];
+    config = { hyprland = { default = [ "hyprland" ]; }; };
   };
 
   hardware.graphics.enable = true;
