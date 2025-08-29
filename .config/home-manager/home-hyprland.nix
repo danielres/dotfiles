@@ -24,6 +24,12 @@
     wofi
   ];
 
+
+  home.file.".config/hypr/plugins/hyprbars.so".source =
+    "${pkgs.hyprlandPlugins.hyprbars}/lib/libhyprbars.so";
+  home.file.".config/hypr/plugins/hyprexpo.so".source =
+    "${pkgs.hyprlandPlugins.hyprexpo}/lib/libhyprexpo.so";
+
   xdg.configFile."wofi/config".text = ''
     insensitive=true
   '';
