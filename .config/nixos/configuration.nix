@@ -47,6 +47,13 @@
 
   services.power-profiles-daemon.enable = true;
 
+  # prevent wake-up from suspend by mouse (applies to all devices on the same unifying receiver)
+  services.udev.extraRules = ''
+    # Logitech USB Receiver only
+    ACTION=="add|change", SUBSYSTEM=="usb", ATTR{idVendor}=="046d", ATTR{product}=="USB Receiver", \
+      ATTR{power/wakeup}="disabled"
+  '';
+
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
