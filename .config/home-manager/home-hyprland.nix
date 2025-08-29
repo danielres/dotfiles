@@ -113,6 +113,29 @@
       icon = "system-log-out";
       categories = [ "System" "Utility" ];
     };
+
+    power_performance = {
+      name = "Power profile - performance";
+      exec = "powerprofilesctl set performance";
+      terminal = false;
+      # icon = "system-shutdown";
+      categories = [ "System" "Utility" ];
+    };
+    power_balanced = {
+      name = "Power profile - balanced";
+      exec = "powerprofilesctl set balanced";
+      terminal = false;
+      # icon = "system-shutdown";
+      categories = [ "System" "Utility" ];
+    };
+    power_saver = {
+      name = "Power profile - saver";
+      exec = "powerprofilesctl set power-saver";
+      terminal = false;
+      # icon = "system-shutdown";
+      categories = [ "System" "Utility" ];
+    };
+
     copy_color_hex = {
       name = "Copy color - hex";
       exec = "hyprpicker -a";
