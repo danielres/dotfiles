@@ -87,7 +87,7 @@
     };
     suspend = {
       name = "Power - Suspend";
-      exec = "systemctl suspend";
+      exec = ''sh -c "hyprlock & disown && systemctl suspend"'';
       terminal = false;
       icon = "system-suspend";
       categories = [ "System" "Utility" ];
