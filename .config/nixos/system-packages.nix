@@ -31,6 +31,7 @@
     pre-commit
     tree
     wget
+    usbutils
     # arandr               # simple GUI for xrandr
     # asciinema            # record the terminal
     # bottom               # alternative to htop & ytop
