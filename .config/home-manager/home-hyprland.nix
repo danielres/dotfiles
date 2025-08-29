@@ -156,6 +156,43 @@
       terminal = false;
       categories = [ "System" "Utility" ];
     };
+
+    brightness_monitor2_25 = {
+      name = "Set brightness - Monitor2: 25";
+      exec = "ddcutil --display 2 setvcp 10 25";
+      terminal = false;
+      categories = [ "System" "Utility" ];
+    };
+    brightness_monitor2_50 = {
+      name = "Set brightness - Monitor2: 50";
+      exec = "ddcutil --display 2 setvcp 10 50";
+      terminal = false;
+      categories = [ "System" "Utility" ];
+    };
+    brightness_monitor2_75 = {
+      name = "Set brightness - Monitor2: 75";
+      exec = "ddcutil --display 2 setvcp 10 75";
+      terminal = false;
+      categories = [ "System" "Utility" ];
+    };
+    brightness_monitor2_100 = {
+      name = "Set brightness - Monitor2: 100";
+      exec = "ddcutil --display 2 setvcp 10 100";
+      terminal = false;
+      categories = [ "System" "Utility" ];
+    };
+    brightness_monitor3_50 = {
+      name = "Set brightness - Monitor3: 50";
+      exec = "ddcutil --display 1 setvcp 10 50";
+      terminal = false;
+      categories = [ "System" "Utility" ];
+    };
+    brightness_monitor3_100 = {
+      name = "Set brightness - Monitor3: 100";
+      exec = "ddcutil --display 1 setvcp 10 100";
+      terminal = false;
+      categories = [ "System" "Utility" ];
+    };
   };
 
   xdg.configFile."mako/config".text = ''
