@@ -24,14 +24,22 @@
     wofi
   ];
 
-
   home.file.".config/hypr/plugins/hyprbars.so".source =
     "${pkgs.hyprlandPlugins.hyprbars}/lib/libhyprbars.so";
   home.file.".config/hypr/plugins/hyprexpo.so".source =
     "${pkgs.hyprlandPlugins.hyprexpo}/lib/libhyprexpo.so";
 
   xdg.configFile."wofi/config".text = ''
+    allow_images=false
+    allow_markup=true
+    close_on_focus_loss=true
+    gtk_dark=true
+    image_size=16
     insensitive=true
+    key_down=Ctrl-j
+    key_expand=Ctrl-l
+    key_up=Ctrl-k
+    matching=fuzzy
   '';
 
   xdg.configFile."wofi/style.css".text = ''
