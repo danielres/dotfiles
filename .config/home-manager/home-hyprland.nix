@@ -19,6 +19,7 @@
     playerctl
     slurp
     swayimg
+    syshud
     waybar
     wl-clipboard
     wlogout
