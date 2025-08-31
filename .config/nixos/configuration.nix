@@ -165,6 +165,17 @@
     };
   };
 
+  services.gnome = {
+    sushi.enable = true; # Sushi, a quick previewer for nautilus
+    # evolution-data-server.enable = true;
+    # glib-networking.enable = true;
+    # gnome-keyring.enable = true;
+    gnome-online-accounts.enable = true;
+    gnome-keyring.enable = true;
+  };
+
+  services.gvfs.enable = true;
+
   # Monitor brightness 
   hardware.i2c.enable = true; # Optional: enable I2C for DDC/CI
   services.udev.packages =

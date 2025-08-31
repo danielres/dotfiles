@@ -129,7 +129,7 @@
     #   gh
     gimp3-with-plugins
     #   glow # terminal markdown viewer
-    #   gnome-control-center
+    gnome-control-center
     gnomeExtensions.bitcoin-markets
     gnomeExtensions.bluetooth-quick-connect
     gnomeExtensions.blur-my-shell
