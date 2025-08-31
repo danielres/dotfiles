@@ -123,6 +123,7 @@
     #   duf # disk usage/free utility
     #   eza # a better `ls`
     #   fd # "find" for files
+    file-roller
     firefox
     fzf
     #   gh
@@ -152,6 +153,7 @@
     lazygit
     #   mesa-demos
     nautilus-open-any-terminal
+    ncdu
     neofetch
     nixd
     nixfmt-classic
@@ -186,6 +188,9 @@
     # yaziPlugins
     youtube-music
     yt-dlp
+    ytmdl
+    zathura
+    zathuraPkgs.zathura_pdf_mupdf
     zoxide
   ];
 
