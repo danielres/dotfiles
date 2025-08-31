@@ -15,6 +15,7 @@
     mpv
     nautilus
     networkmanager_dmenu
+    nwg-displays
     playerctl
     slurp
     swayimg
