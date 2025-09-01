@@ -4,6 +4,7 @@
   home.packages = with pkgs; [
     bemoji
     brightnessctl
+    cliphist
     fuzzel
     go
     grim
