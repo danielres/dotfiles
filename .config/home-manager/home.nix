@@ -77,7 +77,14 @@
 
       # Enforce editor override regardless of inherited env
       set -gx EDITOR nvim
+      set -g fish_key_bindings fish_vi_key_bindings
+
+      function fish_user_key_bindings
+        bind -M visual -m default y "fish_clipboard_copy; commandline -f end-selection repaint-mode"
+        bind -M default p "fish_clipboard_paste"
+      end
     '';
+
     shellAliases = {
       hms = "home-manager switch --flake ~/dotfiles/.config/nixos#daniel";
       rebuild = "sudo nixos-rebuild switch";
