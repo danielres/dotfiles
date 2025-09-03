@@ -124,8 +124,10 @@
     brave
     cargo
     calibre
+    celluloid
     # darktable
     direnv
+    dissent
     easyeffects
     #   duf # disk usage/free utility
     #   eza # a better `ls`
@@ -158,6 +160,7 @@
     jq
     # kdenlive
     lazygit
+    loupe
     #   mesa-demos
     nautilus-open-any-terminal
     ncdu
