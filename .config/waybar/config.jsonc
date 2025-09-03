@@ -3,14 +3,37 @@
   "spacing":"80",
   "modules-left":["hyprland/workspaces"],
   "modules-center":["clock"],
-  "modules-right":["custom/powerprofile","custom/crypto","network","battery","backlight","pulseaudio","bluetooth","tray"],
+  "modules-right":["custom/crypto","network","backlight","pulseaudio","bluetooth","group/power","tray"],
   "bluetooth": {
     "format": " {status}",
     "format-disabled": "", // an empty format will hide the module
-    "format-connected": " {num_connections} connected",
+    "format-connected": "{num_connections}",
     "tooltip-format": "{controller_alias}\t{controller_address}",
     "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
-    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "on-click": "blueman-manager"
+  },
+  "group/power": {
+    "orientation": "horizontal",
+    "modules": [
+      "custom/powerprofile",
+      "temperature",
+      "battery"
+    ]
+  },
+  "network": {
+    "interface": "wlp2s0",
+    "format": "{ifname}",
+    "format-wifi": "{essid} ({signalStrength}%) ",
+    "format-ethernet": "{ifname} ",
+    "format-disconnected": "", //An empty format will hide the module.
+    "format-disconnected": "",
+    "tooltip-format": "{ifname}",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+    "tooltip-format-ethernet": "{ifname} ",
+    "tooltip-format-disconnected": "Disconnected",
+    "on-click": "networkmanager_dmenu",
+    "max-length": 50
   },
   "clock": {
     "format":"{:%a %d-%m  %H:%M}",
@@ -29,7 +52,7 @@
   },
   "pulseaudio": {
     "format": "{icon}  {volume}",
-    "format-bluetooth": " {icon}  {volume}%",
+    "format-bluetooth": "{icon} {volume}%",
     "format-muted": "",
     "on-click": "pavucontrol",
     "format-icons": {
