@@ -4,6 +4,15 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   # You can use https://search.nixos.org/ to find more packages (and options).
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+  };
+
+  environment.variables.EDITOR = "nvim";
+
   environment.systemPackages = with pkgs; [
     any-nix-shell # fish support for nix shell
     atuin
@@ -24,7 +33,6 @@
     # gnomeExtensions.sound-output-device-chooser
     # gnomeExtensions.ubuntu-appindicators
     killall # kill processes by name
-    neovim
     nerd-fonts.fira-code
     nix-index # locate packages containing certain nixpkgs
     nix-output-monitor # nom: monitor nix commands
