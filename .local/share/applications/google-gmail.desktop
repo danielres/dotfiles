@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Type=Application
+Name=Gmail (Firefox)
+Exec=firefox --new-window https://gmail.google.com
+Icon=firefox
+Terminal=false
+Categories=Network;Email;
+
+

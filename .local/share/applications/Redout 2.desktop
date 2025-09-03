@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Redout 2
+Comment=Play this game on Steam
+Exec=steam steam://rungameid/1799930
+Icon=steam_icon_1799930
+Terminal=false
+Type=Application
+Categories=Game;

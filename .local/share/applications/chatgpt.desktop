@@ -1,0 +1,8 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Type=Application
+Name=ChatGPT (Firefox)
+Exec=firefox --new-window https://chat.openai.com
+Icon=firefox
+Terminal=false
+Categories=Network;LLM;

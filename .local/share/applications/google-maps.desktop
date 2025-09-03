@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Google Maps (Firefox)
+Exec=firefox --new-window https://maps.google.com
+Icon=firefox
+Terminal=false
+Categories=Network;Maps;
+
+

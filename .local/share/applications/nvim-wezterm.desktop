@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Neovim (WezTerm)
+Comment=Open files in Neovim inside WezTerm
+Exec=wezterm start -- nvim %F
+Terminal=false
+Type=Application
+MimeType=text/plain;
+Categories=Utility;TextEditor;

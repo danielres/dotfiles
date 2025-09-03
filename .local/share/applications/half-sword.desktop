@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Half Sword Demo
+Comment=Play this game on Steam
+Exec=steam -applaunch 2642680
+Icon=steam_icon_2642680
+Terminal=false
+Type=Application
+Categories=Game;
+

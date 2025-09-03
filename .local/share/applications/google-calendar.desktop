@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Type=Application
+Name=Google Calendar (Firefox)
+Exec=firefox --new-window https://calendar.google.com
+Icon=firefox
+Terminal=false
+Categories=Network;Calendar;
+
+
