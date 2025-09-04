@@ -41,14 +41,28 @@ tooltip label {
 
 #mode,
 #clock,
-#battery,
-#network,
 #tray,
 #custom-crypto,
-#custom-powerprofile,
-#pulseaudio,
-#backlight {
+#backlight,
+#devices,
+#power {
   padding: 0 10px;
+}
+
+#custom,
+#screens,
+#power,
+#devices {
+  /* margin-left: 10px; */
+  border-right: 3px solid rgba(255, 255, 255, 0.25);
+}
+
+#custom *,
+#power *,
+#devices *,
+#screens {
+  padding: 0 5px;
+  margin: 4px 5px;
 }
 
 #custom-powerprofile {
@@ -71,30 +85,20 @@ tooltip label {
   padding: 0 4px;
 }
 
-/* #backlight label { */
-/*   padding: 10px; */
-/* } */
-
 #mode {
   background: #64727D;
   border-bottom: 3px solid white;
 }
-
-/* #pulseaudio::before { */
-/*   content: '\ue638'; */
-/*   font-family: NerdFont; */
-/**/
-/* } */
 
 #battery.charging {
   color: white;
   background-color: #26A65B;
 }
 
-#battery:not(.charging) {
-  color: #f5ac9c;
-  /* color: white; */
-}
+/* #battery:not(.charging) { */
+/* color: #f5ac9c; */
+/* color: white; */
+/* } */
 
 #battery.warning {
   background: orange;

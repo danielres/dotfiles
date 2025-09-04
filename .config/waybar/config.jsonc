@@ -1,17 +1,35 @@
-{ 
+{
   "position":"top",
-  "spacing":"80",
+
+  // ---------
+
   "modules-left":["hyprland/workspaces"],
   "modules-center":["clock"],
-  "modules-right":["custom/crypto","network","backlight","pulseaudio","bluetooth","group/power","tray"],
-  "bluetooth": {
-    "format": " {status}",
-    "format-disabled": "", // an empty format will hide the module
-    "format-connected": "{num_connections}",
-    "tooltip-format": "{controller_alias}\t{controller_address}",
-    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
-    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-    "on-click": "blueman-manager"
+  "modules-right":["group/custom","group/screens","group/devices","group/power","tray"],
+
+  // ---------
+
+  "group/custom": {
+    "orientation": "horizontal",
+    "modules": [
+      "custom/crypto"
+    ]
+  },
+  "group/screens": {
+    "orientation": "horizontal",
+    "modules": [
+      "custom/ddc_left",
+      "custom/ddc_right",
+      "backlight"
+    ]
+  },
+  "group/devices": {
+    "orientation": "horizontal",
+    "modules": [
+      "network",
+      "pulseaudio",
+      "bluetooth"
+    ]
   },
   "group/power": {
     "orientation": "horizontal",
@@ -21,10 +39,69 @@
       "battery"
     ]
   },
+
+  // LEFT ========
+
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1"
+  },
+
+  // CENTER ======
+
+  "clock": {
+    "format":"{:%a %d-%m  %H:%M}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "on-click": "gtk-launch google-calendar"
+  },
+
+  // RIGHT =======
+
+  // ---------
+
+  "custom/crypto": {
+    "exec": "bash ~/.config/waybar/crypto.sh",
+    "interval": 30,
+    "return-type": "json"
+  },
+
+  // ---------
+
+  "backlight": {
+    "format": "{icon} {percent}",
+    "format-icons": ["󰖨"],
+    "scroll-step": 10
+  },
+  "custom/ddc_left": {
+    "format": "{percentage}%",
+    "format-icons": ["\ue3a6","\ue3a7","\ue3a8","\ue3a9","\ue3aa","\ue3ab","\ue3ac"],
+    "exec": "~/.config/waybar/waybar-ddc-module.sh --bus 14 --name left --step 10",
+    "return-type": "json",
+    "on-scroll-up": "echo '+'  > /tmp/waybar-ddc-left-rx",
+    "on-scroll-down": "echo '-' > /tmp/waybar-ddc-left-rx",
+    "on-click": "echo 'min' > /tmp/waybar-ddc-left-rx",
+    "on-click-right": "echo 'max' > /tmp/waybar-ddc-left-rx",
+    "tooltip": false
+  },
+  "custom/ddc_right": {
+    "format": "{percentage}%",
+    "format-icons": ["\ue3a6","\ue3a7","\ue3a8","\ue3a9","\ue3aa","\ue3ab","\ue3ac"],
+    "exec": "~/.config/waybar/waybar-ddc-module.sh --bus 5 --name right --step 10",
+    "return-type": "json",
+    "on-scroll-up": "echo '+'  > /tmp/waybar-ddc-right-rx",
+    "on-scroll-down": "echo '-' > /tmp/waybar-ddc-right-rx",
+    "on-click": "echo 'min' > /tmp/waybar-ddc-right-rx",
+    "on-click-right": "echo 'max' > /tmp/waybar-ddc-right-rx",
+    "tooltip": false
+  },
+
+  // ---------
+
   "network": {
     "interface": "wlp2s0",
     "format": "{ifname}",
-    "format-wifi": "{essid} ({signalStrength}%) ",
+    "format-wifi": "   {essid} {signalStrength}%",
     "format-ethernet": "{ifname} ",
     "format-disconnected": "", //An empty format will hide the module.
     "format-disconnected": "",
@@ -35,23 +112,8 @@
     "on-click": "networkmanager_dmenu",
     "max-length": 50
   },
-  "clock": {
-    "format":"{:%a %d-%m  %H:%M}",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "on-click": "gtk-launch google-calendar"
-    },
-  "custom/crypto": {
-    "exec": "bash ~/.config/waybar/crypto.sh",
-    "interval": 30,
-    "return-type": "json"
-  },
-  "custom/powerprofile": {
-    "exec": "bash ~/.config/waybar/power-profile.sh",
-    "interval": 1,
-    "return-type": "json"
-  },
   "pulseaudio": {
-    "format": "{icon}  {volume}",
+    "format": "{icon} {volume}",
     "format-bluetooth": "{icon} {volume}%",
     "format-muted": "",
     "on-click": "pavucontrol",
@@ -64,18 +126,27 @@
       "default": ["", ""]
     }
   },
-  "backlight": {
-    "format": "{icon} {percent}",
-    "format-icons": ["󰖨"]
+  "bluetooth": {
+    "format": " {status}",
+    "format-disabled": "", // an empty format will hide the module
+    "format-connected": "{num_connections}",
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "on-click": "blueman-manager"
+  },
+
+  // ---------
+
+  "custom/powerprofile": {
+    "exec": "bash ~/.config/waybar/power-profile.sh",
+    "interval": 1,
+    "return-type": "json"
   },
   "battery": {
     "format": "{icon} {capacity}",
     "interval": 3,
     "format-icons": ["󰁹"]
-  },
-  "hyprland/workspaces": {
-    "format": "{icon}",
-    "on-scroll-up": "hyprctl dispatch workspace e+1",
-    "on-scroll-down": "hyprctl dispatch workspace e-1"
   }
+
 }
