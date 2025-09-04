@@ -16,7 +16,10 @@
     mpv
     nautilus
     networkmanager_dmenu
+    nordzy-cursor-theme
+    arc-icon-theme
     nwg-displays
+    nwg-look
     playerctl
     slurp
     swayimg
