@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Yazi (WezTerm)
+Exec=wezterm start -- yazi %F
+Terminal=false
+Type=Application
+MimeType=text/plain;
+Categories=Utility;TextEditor;

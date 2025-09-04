@@ -1,0 +1,8 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Type=Application
+Name=Monkeytype (Firefox)
+Exec=firefox --new-window https://www.monkeytype.com
+Icon=firefox
+Terminal=false
+Categories=Network;LLM;
