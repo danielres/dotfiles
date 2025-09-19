@@ -4,6 +4,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   # You can use https://search.nixos.org/ to find more packages (and options).
+  programs.nix-ld.enable = true;
+
   programs.neovim = {
     enable = true;
     defaultEditor = true;
