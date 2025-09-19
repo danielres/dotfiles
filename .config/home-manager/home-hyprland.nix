@@ -13,6 +13,7 @@
     hyprpicker
     hyprsunset
     kitty
+    libnotify
     mako
     mpv
     nautilus
