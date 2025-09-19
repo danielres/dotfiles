@@ -83,6 +83,20 @@
         bind -M visual -m default y "fish_clipboard_copy; commandline -f end-selection repaint-mode"
         bind -M default p "fish_clipboard_paste"
       end
+
+      function fish_mode_prompt
+          switch $fish_bind_mode
+              case default
+                  set_color green --bold
+                  echo 'N '
+              case insert
+                  set_color blue --bold
+                  echo 'I '
+              case visual
+                  set_color red --bold
+                  echo 'V '
+          end
+      end
     '';
 
     shellAliases = {
