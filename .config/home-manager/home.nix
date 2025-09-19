@@ -131,6 +131,12 @@
   # # };
   #
 
+  programs.direnv = {
+    enable = true;
+    enableBashIntegration = true; # see note on other shells below
+    nix-direnv.enable = true;
+  };
+
   home.packages = with pkgs; [
     #   (flameshot.override { enableWlrSupport = true; })
     ack
