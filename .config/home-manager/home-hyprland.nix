@@ -27,6 +27,7 @@
     swayimg
     syshud
     waybar
+    whatsapp-for-linux
     wl-clipboard
     wlogout
     wofi
