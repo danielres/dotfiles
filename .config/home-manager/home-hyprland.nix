@@ -8,6 +8,7 @@
     fuzzel
     go
     grim
+    hypridle
     hyprpaper
     hyprpicker
     hyprsunset
