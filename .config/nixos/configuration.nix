@@ -42,6 +42,8 @@
   #   useXkbConfig = true; # use xkb.options in tty.
   # };
 
+  fonts.packages = [ pkgs.nerd-fonts._0xproto pkgs.nerd-fonts.droid-sans-mono ];
+
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
