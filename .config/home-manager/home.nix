@@ -190,10 +190,12 @@
     nodejs_latest
     obsidian
     oh-my-fish
+    oklch-color-picker
     # openshot-qt
     pavucontrol
     powertop
     python3
+    rclone
     # qpwgraph
     # peek
     # pick-colour-picker
@@ -209,6 +211,7 @@
     tldr
     tuxedo-rs
     veracrypt
+    vidcutter
     vlc
     wezterm
     wev
