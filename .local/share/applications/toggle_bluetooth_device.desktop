@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Switch Audio Output
+Exec=/home/daniel/.local/bin/switch_audio
+Type=Application
+Terminal=false
+Categories=Audio;Utility;
+Comment=Select PipeWire audio output using wofi

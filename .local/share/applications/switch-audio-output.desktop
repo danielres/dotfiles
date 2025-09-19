@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Toggle Bluetooth Device
+Exec=/home/daniel/.local/bin/toggle_bluetooth_device
+Type=Application
+Terminal=false
+Categories=Bluetooth;Utility;

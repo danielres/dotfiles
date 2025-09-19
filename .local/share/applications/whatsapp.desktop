@@ -1,0 +1,8 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Type=Application
+Name=Whatsapp (Firefox)
+Exec=firefox --new-window https://web.whatsapp.com
+Icon=firefox
+Terminal=false
+Categories=Network;IM;
