@@ -2,7 +2,7 @@
   border: none;
   border-radius: 0;
   font-family: Roboto, Helvetica, Arial, sans-serif;
-  font-size: 16px;
+  font-size: 15px;
   min-height: 0;
 }
 
@@ -43,8 +43,8 @@ tooltip label {
 #clock,
 #tray,
 #custom-crypto,
-#backlight,
 #devices,
+#screens,
 #power {
   padding: 0 10px;
 }
@@ -59,10 +59,14 @@ tooltip label {
 
 #custom *,
 #power *,
-#devices *,
-#screens {
+#devices * {
   padding: 0 5px;
   margin: 4px 5px;
+}
+
+#screens * {
+  padding-bottom: 3px;
+  padding-left: 3px;
 }
 
 #custom-powerprofile {

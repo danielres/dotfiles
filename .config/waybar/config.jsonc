@@ -18,17 +18,20 @@
   "group/screens": {
     "orientation": "horizontal",
     "modules": [
+      "custom/screens-icon",
+      "backlight",
       "custom/ddc_left",
-      "custom/ddc_right",
-      "backlight"
+      "custom/ddc_right"
     ]
   },
   "group/devices": {
     "orientation": "horizontal",
     "modules": [
       "network",
+      "mpris",
       "pulseaudio",
-      "bluetooth"
+      "bluetooth",
+      "idle_inhibitor"
     ]
   },
   "group/power": {
@@ -68,14 +71,18 @@
 
   // ---------
 
+  "custom/screens-icon": {
+    "format": "{icon}",
+    "format-icons": ["󰖨 "],
+  },
   "backlight": {
-    "format": "{icon} {percent}",
-    "format-icons": ["󰖨"],
+    "format": "{percent}",
+    "format-icons": ["󰃚","󰃛","󰃜","󰃝","󰃞","󰃟","󰃠"],
     "scroll-step": 10
   },
   "custom/ddc_left": {
-    "format": "{percentage}%",
-    "format-icons": ["\ue3a6","\ue3a7","\ue3a8","\ue3a9","\ue3aa","\ue3ab","\ue3ac"],
+    "format": "{percentage}",
+    "format-icons": ["󰃚","󰃛","󰃜","󰃝","󰃞","󰃟","󰃠"],
     "exec": "~/.config/waybar/waybar-ddc-module.sh --bus 14 --name left --step 10",
     "return-type": "json",
     "on-scroll-up": "echo '+'  > /tmp/waybar-ddc-left-rx",
@@ -85,7 +92,7 @@
     "tooltip": false
   },
   "custom/ddc_right": {
-    "format": "{percentage}%",
+    "format": "{percentage}",
     "format-icons": ["\ue3a6","\ue3a7","\ue3a8","\ue3a9","\ue3aa","\ue3ab","\ue3ac"],
     "exec": "~/.config/waybar/waybar-ddc-module.sh --bus 5 --name right --step 10",
     "return-type": "json",
@@ -112,6 +119,21 @@
     "on-click": "networkmanager_dmenu",
     "max-length": 50
   },
+
+  "mpris": {
+    "format": "{player_icon}",
+    "format-paused": "{status_icon}",
+    "tooltip-format": "{dynamic}",
+    "player-icons": {
+      "default": "▶",
+      "mpv": "🎵"
+    },
+    "status-icons": {
+      "paused": "⏸"
+    }
+    // "ignored-players": ["firefox"]
+  },
+ 
   "pulseaudio": {
     "format": "{icon} {volume}",
     "format-bluetooth": "{icon} {volume}%",
@@ -126,6 +148,7 @@
       "default": ["", ""]
     }
   },
+
   "bluetooth": {
     "format": " {status}",
     "format-disabled": "", // an empty format will hide the module
@@ -134,6 +157,15 @@
     "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
     "on-click": "blueman-manager"
+  },
+
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "󰅶",
+      "deactivated": "󰾪"
+    },
+    "timeout": 30.5
   },
 
   // ---------
