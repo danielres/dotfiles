@@ -216,6 +216,18 @@
       terminal = false;
       categories = [ "System" "Utility" ];
     };
+    enable_touchpad = {
+      name = "Enable touchpad";
+      exec = "hyprctl keyword device[pnp0c50:00-093a:0255-touchpad]:enabled true";
+      terminal = false;
+      categories = [ "System" "Utility" ];
+    };
+    disable_touchpad = {
+      name = "Disable touchpad";
+      exec = "hyprctl keyword device[pnp0c50:00-093a:0255-touchpad]:enabled false";
+      terminal = false;
+      categories = [ "System" "Utility" ];
+    };
   };
 
   xdg.configFile."mako/config".text = ''
