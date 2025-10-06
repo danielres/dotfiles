@@ -105,7 +105,11 @@
     source = "${pkgs.gamescope}/bin/gamescope";
   };
 
-  # bluetooth
+#
+  hardware.logitech.wireless.enable = true;
+  hardware.logitech.wireless.enableGraphical = true;
+
+# bluetooth
   services.blueman.enable = true;
   hardware.bluetooth.enable = true;
 
