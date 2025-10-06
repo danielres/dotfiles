@@ -115,11 +115,23 @@
 
   hardware.uinput.enable = true;
 
+
+  # services.resolved.enable = true;
+  # services.resolved.dnsStubListener = true;
+
   # Graphics
+  environment.sessionVariables = {
+    MOZ_ENABLE_WAYLAND = "1";
+    LIBVA_DRIVER_NAME = "radeonsi";
+  };
   hardware = {
     graphics = {
       enable = true;
       enable32Bit = true;
+      extraPackages = with pkgs; [
+        vaapiVdpau
+        libvdpau-va-gl
+      ];
     };
 
     # amdgpu.amdvlk = {
@@ -159,7 +171,19 @@
   };
 
   programs = {
-    firefox.enable = true;
+    # firefox.enable = true;
+
+    firefox = {
+      enable = true;
+      policies = {
+        DNSOverHTTPS = {
+          Enabled = true;
+          ProviderURL = "https://dns.quad9.net/dns-query"; # or Cloudflare URL
+          # Locked = true;  # optional, prevents changes in UI
+        };
+      };
+    };
+
     fish.enable = true;
 
     kdeconnect = {
