@@ -1,0 +1,7 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Type=Application
+Name=Youtube - Watch later (Firefox)
+Exec=firefox --new-window https://www.youtube.com/playlist?list=PLpFM6U6FJsAZIS7oAoT5J0ps4NKMlCvYl
+Terminal=false
+Categories=Network;
