@@ -129,6 +129,13 @@
       enable = true;
       enable32Bit = true;
       extraPackages = with pkgs; [
+        mesa
+        vulkan-tools
+        vulkan-loader
+        vulkan-extension-layer
+        libva
+        wayland
+        libdecor
         vaapiVdpau
         libvdpau-va-gl
       ];
