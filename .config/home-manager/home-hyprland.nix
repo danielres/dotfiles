@@ -14,7 +14,6 @@
     hyprsunset
     kitty
     libnotify
-    mako
     mpv
     nautilus
     networkmanager_dmenu
@@ -32,6 +31,10 @@
     wlogout
     wofi
   ];
+
+  services.swaync = {
+    enable = true;
+  };
 
   home.file.".config/hypr/plugins/hyprbars.so".source =
     "${pkgs.hyprlandPlugins.hyprbars}/lib/libhyprbars.so";
@@ -230,8 +233,8 @@
     };
   };
 
-  xdg.configFile."mako/config".text = ''
-    font=Sans 10
-    default-timeout=5000
-  '';
+  # xdg.configFile."mako/config".text = ''
+  #   font=Sans 10
+  #   default-timeout=15000
+  # '';
 }
