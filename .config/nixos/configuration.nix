@@ -149,6 +149,15 @@
   # enables make command
   environment.systemPackages = with pkgs; [ linuxPackages.kernel.dev ];
 
+  services.flatpak.enable = true;
+  systemd.services.flatpak-repo = {
+    wantedBy = [ "multi-user.target" ];
+    path = [ pkgs.flatpak ];
+    script = ''
+      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    '';
+  };
+
   programs = {
     firefox.enable = true;
     fish.enable = true;
