@@ -52,6 +52,10 @@
     key_expand=Ctrl-l
     key_up=Ctrl-k,Ctrl-p
     matching=fuzzy
+    location=center
+    width=900
+    height=420
+    lines=20
   '';
 
   xdg.configFile."wofi/style.css".text = ''
