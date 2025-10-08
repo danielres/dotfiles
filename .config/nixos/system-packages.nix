@@ -28,7 +28,6 @@
     # flameshot
     gcc
     home-manager
-    kdePackages.gwenview
     git
     # gnomeExtensions.VividShade
     # gnomeExtensions.gsconnect

@@ -157,6 +157,7 @@
     fzf
     #   gh
     gimp3-with-plugins
+    gthumb
     #   glow # terminal markdown viewer
     gnome-control-center
     gnomeExtensions.bitcoin-markets
