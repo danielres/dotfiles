@@ -48,9 +48,9 @@
     gtk_dark=true
     image_size=16
     insensitive=true
-    key_down=Ctrl-j
+    key_down=Ctrl-j,Ctrl-n
     key_expand=Ctrl-l
-    key_up=Ctrl-k
+    key_up=Ctrl-k,Ctrl-p
     matching=fuzzy
   '';
 
