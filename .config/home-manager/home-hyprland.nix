@@ -25,7 +25,7 @@
     slurp
     swayimg
     syshud
-    waybar
+    waybar wttrbar
     whatsapp-for-linux
     wl-clipboard
     wlogout
