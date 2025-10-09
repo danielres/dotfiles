@@ -3,11 +3,12 @@
 { pkgs, ... }:
 
 {
-  # logind advertises hibernate
-  services.logind.extraConfig = ''
-    HibernateMode=platform
-    AllowHibernation=yes
-  '';
+#   # logind advertises hibernate
+#   services.logind.settings.Login = ''
+#     HibernateMode=platform
+#     AllowHibernation=yes
+#   '';
+#
 
   # polkit lets any user hibernate
   security.polkit.extraConfig = ''

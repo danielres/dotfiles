@@ -62,18 +62,6 @@
     variant = "altgr-intl";
   };
 
-  # Swap escape & caps lock
-  services.interception-tools = {
-    enable = true;
-    plugins = [ pkgs.interception-tools-plugins.caps2esc ];
-    udevmonConfig = ''
-      - JOB: "${pkgs.interception-tools}/bin/intercept -g $DEVNODE | ${pkgs.interception-tools-plugins.caps2esc}/bin/caps2esc | ${pkgs.interception-tools}/bin/uinput -d $DEVNODE"
-        DEVICE:
-          EVENTS:
-            EV_KEY: [KEY_CAPSLOCK, KEY_ESC]
-    '';
-  };
-
   # Configure console keymap
   console.keyMap = "us-acentos";
 
@@ -137,7 +125,7 @@
         wayland
         libdecor
         vaapiVdpau
-        libvdpau-va-gl
+        # libvdpau-va-gl
       ];
     };
 
@@ -169,6 +157,7 @@
   environment.systemPackages = with pkgs; [ linuxPackages.kernel.dev ];
 
   services.flatpak.enable = true;
+  
   systemd.services.flatpak-repo = {
     wantedBy = [ "multi-user.target" ];
     path = [ pkgs.flatpak ];
