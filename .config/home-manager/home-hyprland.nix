@@ -8,6 +8,7 @@
     dmenu-bluetooth
     networkmanager_dmenu
     fuzzel
+    gnome-calculator
     go
     grim
     hypridle
