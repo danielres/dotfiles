@@ -5,6 +5,8 @@
     bemoji
     brightnessctl
     cliphist
+    dmenu-bluetooth
+    networkmanager_dmenu
     fuzzel
     go
     grim
