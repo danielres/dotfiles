@@ -8,9 +8,12 @@
 
   programs.neovim = {
     enable = true;
+    package = pkgs.neovim;
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;
+    withNodeJs = true;
+    withPython3 = true;
   };
 
   environment.variables.EDITOR = "nvim";
