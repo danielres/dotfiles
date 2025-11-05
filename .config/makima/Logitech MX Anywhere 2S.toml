@@ -1,0 +1,10 @@
+[commands]
+# BTN_SIDE = ["/run/current-system/sw/bin/hyprctl dispatch movewindow"]
+BTN_SIDE-BTN_MIDDLE = ["/run/current-system/sw/bin/hyprctl dispatch killactive"]
+BTN_SIDE = ["/run/current-system/sw/bin/hyprctl dispatch movewindow"]
+
+[remap]
+# BTN_SIDE-BTN_LEFT = ["KEY_A-KEY_D"]
+# BTN_SIDE-BTN_EXTRA = ["KEY_LEFTMETA", "KEY_D"]
+
+

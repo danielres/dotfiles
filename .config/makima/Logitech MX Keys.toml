@@ -1,0 +1,11 @@
+[commands]
+# KEY_RIGHTCTRL-KEY_F = [
+#   "/home/daniel/.nix-profile/bin/firefox"
+# ]
+# KEY_RIGHTCTRL-KEY_M = [
+#   "/home/daniel/.nix-profile/bin/notify-send 'Launching ...';",
+#   "/home/daniel/.nix-profile/bin/youtube-music"
+# ]
+
+[remap]
+KEY_RIGHTCTRL = ["KEY_LEFTCTRL", "KEY_LEFTMETA", "KEY_LEFTALT", "KEY_LEFTSHIFT"]
