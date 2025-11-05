@@ -16,7 +16,7 @@
     enable = true;
     settings.default_session = {
       command =
-        "${pkgs.tuigreet}/bin/tuigreet --time --remember --cmd Hyprland";
+        "${pkgs.tuigreet}/bin/tuigreet --time --user-menu --remember-session --remember --cmd Hyprland";
       user = "daniel";
     };
   };
