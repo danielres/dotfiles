@@ -1,3 +1,8 @@
+
+# suppress "Press enter to return to lazygit" in lazyvim
+promptToReturnFromSubprocess: false
+
+
 git:
   paging:
     colorArg: always
