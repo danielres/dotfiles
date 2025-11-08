@@ -27,8 +27,10 @@
     playerctl
     slurp
     swayimg
+    swaynotificationcenter
     syshud
-    waybar wttrbar
+    waybar
+    wttrbar
     whatsapp-for-linux
     wl-clipboard
     wlogout

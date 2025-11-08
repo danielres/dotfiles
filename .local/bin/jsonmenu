@@ -1,0 +1,123 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# -----------------------------------------------------------------------------
+# jsonmenu — simple fuzzel-based launcher for JSONL menus (beautified list;
+# also lists dmenu-* scripts next to this script)
+# -----------------------------------------------------------------------------
+
+BASE_DIR="${HOME}/.local/bin/jsons"
+
+# directory where this jsonmenu script lives (so we can find dmenu-* scripts there)
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Beautify a slug/filename:
+# 1) remove leading "dmenu-" if present
+# 2) replace - with space
+# 3) capitalize first letter
+# Example: "dmenu-power-profiles.sh" -> "Power profiles.sh"
+beautify() {
+  local s
+  # remove leading dmenu- if present
+  s="${1#dmenu-}"
+  # replace - with space
+  s="${s//-/ }"
+  # capitalize first character (POSIX awk, handles ASCII)
+  printf '%s' "$s" | awk '{print toupper(substr($0,1,1)) substr($0,2)}'
+}
+
+if [ $# -eq 0 ]; then
+  # Collect menu names (without extension)
+  mapfile -t menus < <(find "$BASE_DIR" -maxdepth 1 -type f -name '*.jsonl' -printf '%f\n' 2>/dev/null |
+    sed 's/\.jsonl$//' | sort)
+
+  # Collect dmenu-* scripts from the same directory as this script
+  mapfile -t scripts < <(find "$SCRIPT_DIR" -maxdepth 1 -type f -name 'dmenu-*' -printf '%f\n' 2>/dev/null | sort)
+
+  if [ "${#menus[@]}" -eq 0 ] && [ "${#scripts[@]}" -eq 0 ]; then
+    echo "No .jsonl menus in ${BASE_DIR} and no dmenu-* scripts in ${SCRIPT_DIR}" >&2
+    exit 1
+  fi
+
+  # Build display -> original mapping (menus first, then scripts)
+  declare -A map # bash associative array
+  choices=()
+
+  for m in "${menus[@]}"; do
+    display="$(beautify "$m")"
+    # disambiguate collisions by appending a hint
+    if [ -n "${map[$display]:-}" ]; then
+      display="${display} (menu)"
+    fi
+    map["$display"]="$m"
+    choices+=("$display")
+  done
+
+  for s in "${scripts[@]}"; do
+    display="$(beautify "$s")"
+    if [ -n "${map[$display]:-}" ]; then
+      display="${display} (script)"
+      i=1
+      while [ -n "${map[$display]:-}" ]; do
+        display="$(beautify "$s") (script $i)"
+        i=$((i + 1))
+      done
+    fi
+    map["$display"]="$s"
+    choices+=("$display")
+  done
+
+  # Show chooser
+  choice="$(printf '%s\n' "${choices[@]}" | fuzzel --dmenu --prompt 'Menus & Scripts  ')"
+  [ -n "$choice" ] || exit 0
+
+  original="${map[$choice]:-}"
+  if [ -z "$original" ]; then
+    echo "Could not resolve selection: $choice" >&2
+    exit 1
+  fi
+
+  # If a menu was chosen, re-run jsonmenu with that menu slug
+  if [ -f "${BASE_DIR}/${original}.jsonl" ]; then
+    exec "$0" "$original"
+  fi
+
+  # If a dmenu-* script was chosen, execute it (prefer executable shebang; otherwise run with bash)
+  if [ -f "${SCRIPT_DIR}/${original}" ]; then
+    if [ -x "${SCRIPT_DIR}/${original}" ]; then
+      exec "${SCRIPT_DIR}/${original}"
+    else
+      exec bash "${SCRIPT_DIR}/${original}"
+    fi
+  fi
+
+  # Fallback (shouldn't happen)
+  echo "Selected item not found as menu or script: $original" >&2
+  exit 1
+fi
+
+# ----------------- existing behavior when called with a menu name -----------------
+file="${BASE_DIR}/$1.jsonl"
+
+if [ $# -ge 2 ]; then
+  prompt="$2"
+else
+  name="$(basename "$1" .jsonl)"
+  prompt="$(sed -E 's/-/ /g; s/^(.)/\U\1/' <<<"$name")"
+fi
+
+[ -f "$file" ] || {
+  echo "Menu not found: $file" >&2
+  exit 1
+}
+
+label="$(jq -r '.label' "$file" | fuzzel --dmenu --prompt "$prompt  ")"
+[ -n "$label" ] || exit 0
+
+cmd="$(jq -r --arg lbl "$label" 'select(.label==$lbl) | .command' "$file")"
+[ -n "$cmd" ] || {
+  echo "No command for $label" >&2
+  exit 1
+}
+
+exec bash -c "$cmd"
