@@ -1,0 +1,128 @@
+#!/usr/bin/env bash
+
+# https://github.com/danielres/domain-check-rdap
+
+# domain-check — RDAP availability checker
+# Usage:
+#   check-domain <name-or-domain> [...] [--tlds com,net,org,app,dev] [--quiet]
+#
+# Examples:
+#   check-domain foo.net baz.org
+#   check-domain foo bar --tlds com,net,org
+#   check-domain foo bar baz.net     # foo/bar expand over TLDs; baz.net checked as-is
+
+set -euo pipefail
+
+# ---- Config ----
+DEFAULT_TLDS="com,net,org,io,co,dev,app,ai,me,info,biz,xyz,online,site,tech,cloud,store,blog,eu,life,club,live,one"
+RDAP_BASE="https://rdap.org/domain"
+
+quiet=0
+tlds="$DEFAULT_TLDS"
+
+log() { [ "$quiet" -eq 1 ] || printf "%s\n" "$*"; }
+
+usage() {
+  cat <<EOF
+Usage: $(basename "$0") <name-or-domain> [...] [--tlds com,net,org,...] [--quiet]
+
+If an input has no dot (no TLD), this script checks "<name>.<tld>" for each TLD.
+Inputs that already include a TLD are checked exactly as given.
+
+Options:
+  --tlds   Comma-separated list of TLDs to try when no TLD is present.
+  --quiet  Only print results.
+  -h       Show this help.
+EOF
+}
+
+# ---- Parse options ----
+args=()
+while [ "$#" -gt 0 ]; do
+  case "$1" in
+  --tlds)
+    shift
+    [ "${1:-}" ] || {
+      printf "Error: --tlds requires a value\n" >&2
+      exit 2
+    }
+    tlds="$1"
+    ;;
+  --quiet) quiet=1 ;;
+  -h | --help)
+    usage
+    exit 0
+    ;;
+  --)
+    shift
+    while [ "$#" -gt 0 ]; do
+      args+=("$1")
+      shift
+    done
+    break
+    ;;
+  -*)
+    printf "Error: unknown option '%s'\n" "$1" >&2
+    usage
+    exit 2
+    ;;
+  *)
+    args+=("$1")
+    ;;
+  esac
+  shift || true
+done
+
+[ "${#args[@]}" -gt 0 ] || {
+  usage
+  exit 1
+}
+
+# ---- Dependencies ----
+command -v curl >/dev/null 2>&1 || {
+  printf "Error: curl is required\n" >&2
+  exit 3
+}
+
+# ---- Functions ----
+check_one() {
+  local domain="$1"
+  domain="${domain,,}" # lowercase
+  local code
+  code=$(curl -s -o /dev/null -w "%{http_code}" "$RDAP_BASE/$domain" || true)
+
+  case "$code" in
+  404) printf "%s => AVAILABLE\n" "$domain" ;;
+  200) printf "%s => TAKEN\n" "$domain" ;;
+  301 | 302)
+    code=$(curl -Ls -o /dev/null -w "%{http_code}" "$RDAP_BASE/$domain" || true)
+    if [ "$code" = "404" ]; then
+      printf "%s => AVAILABLE\n" "$domain"
+    else
+      printf "%s => TAKEN (HTTP %s)\n" "$domain" "$code"
+    fi
+    ;;
+  *) printf "%s => UNKNOWN (HTTP %s)\n" "$domain" "$code" ;;
+  esac
+}
+
+expand_and_check() {
+  local token="$1"
+  if [[ "$token" == *.* ]]; then
+    # already a full domain
+    check_one "$token"
+  else
+    # bare name: expand across TLDs
+    IFS=',' read -r -a arr <<<"$tlds"
+    for t in "${arr[@]}"; do
+      t="${t#.}" # strip leading dot if present
+      [ -n "$t" ] || continue
+      check_one "$token.$t"
+    done
+  fi
+}
+
+# ---- Main ----
+for item in "${args[@]}"; do
+  expand_and_check "$item"
+done
