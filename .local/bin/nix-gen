@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -euo pipefail
+# current system vs specific generation
+g=115
+p="/nix/var/nix/profiles/system-$g-link"
+nix store diff-closures /run/current-system "$p"
+
+# preview what a rebuild would change (without switching yet)
+sudo nixos-rebuild build
+nix store diff-closures /run/current-system ./result

@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+CMD=(home-manager switch --flake "$HOME/dotfiles/.config/nixos#$(whoami)")
+
+printf '  Running:\n'
+printf '%q ' "${CMD[@]}"
+printf '\n\n'
+
+"${CMD[@]}"

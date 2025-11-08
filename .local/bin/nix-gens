@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+CMD=(nixos-rebuild list-generations)
+
+printf '  Running:\n'
+printf '%q ' "${CMD[@]}"
+printf '\n\n'
+
+"${CMD[@]}"

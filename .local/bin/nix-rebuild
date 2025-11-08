@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Optional note for this generation (shown in boot menu).
+# Usage:
+#   ./rebuild.sh                 # no label (same as before)
+#   ./rebuild.sh "postgresql-upgrade"  # sets NIXOS_LABEL for this generation
+label="${1-}"
+
+if [[ -n "$label" ]]; then
+  # Pass env through sudo so nixos-rebuild sees it
+  CMD=(sudo env NIXOS_LABEL="$label" nixos-rebuild switch)
+else
+  CMD=(sudo nixos-rebuild switch)
+fi
+
+printf '  Running:\n'
+printf '%q ' "${CMD[@]}"
+printf '\n\n'
+
+"${CMD[@]}"
