@@ -1,0 +1,11 @@
+
+{ "label":  "1  -   󱩏   -",  "command":  "ddcutil --display 2 setvcp 10 25;  jsonmenu brightness"  }
+{ "label":  "2  -   󱩒   -",  "command":  "ddcutil --display 2 setvcp 10 50;  jsonmenu brightness"  }
+{ "label":  "3  -   󱩔   -",  "command":  "ddcutil --display 2 setvcp 10 75;  jsonmenu brightness"  }
+{ "label":  "4  -   󰛨   -",  "command":  "ddcutil --display 2 setvcp 10 100; jsonmenu brightness" }
+{ "label":  "5  -   -   󱩏",  "command":  "ddcutil --display 1 setvcp 10 25;  jsonmenu brightness"  }
+{ "label":  "6  -   -   󱩒",  "command":  "ddcutil --display 1 setvcp 10 50;  jsonmenu brightness"  }
+{ "label":  "7  -   -   󱩔",  "command":  "ddcutil --display 1 setvcp 10 75;  jsonmenu brightness"  }
+{ "label":  "8  -   -   󰛨",  "command":  "ddcutil --display 1 setvcp 10 100; jsonmenu brightness" }
+{"label": "──"}
+{"label": "   Back", "command": "jsonmenu"}

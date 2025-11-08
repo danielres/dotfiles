@@ -1,0 +1,11 @@
+
+{"label": "󰒲   Suspend",             "command": "systemctl suspend"}
+{"label": "󰜉   Reboot",              "command": "systemctl reboot"}
+{"label": "󰈆   Logout",              "command": "hyprctl dispatch exit"}
+{"label": "   Lock",                "command": "hyprlock"}
+{"label": "   Lock    󰒲  Suspend", "command": "sh -c \"hyprlock & disown && systemctl suspend\""}
+{"label": "   Hibernate",           "command": "systemctl hibernate"}
+{"label": "   Off",                 "command": "systemctl poweroff"}
+{"label": "──"}
+{"label": "󰾅   Power profiles",      "command": "jsonmenu power-profiles"}
+{"label": "   Back",                "command": "jsonmenu"}

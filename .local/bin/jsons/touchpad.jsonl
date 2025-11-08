@@ -1,0 +1,4 @@
+{"label": "🔴 Disable", "command": "hyprctl keyword device[pnp0c50:00-093a:0255-touchpad]:enabled false; jsonmenu touchpad"}
+{"label": "🟢 Enable",  "command": "hyprctl keyword device[pnp0c50:00-093a:0255-touchpad]:enabled true;  jsonmenu touchpad"}
+{"label": "──"}
+{"label": "   Back",   "command": "jsonmenu"}
