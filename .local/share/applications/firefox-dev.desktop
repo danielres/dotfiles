@@ -1,0 +1,8 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Type=Application
+Name=Dev - localhost:4000 (Firefox)
+Exec=firefox -P "dev" http://localhost:4000
+Icon=firefox
+Terminal=false
+Categories=Network;LLM;
