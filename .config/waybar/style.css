@@ -46,7 +46,8 @@ tooltip label {
 #custom-crypto,
 #devices,
 #screens,
-#power {
+#power,
+#custom-notification {
   padding: 0 10px;
 }
 
