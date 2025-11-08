@@ -1,0 +1,11 @@
+git:
+  paging:
+    colorArg: always
+    # pager: delta --paging=never
+    # pager: delta  --paging=never  --features mellow-barbet  --hyperlinks-file-link-format="lazygit-edit://{path}:{line}" --plus-style="#96b586" --minus-style="\"#ad7e87b9\" bold ul \"#4a142421\"" --line-numbers --hyperlinks --true-color always
+    # pager: delta --paging=never --features mellow-barbet --hyperlinks-file-link-format="lazygit-edit://{path}:{line}" --line-numbers --hyperlinks --true-color always
+
+    # pager: delta --paging=never --features villsau --hyperlinks-file-link-format="lazygit-edit://{path}:{line}" --line-numbers --hyperlinks
+    # pager: delta --paging=never --features mantis-shrimp --hyperlinks-file-link-format="lazygit-edit://{path}:{line}" --line-numbers --hyperlinks
+    pager: delta --paging=never --features catppuccin-mocha --hyperlinks-file-link-format="lazygit-edit://{path}:{line}" --line-numbers --hyperlinks
+
