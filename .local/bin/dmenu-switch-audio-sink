@@ -1,0 +1,89 @@
+#!/usr/bin/env bash
+set -eo pipefail
+
+while getopts l:i: arg; do
+  case "${arg}" in
+  l)
+    launcher=$OPTARG
+    ;;
+  i)
+    ignores=$OPTARG
+    ;;
+  *)
+    echo "Usage: $0 [-l launcher] [-i ignores]"
+    exit 1
+    ;;
+  esac
+done
+
+shift $((OPTIND - 1))
+
+case ${launcher:-fuzzel} in
+dmenu)
+  dmenu_comand="dmenu $@"
+  ;;
+fuzzel)
+  dmenu_comand="fuzzel --dmenu $@"
+  ;;
+rofi)
+  dmenu_comand="rofi -dmenu $@"
+  ;;
+*)
+  echo "Unsupported launcher"
+  exit 1
+  ;;
+esac
+
+# find PipeWire default sink id (the sink marked with '*' in `wpctl status`)
+# fallback to empty string if wpctl isn't available or parsing fails
+default_id=$(
+  wpctl status --name 2>/dev/null |
+    sed -n '/Sinks:/,/^[[:space:]]*$/p' |
+    grep '\*' |
+    grep -o '[0-9]\+' |
+    head -n1 || true
+)
+
+audio_sinks=$(
+  pw-dump |
+    jq --arg ignores "$ignores" \
+      '
+        .[]
+        | select(.type == "PipeWire:Interface:Node" and .info.props."media.class" == "Audio/Sink")
+        | {
+            node_id: .id,
+            node_name: .info.props."node.name",
+            node_description: .info.props."node.description",
+            node_nick: .info.props."node.nick",
+          }
+        | select(.node_description | test($ignores; "n") | not)
+      '
+)
+
+# build menu lines with an icon prefix: active (●) vs other (○)
+# If default_id is empty, all entries will be shown as "○"
+menu_items=$(jq -s -r --arg default "$default_id" --arg active "●" --arg other "○" '
+  map(
+    if ($default != "" and (.node_id == ($default|tonumber))) then
+      "\($active) \(.node_description)"
+    else
+      "\($other) \(.node_description)"
+    end
+  )
+  | .[]
+' <<<$audio_sinks)
+
+# show chooser
+selected_line=$(printf '%s\n' "$menu_items" | $dmenu_comand) || exit 0
+# strip the leading icon and space to recover the description
+selected_audio_sink_name=${selected_line#* }
+
+# lookup id from the earlier json list
+selected_audio_sink_id=$(jq -r --arg s "$selected_audio_sink_name" 'select(.node_description == $s) | .node_id' <<<$audio_sinks)
+
+if [[ -z "$selected_audio_sink_id" ]]; then
+  echo "No sink selected or could not resolve sink id" >&2
+  exit 1
+fi
+
+wpctl set-default "$selected_audio_sink_id"
