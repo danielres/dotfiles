@@ -2,7 +2,7 @@
 [Desktop Entry]
 Type=Application
 Name=ChatGPT - NixOS (Firefox)
-Exec=firefox --new-window https://chatgpt.com/g/g-p-6878fbd2ac348191b4b8dda553b5077e-nixos/project
+Exec=firefox -P "default" --new-window https://chatgpt.com/g/g-p-6878fbd2ac348191b4b8dda553b5077e-nixos/project
 Icon=firefox
 Terminal=false
 Categories=Network;LLM;

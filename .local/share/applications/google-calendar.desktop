@@ -2,7 +2,7 @@
 [Desktop Entry]
 Type=Application
 Name=Google Calendar (Firefox)
-Exec=firefox --new-window https://calendar.google.com
+Exec=firefox -p default --new-window https://calendar.google.com
 Icon=firefox
 Terminal=false
 Categories=Network;Calendar;

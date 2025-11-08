@@ -2,7 +2,7 @@
 [Desktop Entry]
 Type=Application
 Name=Firefox
-Exec=firefox
+Exec=firefox -p default
 Icon=firefox
 Terminal=false
 Categories=Network;
