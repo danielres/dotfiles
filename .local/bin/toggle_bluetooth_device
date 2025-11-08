@@ -1,5 +1,5 @@
-#!/bin/sh
-# List paired devices, indicate connection status, format for wofi, and connect/disconnect
+#!/usr/bin/env bash
+# List paired devices, indicate connection status, format for fuzzel, and connect/disconnect
 # Create an array to store MAC and formatted name pairs
 declare -A device_map
 while read -r mac name; do
@@ -10,9 +10,9 @@ while read -r mac name; do
   fi
 done < <(bluetoothctl devices Paired | awk '/Device/ && !/Media/ && !/SupportedUUIDs/ {print $2 " " substr($0, index($0,$3))}')
 
-# Convert map to list for wofi
+# Convert map to list for fuzzel
 device_list=$(printf "%s\n" "${device_map[@]}")
-selected=$(echo "$device_list" | wofi --dmenu -p "Select Bluetooth Device" --width=600 --height=200)
+selected=$(echo "$device_list" | fuzzel --dmenu -p "Toggle Bluetooth Device")
 
 if [ -n "$selected" ]; then
   # Find the MAC associated with the selected name
