@@ -145,7 +145,7 @@
     "format": "{icon} {volume}",
     "format-bluetooth": "{icon} {volume}%",
     "format-muted": "",
-    "on-click": "pavucontrol",
+    "on-click": "pavucontrol -t 3",
     "format-icons": {
       "headphones": "",
       "handsfree": "",
