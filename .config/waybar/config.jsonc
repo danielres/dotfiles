@@ -14,7 +14,7 @@
     "interval": 3600,
     "exec": "wttrbar",
     "return-type": "json",
-    "on-click": "google-chrome-stable --app='https://weather.com/weather/tenday/l/5ca23443513a0fdc1d37ae2ffaf5586162c6fe592a66acc9320a0d0536be1bb9' --class=WaybarPopup --window-size=420,720 --new-window"
+    "on-click": "chromium --ozone-platform=x11 --class=WaybarPopupXL --app='https://weather.com/weather/tenday/l/5ca23443513a0fdc1d37ae2ffaf5586162c6fe592a66acc9320a0d0536be1bb9' --new-window --window-size=950,1100"
   },
   "group/custom": {
     "orientation": "horizontal",
