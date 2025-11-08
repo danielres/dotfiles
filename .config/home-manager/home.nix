@@ -141,6 +141,8 @@
     #   (flameshot.override { enableWlrSupport = true; })
     ack
     audacity
+    bat
+    bat-extras.core
     brave
     cargo
     calibre
