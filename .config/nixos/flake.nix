@@ -31,7 +31,8 @@
 
     homeConfigurations = {
       daniel = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        pkgs = import nixpkgs { system = "x86_64-linux"; };
+        # pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = { inherit inputs; };
         modules =
           [ ../home-manager/home.nix ../home-manager/home-hyprland.nix ];
