@@ -63,7 +63,7 @@
   "clock": {
     "format":"{:%a %d-%m  %H:%M}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "on-click": "gtk-launch google-calendar"
+    "on-click": "firefox -p default --new-window https://calendar.google.com"
   },
 
   // RIGHT =======
