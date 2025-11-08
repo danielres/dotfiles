@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+# cat >"$icon_path" <<EOF
+# foo
+# EOF
+
+text="
+  # List all generations
+  home-manager generations
+ 
+  # Remove specific old generations (replace N with generation numbers)
+  home-manager remove-generations N
+
+  # Or remove all old generations except current
+  home-manager expire-generations \"-0 days\"
+
+  # This removes all packages not referenced by any generation
+  nix-collect-garbage -d
+
+  # For system-wide cleanup (requires sudo)
+  sudo nix-collect-garbage -d
+"
+
+#echo the multiline string
+echo "$text"
