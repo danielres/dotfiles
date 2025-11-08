@@ -183,6 +183,7 @@
     jq
     # kdenlive
     lazygit
+    delta
     loupe
     #   mesa-demos
     nautilus-open-any-terminal
