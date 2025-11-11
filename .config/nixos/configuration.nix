@@ -124,7 +124,7 @@
         libva
         wayland
         libdecor
-        vaapiVdpau
+        libva-vdpau-driver
         # libvdpau-va-gl
       ];
     };
