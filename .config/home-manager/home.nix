@@ -28,6 +28,13 @@
     # GTK_THEME = "Adwaita:dark";
   };
 
+  # add paths to PATH 
+  home.sessionPath = [
+    #
+    "$HOME/.npm-global/bin"
+    "$HOME/dotfiles/.local/bin"
+  ];
+
   programs.neovim = {
     enable = true;
     # package = pkgs.neovim;
