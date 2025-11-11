@@ -41,9 +41,7 @@ in {
     hyprpaper
     hyprpicker
     hyprsunset
-    kitty
     libnotify
-    nautilus
     networkmanager_dmenu
     nordzy-cursor-theme
     arc-icon-theme
