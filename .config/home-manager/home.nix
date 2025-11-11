@@ -124,6 +124,31 @@
     nix-direnv.enable = true;
   };
 
+  programs.yazi = {
+    enable = true;
+    plugins = {
+      projects = pkgs.yaziPlugins.projects;
+      glow = pkgs.yaziPlugins.glow;
+      vcs-files = pkgs.yaziPlugins.vcs-files;
+      git = pkgs.yaziPlugins.git;
+    };
+    settings = {
+      mgr = { show_hidden = true; };
+      plugin.prepend_fetchers = [
+        {
+          id = "git";
+          name = "*";
+          run = "git";
+        }
+        {
+          id = "git";
+          name = "*/";
+          run = "git";
+        }
+      ];
+    };
+  };
+
   home.packages = with pkgs; [
     #   (flameshot.override { enableWlrSupport = true; })
     ack
