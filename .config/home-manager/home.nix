@@ -104,9 +104,35 @@
 
   programs.git = {
     enable = true;
-    userName = "Daniel Reszka";
-    userEmail = "dannn.r@gmail.com";
     package = pkgs.gitFull;
+
+    # essentials
+    settings = {
+      user = {
+        init = { defaultBranch = "main"; };
+        name = "Daniel Reszka";
+        email = "dannn.r@gmail.com";
+      };
+      # core = {
+      #   editor = "nvim";
+      # };
+    };
+
+    # setup delta for diffs
+    settings = {
+      include = {
+        # path = "~/.config/delta/themes.gitconfig"; 
+        path = "~/.config/delta/catppuccin.gitconfig";
+      };
+      core = { pager = "delta"; };
+      interactive = { diffFilter = "delta --color-only"; };
+      delta = {
+        navigate = true;
+        syntax-theme = "Dracula"; # for dark backgrounds
+        features = "villsau";
+      };
+      merge = { conflictStyle = "zdiff3"; };
+    };
   };
 
   # # home.pointerCursor = {
@@ -240,8 +266,6 @@
     wev
     wl-clipboard
     # xsel
-    yazi
-    # yaziPlugins
     youtube-music
     yt-dlp
     ytmdl
