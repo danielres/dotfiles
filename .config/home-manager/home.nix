@@ -28,7 +28,16 @@
     # GTK_THEME = "Adwaita:dark";
   };
 
+  programs.neovim = {
     enable = true;
+    # package = pkgs.neovim;
+    defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+    withNodeJs = true;
+    withPython3 = true;
+    extraLuaPackages = ps: [ ps.magick ];
+    extraPackages = [ pkgs.imagemagick pkgs.elixir ];
   };
 
   programs.fish = {

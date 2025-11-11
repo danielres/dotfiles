@@ -6,16 +6,6 @@
   # You can use https://search.nixos.org/ to find more packages (and options).
   programs.nix-ld.enable = true;
 
-  programs.neovim = {
-    enable = true;
-    package = pkgs.neovim;
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
-    withNodeJs = true;
-    withPython3 = true;
-  };
-
   environment.variables.EDITOR = "nvim";
 
   environment.systemPackages = with pkgs; [
