@@ -32,6 +32,7 @@
   home.sessionPath = [
     #
     "$HOME/.npm-global/bin"
+    "$HOME/.local/bin"
     "$HOME/dotfiles/.local/bin"
   ];
 
