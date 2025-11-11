@@ -216,7 +216,6 @@
     gnomeExtensions.memento-mori
     gnomeExtensions.middle-click-to-close-in-overview
     gnomeExtensions.pop-shell
-    gnomeExtensions.xremap
     gnome-tweaks
     gnumake
     google-chrome
