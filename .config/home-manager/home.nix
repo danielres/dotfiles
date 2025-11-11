@@ -147,8 +147,10 @@
     cargo
     calibre
     celluloid
+    chromium
     # darktable
     direnv
+    discord
     dissent
     easyeffects
     #   duf # disk usage/free utility
@@ -180,10 +182,12 @@
     gnumake
     google-chrome
     gtk3
+    htop
     jq
     # kdenlive
     lazygit
     delta
+    kitty
     loupe
     #   mesa-demos
     nautilus-open-any-terminal
@@ -199,6 +203,7 @@
     pavucontrol
     powertop
     python3
+    qdirstat
     rclone
     # qpwgraph
     # peek
@@ -214,6 +219,7 @@
     tdesktop # telegram
     tldr
     tuxedo-rs
+    unzip
     veracrypt
     vidcutter
     vlc
