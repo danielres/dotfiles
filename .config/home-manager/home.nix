@@ -80,8 +80,8 @@
     '';
 
     shellAliases = {
-      hms = "home-manager switch --flake ~/dotfiles/.config/nixos#daniel";
-      rebuild = "sudo nixos-rebuild switch";
+      # hms = "home-manager switch --flake ~/dotfiles/.config/nixos#daniel";
+      # rebuild = "sudo nixos-rebuild switch";
     };
   };
 
@@ -101,7 +101,7 @@
     userEmail = "dannn.r@gmail.com";
     package = pkgs.gitFull;
   };
-  #
+
   # # home.pointerCursor = {
   # #   gtk.enable = true;
   # #   x11.enable = true;
