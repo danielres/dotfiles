@@ -18,6 +18,7 @@
     dconf
     dconf2nix # dconf (gnome) files to nix converter
     fish
+    fd
     # flameshot
     gcc
     home-manager
@@ -26,6 +27,7 @@
     # gnomeExtensions.gsconnect
     # gnomeExtensions.sound-output-device-chooser
     # gnomeExtensions.ubuntu-appindicators
+    inotify-tools
     killall # kill processes by name
     neovim-remote
     nerd-fonts.fira-code
