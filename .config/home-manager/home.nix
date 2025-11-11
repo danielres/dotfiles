@@ -254,7 +254,7 @@
     #   screenkey # shows keypresses on screen
     #   starship
     stow
-    tdesktop # telegram
+    telegram-desktop
     tldr
     tuxedo-rs
     unzip
