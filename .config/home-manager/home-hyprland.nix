@@ -200,9 +200,4 @@ in {
       categories = [ "System" "Utility" ];
     };
   };
-
-  # xdg.configFile."mako/config".text = ''
-  #   font=Sans 10
-  #   default-timeout=15000
-  # '';
 }
