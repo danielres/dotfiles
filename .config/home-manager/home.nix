@@ -141,6 +141,7 @@
     fzf
     #   gh
     gimp3-with-plugins
+    go
     gthumb
     #   glow # terminal markdown viewer
     gnome-control-center

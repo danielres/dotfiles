@@ -29,7 +29,6 @@ in {
     networkmanager_dmenu
     fuzzel
     gnome-calculator
-    go
     grim
 
     # All hyprland plugins:
