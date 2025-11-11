@@ -3,7 +3,6 @@
 { pkgs, inputs, ... }: {
   home.stateVersion = "25.05";
   home.sessionVariables = { GTK_THEME = "Adwaita:dark"; };
-  imports = [ inputs.xremap-flake.homeManagerModules.default ];
 
   nixpkgs.config.allowUnfree = true;
 
@@ -29,42 +28,7 @@
     # GTK_THEME = "Adwaita:dark";
   };
 
-  services.xremap = {
-    # key codes: https://github.com/emberian/evdev/blob/1d020f11b283b0648427a2844b6b980f1a268221/src/scancodes.rs#L26-L572
     enable = true;
-    withGnome = true;
-    watch = true;
-    config = {
-      keymap = [
-        {
-          name = "Ctrl-u → PageUp";
-          remap = { "C-u" = "PAGEUP"; }; # valid single-line binding
-        }
-        {
-          name = "Launchers"; # Super-d  then f / t / s
-          remap = {
-            "Alt-i" = {
-              remap = { # ← missing in your file
-                b = { launch = [ "gnome-control-center" "bluetooth" ]; };
-                c = { launch = [ "google-chrome-stable" ]; };
-                f = { launch = [ "firefox" ]; };
-                g = {
-                  launch =
-                    [ "firefox" "https://mail.google.com/mail/u/0/#inbox" ];
-                };
-                m = { launch = [ "firefox" "https://www.google.com/maps" ]; };
-                o = { launch = [ "obsidian" ]; };
-                s = { launch = [ "pavucontrol" ]; };
-                t = { launch = [ "Telegram" ]; };
-                z = { launch = [ "youtube-music" ]; };
-                # timeout_key = null;
-                # timeout_milis = 300;
-              };
-            };
-          };
-        }
-      ];
-    };
   };
 
   programs.fish = {
