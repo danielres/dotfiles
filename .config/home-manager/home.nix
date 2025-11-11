@@ -197,6 +197,7 @@
     file-roller
     firefox
     fzf
+
     #   gh
     gimp3-with-plugins
     go
@@ -261,12 +262,15 @@
     tldr
     tuxedo-rs
     unzip
+    vectorcode
     veracrypt
     vidcutter
     vlc
     wezterm
     wev
     wl-clipboard
+    wl-color-picker
+    xnviewmp
     # xsel
     youtube-music
     yt-dlp
