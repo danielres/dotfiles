@@ -63,10 +63,6 @@ in {
     wofi
   ];
 
-  services.swaync = {
-    enable = true;
-  };
-
   home.file.".config/hypr/plugins/hyprbars.so".source =
     "${pkgs.hyprlandPlugins.hyprbars}/lib/libhyprbars.so";
 
