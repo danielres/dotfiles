@@ -95,6 +95,13 @@
     # '';
   };
 
+  programs.neovide = {
+    enable = true;
+    # settings = {
+    # };
+    # package = pkgs.gitFull;
+  };
+
   programs.git = {
     enable = true;
     userName = "Daniel Reszka";
