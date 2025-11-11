@@ -31,6 +31,13 @@ in {
     gnome-calculator
     go
     grim
+
+    # All hyprland plugins:
+    # https://search.nixos.org/packages?channel=25.05&query=hyprlandPlugins
+    hyprlandPlugins.hyprbars
+    hyprlandPlugins.hyprexpo
+    hyprlandPlugins.hyprspace
+
     hypridle
     hyprpaper
     hyprpicker
@@ -63,8 +70,6 @@ in {
 
   home.file.".config/hypr/plugins/hyprbars.so".source =
     "${pkgs.hyprlandPlugins.hyprbars}/lib/libhyprbars.so";
-  home.file.".config/hypr/plugins/hyprexpo.so".source =
-    "${pkgs.hyprlandPlugins.hyprexpo}/lib/libhyprexpo.so";
 
   xdg.configFile."wofi/config".text = ''
     allow_images=false
