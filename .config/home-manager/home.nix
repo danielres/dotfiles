@@ -227,6 +227,7 @@
     delta
     kitty
     loupe
+    mpv
     #   mesa-demos
     nautilus-open-any-terminal
     ncdu

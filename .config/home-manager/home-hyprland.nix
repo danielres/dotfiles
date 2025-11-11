@@ -43,7 +43,6 @@ in {
     hyprsunset
     kitty
     libnotify
-    mpv
     nautilus
     networkmanager_dmenu
     nordzy-cursor-theme
