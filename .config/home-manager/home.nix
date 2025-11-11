@@ -80,10 +80,7 @@
       end
     '';
 
-    shellAliases = {
-      # hms = "home-manager switch --flake ~/dotfiles/.config/nixos#daniel";
-      # rebuild = "sudo nixos-rebuild switch";
-    };
+    shellAliases = { };
   };
 
   programs.bash = {
