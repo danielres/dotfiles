@@ -26,7 +26,6 @@ in {
     brightnessctl
     cliphist
     dmenu-bluetooth
-    networkmanager_dmenu
     fuzzel
     gnome-calculator
     grim
