@@ -37,6 +37,7 @@
     # gnomeExtensions.sound-output-device-chooser
     # gnomeExtensions.ubuntu-appindicators
     killall # kill processes by name
+    neovim-remote
     nerd-fonts.fira-code
     nix-index # locate packages containing certain nixpkgs
     nix-output-monitor # nom: monitor nix commands
