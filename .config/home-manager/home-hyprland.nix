@@ -1,7 +1,27 @@
 # home-hyprland.nix
 
-{ pkgs, ... }: {
+{ pkgs, ... }:
+let
+  # https://discourse.nixos.org/t/has-anyone-tried-to-get-nautilus-working-with-hm-incl-plugins-but-keeping-gnome3-settings-out-of-the-system-wide-config-and-using-a-wm/30385/7
+  nautEnv = pkgs.buildEnv {
+    name = "nautilus-env";
+
+    paths = with pkgs; [ nautilus nautilus-python nautilus-open-any-terminal ];
+  };
+in {
+  home.sessionVariables.NAUTILUS_4_EXTENSION_DIR =
+    "${nautEnv}/lib/nautilus/extensions-4";
+  # home.sessionVariables.PATH = "/home/daniel/.nix-profile/bin:$PATH";
+
+  dconf = {
+    enable = true;
+    settings."com/github/stunkymonkey/nautilus-open-any-terminal".terminal =
+      "wezterm";
+  };
+
   home.packages = with pkgs; [
+    nautEnv
+
     bemoji
     brightnessctl
     cliphist
