@@ -12,6 +12,15 @@
   # Allow hyprlock to authenticate
   security.pam.services.hyprlock = { };
 
+  # Keyring --------
+  programs.seahorse.enable = true; # GUI to inspect/change keyrings
+  # Start gnome keyring via PAM
+  # - for greetd/tuigreet on Hyprland:
+  security.pam.services.greetd.enableGnomeKeyring = true;
+  # - always enable for the generic login service too:
+  security.pam.services.login.enableGnomeKeyring = true;
+  # ----------------
+
   services.greetd = {
     enable = true;
     settings.default_session = {
