@@ -254,6 +254,8 @@
     #   screenkey # shows keypresses on screen
     #   starship
     stow
+    sqlite
+    sqlitestudio
     telegram-desktop
     tldr
     tuxedo-rs
