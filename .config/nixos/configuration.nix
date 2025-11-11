@@ -93,16 +93,15 @@
     source = "${pkgs.gamescope}/bin/gamescope";
   };
 
-#
+  #
   hardware.logitech.wireless.enable = true;
   hardware.logitech.wireless.enableGraphical = true;
 
-# bluetooth
+  # bluetooth
   services.blueman.enable = true;
   hardware.bluetooth.enable = true;
 
   hardware.uinput.enable = true;
-
 
   # services.resolved.enable = true;
   # services.resolved.dnsStubListener = true;
@@ -112,6 +111,7 @@
     MOZ_ENABLE_WAYLAND = "1";
     LIBVA_DRIVER_NAME = "radeonsi";
   };
+
   hardware = {
     graphics = {
       enable = true;
@@ -157,7 +157,7 @@
   environment.systemPackages = with pkgs; [ linuxPackages.kernel.dev ];
 
   services.flatpak.enable = true;
-  
+
   systemd.services.flatpak-repo = {
     wantedBy = [ "multi-user.target" ];
     path = [ pkgs.flatpak ];
