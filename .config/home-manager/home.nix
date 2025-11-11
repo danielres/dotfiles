@@ -180,7 +180,7 @@
     ack
     audacity
     bat
-    bat-extras.core
+    # bat-extras.core
     brave
     cargo
     calibre
