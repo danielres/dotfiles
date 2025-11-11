@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+rclone mount gdrive: ~/gdrive \
+  --cache-dir ~/.cache/rclone \
+  --vfs-cache-mode full \
+  --vfs-cache-max-size 10G \
+  --vfs-cache-max-age 24h \
+  --vfs-read-chunk-size 16M \
+  --vfs-read-chunk-size-limit 512M \
+  --dir-cache-time 96h \
+  --poll-interval 30s \
+  --attr-timeout 10s \
+  --buffer-size 16M \
+  --transfers 8 \
+  --checkers 8 \
+  --tpslimit 8 --tpslimit-burst 16 \
+  --use-mmap \
+  --drive-chunk-size 64M \
+  --fast-list=false \
+  --gid $(id -g) --uid $(id -u) \
+  --umask 022 \
+  --allow-other=false &
+
+# --vfs-cache-mode full: smooth random reads; fewer re-requests.
+# --dir-cache-time: cache directory structure aggressively; Drive listing is the slow part.
+# --vfs-read-chunk-size*: large, adaptive reads reduce HTTP round-trips.
+# --buffer-size, --use-mmap: faster user-space reads.
+# --transfers, --checkers, --tpslimit: keep API within limits but parallelize.
+# --drive-chunk-size: larger upload chunks improve throughput (RAM tradeoff).
+# --fast-list=false: not useful on mount (helps copy/sync, can slow mount).
