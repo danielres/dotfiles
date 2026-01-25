@@ -1,3 +1,5 @@
+{"label": "  wik2",                           "command": "cd /home/daniel/CODE/2024-elixir/2025-11-14-ash-wik-kata2; direnv allow; direnv exec . neovide"}
+{"label": "  nvim-modular",                   "command": "cd /home/daniel/.config/vim-kickstart-modular/; direnv allow; direnv exec . neovide"}
 {"label": "  wik-events",                     "command": "cd /home/daniel/CODE/2024-elixir/2025-10-55-ash-wik-kata-assent; direnv allow; direnv exec . neovide"}
 {"label": "  obsidian main (kitty)",          "command": "cd /home/daniel/Documents/vaults/main; direnv allow; kitty nvim"}
 {"label": "  obsidian main",                  "command": "cd /home/daniel/Documents/vaults/main; direnv allow; direnv exec . neovide"}
@@ -5,6 +7,7 @@
 {"label": "  jsonmenu: jsons",                "command": "cd /home/daniel/dotfiles/.local/bin; direnv allow; direnv exec . neovide jsons"}
 {"label": "  domain-check",                   "command": "firefox -p default --new-window https://github.com/danielres/domain-check-rdap"}
 {"label": "  Hunt-Szymanski diff",            "command": "firefox -p default --new-window https://github.com/danielres/hunt_szymanski_diff"}
+{"label": "  elixir flake with postgres",     "command": "firefox -p default --new-window https://gist.github.com/danielres/a17daaaac2d043cb218969407f27289f"}
 {"label": "  transcribe.sh",                  "command": "firefox -p default --new-window https://gist.github.com/danielres/4fd183ab759ff90914ee7b04b80f3726"}
 {"label": "  elixir pretty errors",           "command": "firefox -p default --new-window https://gist.github.com/danielres/98dac5fcf042ea9984ecf6180e86c352"}
 {"label": "  lazyvim elixir rename_function", "command": "firefox -p default --new-window https://gist.github.com/danielres/c2b6ef51e72b46ecbee57e2683a23bfe"}
