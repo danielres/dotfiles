@@ -17,7 +17,6 @@
     ddcutil
     dconf
     dconf2nix # dconf (gnome) files to nix converter
-    fish
     fd
     # flameshot
     gcc
@@ -46,7 +45,6 @@
     # dive                 # explore docker layers
     # docker-compose       # docker manager
     # drawio               # diagram design
-    # gimp                 # gnu image manipulation program
     # haskell packages
     # haskellPackages.nix-tree # visualize nix dependencies
     # https://github.com/gvolpe/nix-config/blob/6feb7e4f47e74a8e3befd2efb423d9232f522ccd/home/home.nix
@@ -62,7 +60,6 @@
     # ouch                 # painless compression and decompression for your terminal
     # paprefs              # pulseaudio preferences
     # pasystray            # pulseaudio systray
-    # pavucontrol          # pulseaudio volume control
     # pgcli                # modern postgres client
     # playerctl            # music player controller
     # prettyping           # a nicer ping
