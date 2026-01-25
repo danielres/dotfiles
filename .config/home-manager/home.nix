@@ -29,6 +29,8 @@
     "$HOME/.local/bin"
     "$HOME/dotfiles/.local/bin"
   ];
+  programs.bash.enable = true;
+  programs.neovide.enable = true;
 
   programs.neovim = {
     enable = true;
