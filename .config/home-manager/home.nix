@@ -40,7 +40,10 @@
     vimAlias = true;
     withNodeJs = true;
     withPython3 = true;
-    extraLuaPackages = ps: [ ps.magick ];
+    extraLuaPackages = ps: [
+      ps.luarocks
+      ps.magick
+    ];
     extraPackages = [ pkgs.imagemagick pkgs.elixir ];
   };
 
