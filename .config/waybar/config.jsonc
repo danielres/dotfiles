@@ -3,7 +3,7 @@
 
   // ---------
 
-  "modules-left":["custom/weather","hyprland/workspaces"],
+  "modules-left":["custom/weather","hyprland/workspaces", "custom/momento_mori"],
   "modules-center":["clock"],
   "modules-right":["group/custom","group/screens","group/devices","group/power","tray", "custom/notification"],
 
@@ -15,6 +15,12 @@
     "exec": "wttrbar",
     "return-type": "json",
     "on-click": "chromium --ozone-platform=x11 --class=WaybarPopupXL --app='https://weather.com/weather/tenday/l/5ca23443513a0fdc1d37ae2ffaf5586162c6fe592a66acc9320a0d0536be1bb9' --new-window --window-size=950,1100"
+  },
+  "custom/momento_mori": {
+    "exec": "bash ~/.config/waybar/momento_mori.sh",
+    "interval": 3600,
+    "return-type": "json",
+    "tooltip": true
   },
   "group/custom": {
     "orientation": "horizontal",

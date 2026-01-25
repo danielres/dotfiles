@@ -44,11 +44,15 @@ tooltip label {
 #custom-weather,
 #tray,
 #custom-crypto,
+#custom-momento_mori,
 #devices,
 #screens,
 #power,
 #custom-notification {
   padding: 0 10px;
+}
+#custom-momento_mori {
+  color: #666666;
 }
 
 #custom,
