@@ -22,13 +22,6 @@
     };
   };
 
-  # add paths to PATH 
-  home.sessionPath = [
-    #
-    "$HOME/.npm-global/bin"
-    "$HOME/.local/bin"
-    "$HOME/dotfiles/.local/bin"
-  ];
   programs.bash.enable = true;
   programs.neovide.enable = true;
 
@@ -82,23 +75,6 @@
     shellAliases = { };
   };
 
-  programs.bash = {
-    enable = true;
-    # initExtra = ''
-    #   if [ -t 1 ] && [ -z "$IN_FISH_SHELL" ]; then
-    #     export IN_FISH_SHELL=1
-    #     exec ${pkgs.fish}/bin/fish --login
-    #   fi
-    # '';
-  };
-
-  programs.neovide = {
-    enable = true;
-    # settings = {
-    # };
-    # package = pkgs.gitFull;
-  };
-
   programs.git = {
     enable = true;
     package = pkgs.gitFull;
@@ -110,9 +86,6 @@
         name = "Daniel Reszka";
         email = "dannn.r@gmail.com";
       };
-      # core = {
-      #   editor = "nvim";
-      # };
     };
 
     # setup delta for diffs
@@ -131,15 +104,6 @@
       merge = { conflictStyle = "zdiff3"; };
     };
   };
-
-  # # home.pointerCursor = {
-  # #   gtk.enable = true;
-  # #   x11.enable = true;
-  # #   name = "Adwaita";
-  # #   size = 24;
-  # #   package = pkgs.adwaita-icon-theme;
-  # # };
-  #
 
   programs.direnv = {
     enable = true;
@@ -173,7 +137,6 @@
   };
 
   home.packages = with pkgs; [
-    #   (flameshot.override { enableWlrSupport = true; })
     ack
     audacity
     bat
