@@ -1,4 +1,3 @@
-{"label": "wik-events",        "command": "powerprofilesctl set power-saver"}
-{"label": "",     "command": "powerprofilesctl set balanced"}
-{"label": "",  "command": "powerprofilesctl set performance"}
-
+{"label": "󰾆   Saver",        "command": "powerprofilesctl set power-saver"}
+{"label": "󰾅   Balanced",     "command": "powerprofilesctl set balanced"}
+{"label": "󰓅   Performance",  "command": "powerprofilesctl set performance"}
