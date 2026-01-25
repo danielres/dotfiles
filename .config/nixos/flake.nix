@@ -25,6 +25,7 @@
           ./system-packages.nix
           ./configuration.nix
           ./hyprland-greetd.nix
+          ./kde-connect.nix
         ];
       };
     };
@@ -34,8 +35,11 @@
         pkgs = import nixpkgs { system = "x86_64-linux"; };
         # pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = { inherit inputs; };
-        modules =
-          [ ../home-manager/home.nix ../home-manager/home-hyprland.nix ];
+        modules = [
+          ##
+          ../home-manager/home.nix
+          ../home-manager/home-hyprland.nix
+        ];
       };
     };
   };
