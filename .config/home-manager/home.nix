@@ -147,6 +147,7 @@
     celluloid
     chromium
     # darktable
+    devenv
     direnv
     discord
     dissent
@@ -157,8 +158,7 @@
     file-roller
     firefox
     fzf
-
-    #   gh
+    gh
     gimp3-with-plugins
     go
     gthumb
@@ -212,7 +212,6 @@
     # rclone-browser
     # rclone-ui
     ripgrep # fast grep
-
     #   screenkey # shows keypresses on screen
     #   starship
     stow
@@ -237,6 +236,7 @@
     ytmdl
     zathura
     zathuraPkgs.zathura_pdf_mupdf
+    zellij # for nvim sidekick
     zoxide
   ];
 
