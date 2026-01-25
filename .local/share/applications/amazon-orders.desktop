@@ -2,7 +2,7 @@
 [Desktop Entry]
 Type=Application
 Name=Amazon orders (Firefox)
-Exec=firefox --new-window https://www.amazon.de/-/en/gp/css/order-history
+Exec=firefox -p default --new-window https://www.amazon.de/-/en/gp/css/order-history
 Icon=firefox
 Terminal=false
 Categories=Network;LLM;

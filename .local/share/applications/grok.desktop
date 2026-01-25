@@ -2,7 +2,7 @@
 [Desktop Entry]
 Type=Application
 Name=Grok (Firefox)
-Exec=firefox --new-window https://x.com/i/grok
+Exec=firefox -P "default" --new-window https://x.com/i/grok
 Icon=firefox
 Terminal=false
 Categories=Network;LLM;

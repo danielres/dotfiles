@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=SVPManager
+Exec=/home/daniel/.local/bin/video-svp
+Terminal=false
+Type=Application
+Categories=Video;AI;Editing;

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=projectM Music Visualizer
+Comment=Play this game on Steam
+Exec=steam steam://rungameid/1358800
+Icon=steam_icon_1358800
+Terminal=false
+Type=Application
+Categories=Game;

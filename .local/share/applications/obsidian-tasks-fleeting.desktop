@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=TASKS — fleeting
+Comment=Open fleeting tasks in Kitty
+Exec=kitty vi "100 home/Tasks - fleeting.md"
+Path=/home/daniel/Documents/vaults/main
+Icon=neovide
+Terminal=false
+Categories=Utility;TextEditor;
+

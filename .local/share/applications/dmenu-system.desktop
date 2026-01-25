@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=System menu
+Type=Application
+Exec=bash -c '/home/daniel/.local/bin/jsonmenu /home/daniel/.local/bin/jsons/system.jsonl "System"'
+Categories=System;Power;

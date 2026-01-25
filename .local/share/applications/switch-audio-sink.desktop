@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Switch Audio Sink
+Exec=/home/daniel/.local/bin/dmenu-switch-audio-sink
+Type=Application
+Terminal=false
+Categories=Audio;Utility;
+Comment=Select PipeWire audio output

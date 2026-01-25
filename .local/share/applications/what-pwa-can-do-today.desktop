@@ -1,0 +1,27 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Type=Application
+Name=What PWA Can Do Today
+MimeType=image/jpeg;image/png;image/webp;x-scheme-handler/web+pwatoday
+Exec=google-chrome-stable --profile-directory=Default --app-id=gpebmebnchnbemngjdepiddlecnafajc %U
+Icon=chrome-gpebmebnchnbemngjdepiddlecnafajc-Default
+StartupWMClass=crx_gpebmebnchnbemngjdepiddlecnafajc
+Actions=Authentication;Geolocation;Info;Media-Capture
+
+[Desktop Action Authentication]
+Name=Authentication
+Exec=google-chrome-stable --profile-directory=Default --app-id=gpebmebnchnbemngjdepiddlecnafajc --app-launch-url-for-shortcuts-menu-item=https://whatpwacando.today/authentication
+
+[Desktop Action Geolocation]
+Name=Geolocation
+Exec=google-chrome-stable --profile-directory=Default --app-id=gpebmebnchnbemngjdepiddlecnafajc --app-launch-url-for-shortcuts-menu-item=https://whatpwacando.today/geolocation
+
+[Desktop Action Info]
+Name=Info
+Exec=google-chrome-stable --profile-directory=Default --app-id=gpebmebnchnbemngjdepiddlecnafajc --app-launch-url-for-shortcuts-menu-item=https://whatpwacando.today/info
+
+[Desktop Action Media-Capture]
+Name=Media Capture
+Exec=google-chrome-stable --profile-directory=Default --app-id=gpebmebnchnbemngjdepiddlecnafajc --app-launch-url-for-shortcuts-menu-item=https://whatpwacando.today/media

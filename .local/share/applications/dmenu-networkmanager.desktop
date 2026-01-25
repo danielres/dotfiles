@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=dmenu network-manager
+Exec=networkmanager_dmenu
+Terminal=false
+Type=Application
+Categories=dmenu;network-manager;

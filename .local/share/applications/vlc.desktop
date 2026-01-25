@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=VLC
+Exec=vlc
+Terminal=false
+Type=Application
+Categories=Video;

@@ -1,0 +1,10 @@
+
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Type=Application
+Name=The Weather Channel (Berlin)
+Exec=google-chrome-stable --profile-directory=Default --app='https://weather.com/weather/tenday/l/5ca23443513a0fdc1d37ae2ffaf5586162c6fe592a66acc9320a0d0536be1bb9' --new-window --window-size=420,720
+Icon=chrome-hoapclipmeehkajmdapfjpdlhncgpmhg-Default
+StartupWMClass=google-chrome
+

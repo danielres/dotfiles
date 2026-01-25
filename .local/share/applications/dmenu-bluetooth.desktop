@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=dmenu-bluetooth
+Exec=bash -c 'DMENU_BLUETOOTH_LAUNCHER=fuzzel dmenu-bluetooth'
+Terminal=false
+Type=Application
+Categories=dmenu;
