@@ -1,0 +1,24 @@
+return {
+  {
+    "nvim-treesitter/nvim-treesitter",
+    branch = "main",
+    build = ":TSUpdate",
+  },
+  {
+    {
+      "MeanderingProgrammer/treesitter-modules.nvim",
+      dependencies = { "nvim-treesitter/nvim-treesitter" },
+      opts = {
+        incremental_selection = {
+          enable = true,
+          keymaps = {
+            init_selection = "<CR>",
+            node_incremental = "<CR>",
+            -- scope_incremental = "<S-TAB>",
+            node_decremental = "<BACKSPACE>",
+          },
+        },
+      },
+    },
+  },
+}

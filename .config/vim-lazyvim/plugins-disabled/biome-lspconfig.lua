@@ -1,0 +1,70 @@
+-- Make Biome discoverable and register it only for JS/TS/JSON*; Lua uses stylua.
+-- return {
+--   {
+--     "mason-org/mason.nvim",
+--     opts = function(_, opts)
+--       opts = opts or {}
+--       opts.PATH = "append"
+--       return opts
+--     end,
+--     config = function(_, opts)
+--       require("mason").setup(opts)
+--       -- Ensure PATH contains mason/bin at runtime as well
+--       local mason_bin = vim.fn.stdpath("data") .. "/mason/bin"
+--       if not string.find(vim.env.PATH or "", vim.pesc(mason_bin), 1, true) then
+--         vim.env.PATH = (vim.env.PATH and (vim.env.PATH .. ":" .. mason_bin)) or mason_bin
+--       end
+--     end,
+--   },
+--
+--   {
+--     "stevearc/conform.nvim",
+--     opts = function(_, opts)
+--       opts = opts or {}
+--
+--       -- Simple resolver: prefer local node_modules/.bin/biome if present, else PATH "biome".
+--       local function biome_cmd_for_cwd()
+--         local cwd = vim.loop.cwd()
+--         if cwd and cwd ~= "" then
+--           local local_bin = cwd .. "/node_modules/.bin/biome"
+--           if vim.fn.executable(local_bin) == 1 then
+--             return local_bin
+--           end
+--         end
+--         return "biome"
+--       end
+--
+--       opts.formatters = vim.tbl_extend("force", opts.formatters or {}, {
+--         biome = {
+--           command = biome_cmd_for_cwd,
+--           args = { "check", "--apply", "--stdin-file-path", "$FILENAME" },
+--           stdin = true,
+--         },
+--         stylua = opts.formatters and opts.formatters.stylua or {
+--           -- Default Stylua invocation; tweak if you keep a stylua.toml
+--           args = { "-" },
+--           stdin = true,
+--         },
+--       })
+--
+--       -- Biome only for JS/TS/JSON*, Stylua for Lua
+--       opts.formatters_by_ft = vim.tbl_extend("force", {
+--         javascript = { "biome" },
+--         javascriptreact = { "biome" },
+--         typescript = { "biome" },
+--         typescriptreact = { "biome" },
+--         json = { "biome" },
+--         jsonc = { "biome" },
+--         lua = { "stylua" },
+--       }, opts.formatters_by_ft or {})
+--
+--       -- Format on save (keep this; not related to the error)
+--       -- opts.format_on_save = opts.format_on_save or {
+--       --   timeout_ms = 1000,
+--       --   lsp_fallback = true,
+--       -- }
+--
+--       return opts
+--     end,
+--   },
+-- }

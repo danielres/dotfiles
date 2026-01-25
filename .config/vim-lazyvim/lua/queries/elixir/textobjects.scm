@@ -7,7 +7,7 @@
 ;; ========== function movement (@function.outer) ============================
 (call
   target: (identifier) @_kw
-  (#any-of? @_kw "def" "defp" "defmacro" "defmacrop" "defn" "defnp" "defmemo" "test" "describe" "setup")
+  (#any-of? @_kw "def" "defp" "defmacro" "defmacrop" "defn" "defnp" "defmemo" "test" "describe" "setup" "admin" "resources" "sqlite" "json_api" "actions" "attributes" "identities")
 ) @function.outer
 
 ;; ========== module / protocol as class (@class.outer) ======================

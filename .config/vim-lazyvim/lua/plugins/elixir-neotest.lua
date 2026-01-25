@@ -1,0 +1,33 @@
+return {
+  --   "nvim-neotest/neotest",
+  --   optional = true,
+  --   dependencies = {
+  --     "jfpedroza/neotest-elixir",
+  --     "akinsho/toggleterm.nvim",
+  --   },
+  --   opts = {
+  --     adapters = {
+  --       ["neotest-elixir"] = {
+  --         args = { "--trace" },
+  --         strategy = "iex",
+  --       },
+  --     },
+  --   },
+  --
+  --   keys = {
+  --     -- {
+  --     --   "<space>tT",
+  --     --   function()
+  --     --     require("neotest").run.run({ strategy = "iex" })
+  --     --   end,
+  --     --   desc = "Run test with IEx strategy",
+  --     -- },
+  --     {
+  --       "<space>tT",
+  --       function()
+  --         require("neotest").run.run({ vim.fn.expand("%"), strategy = "iex" })
+  --       end,
+  --       desc = "Run current file with IEx strategy",
+  --     },
+  --   },
+}
