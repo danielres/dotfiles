@@ -9,23 +9,17 @@
   home.username = "daniel";
   home.homeDirectory = "/home/daniel";
 
-  # home-manager.users.daniel = {
-  #   dconf = {
-  #     enable = true;
-  #     settings."org/gnome/shell" = {
-  #       disable-user-extensions = false;
-  #       enabled-extensions = with pkgs.gnomeExtensions; [
-  #         blur-my-shell.extensionUuid
-  #         gsconnect.extensionUuid
-  #       ];
-  #     };
-  #   };
-  # };
-
-  home.sessionVariables = {
-    EDITOR = "nvim";
-    NVIM_APPNAME = "vim-lazyvim";
-    # GTK_THEME = "Adwaita:dark";
+  home = {
+    sessionPath = [
+      #
+      "$HOME/.npm-global/bin"
+      "$HOME/.local/bin"
+      "$HOME/dotfiles/.local/bin"
+    ];
+    sessionVariables = {
+      EDITOR = "nvim";
+      NVIM_APPNAME = "vim-kickstart-modular";
+    };
   };
 
   # add paths to PATH 
