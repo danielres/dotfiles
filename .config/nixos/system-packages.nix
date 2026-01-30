@@ -14,6 +14,7 @@
     bash
     bitwarden-desktop
     btop
+    clinfo
     ddcutil
     dconf
     dconf2nix # dconf (gnome) files to nix converter
@@ -22,6 +23,7 @@
     gcc
     home-manager
     git
+    glib.bin
     # gnomeExtensions.VividShade
     # gnomeExtensions.gsconnect
     # gnomeExtensions.sound-output-device-chooser
