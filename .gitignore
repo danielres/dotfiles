@@ -2,3 +2,4 @@
 .local/bin/acli
 .local/bin/loophole
 quickfix-*
+Session.vim
