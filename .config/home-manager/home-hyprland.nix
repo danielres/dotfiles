@@ -6,17 +6,20 @@ let
   nautEnv = pkgs.buildEnv {
     name = "nautilus-env";
 
-    paths = with pkgs; [ nautilus nautilus-python nautilus-open-any-terminal ];
+    paths = with pkgs; [
+      nautilus
+      nautilus-python
+      nautilus-open-any-terminal
+    ];
   };
-in {
-  home.sessionVariables.NAUTILUS_4_EXTENSION_DIR =
-    "${nautEnv}/lib/nautilus/extensions-4";
+in
+{
+  home.sessionVariables.NAUTILUS_4_EXTENSION_DIR = "${nautEnv}/lib/nautilus/extensions-4";
   # home.sessionVariables.PATH = "/home/daniel/.nix-profile/bin:$PATH";
 
   dconf = {
     enable = true;
-    settings."com/github/stunkymonkey/nautilus-open-any-terminal".terminal =
-      "wezterm";
+    settings."com/github/stunkymonkey/nautilus-open-any-terminal".terminal = "wezterm";
   };
 
   home.packages = with pkgs; [
@@ -67,21 +70,30 @@ in {
       name = "Copy color - hex";
       exec = "hyprpicker -a";
       terminal = false;
-      categories = [ "System" "Utility" ];
+      categories = [
+        "System"
+        "Utility"
+      ];
     };
 
     copy_color_rgb = {
       name = "Copy color - rgb";
       exec = "hyprpicker -f rgb -a";
       terminal = false;
-      categories = [ "System" "Utility" ];
+      categories = [
+        "System"
+        "Utility"
+      ];
     };
 
     copy_color_hsl = {
       name = "Copy color - hsl";
       exec = "hyprpicker -f hsl -a";
       terminal = false;
-      categories = [ "System" "Utility" ];
+      categories = [
+        "System"
+        "Utility"
+      ];
     };
   };
 }
