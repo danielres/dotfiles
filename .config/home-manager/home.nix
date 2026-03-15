@@ -173,6 +173,7 @@
     #   fd # "find" for files
     file-roller
     firefox
+    flyctl
     fzf
     gh
     gimp3-with-plugins
@@ -203,7 +204,9 @@
     lazygit
     delta
     kitty
+    librewolf
     loupe
+    lsof
     mpv
     #   mesa-demos
     nautilus-open-any-terminal
