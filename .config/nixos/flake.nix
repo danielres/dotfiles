@@ -7,6 +7,8 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    mangowc.url = "github:mangowm/mango";
+    mangowc.inputs.nixpkgs.follows = "nixpkgs";
     # hyprland.url = "github:hyprwm/Hyprland";
     # hyprland-plugins = {
     #   url = "github:hyprwm/hyprland-plugins";
@@ -18,6 +20,7 @@
     {
       nixpkgs,
       home-manager,
+      mangowc,
       # hyprland,
       ...
     }@inputs:
@@ -27,6 +30,7 @@
           specialArgs = { inherit inputs; };
           system = "x86_64-linux";
           modules = [
+            inputs.mangowc.nixosModules.mango
             ./hardware-configuration.nix
             ./boot.nix
             ./locales.nix
@@ -36,7 +40,8 @@
             ./system-packages.nix
             ./configuration.nix
             # ./hyprland-greetd.nix
-            ./niri-greetd.nix
+            # ./niri-greetd.nix
+            ./mangowc.nix
             ./kde-connect.nix
           ];
         };
@@ -48,10 +53,12 @@
           # pkgs = nixpkgs.legacyPackages.x86_64-linux;
           extraSpecialArgs = { inherit inputs; };
           modules = [
+            inputs.mangowc.hmModules.mango
             ##
             ../home-manager/home.nix
             # ../home-manager/home-hyprland.nix
-            ../home-manager/home-niri.nix
+            # ../home-manager/home-niri.nix
+            ../home-manager/home-mangowc.nix
           ];
         };
       };
