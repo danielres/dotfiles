@@ -186,12 +186,13 @@
 
     fish.enable = true;
 
-    kdeconnect = {
+
+    gamescope = {
       enable = true;
-      package = pkgs.gnomeExtensions.gsconnect;
+      # capSysNice = true;
+      args = [ "-w 800" "-h 600" "-S stretch" "-f" "-e" ];
     };
 
-    gamescope.enable = true; # installs the wrapper
     steam = {
       enable = true;
       gamescopeSession.enable = true; # auto‑wrap every Steam launch
