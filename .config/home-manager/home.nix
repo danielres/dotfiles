@@ -1,8 +1,11 @@
 # home.nix
 
-{ pkgs, inputs, ... }: {
+{ pkgs, inputs, ... }:
+{
   home.stateVersion = "25.05";
-  home.sessionVariables = { GTK_THEME = "Adwaita:dark"; };
+  home.sessionVariables = {
+    GTK_THEME = "Adwaita:dark";
+  };
 
   nixpkgs.config.allowUnfree = true;
 
@@ -37,7 +40,10 @@
       ps.luarocks
       ps.magick
     ];
-    extraPackages = [ pkgs.imagemagick pkgs.elixir ];
+    extraPackages = [
+      pkgs.imagemagick
+      pkgs.elixir
+    ];
   };
 
   programs.fish = {
@@ -82,7 +88,9 @@
     # essentials
     settings = {
       user = {
-        init = { defaultBranch = "main"; };
+        init = {
+          defaultBranch = "main";
+        };
         name = "Daniel Reszka";
         email = "dannn.r@gmail.com";
       };
@@ -91,17 +99,23 @@
     # setup delta for diffs
     settings = {
       include = {
-        # path = "~/.config/delta/themes.gitconfig"; 
+        # path = "~/.config/delta/themes.gitconfig";
         path = "~/.config/delta/catppuccin.gitconfig";
       };
-      core = { pager = "delta"; };
-      interactive = { diffFilter = "delta --color-only"; };
+      core = {
+        pager = "delta";
+      };
+      interactive = {
+        diffFilter = "delta --color-only";
+      };
       delta = {
         navigate = true;
         syntax-theme = "Dracula"; # for dark backgrounds
         features = "villsau";
       };
-      merge = { conflictStyle = "zdiff3"; };
+      merge = {
+        conflictStyle = "zdiff3";
+      };
     };
   };
 
@@ -120,7 +134,9 @@
       git = pkgs.yaziPlugins.git;
     };
     settings = {
-      mgr = { show_hidden = true; };
+      mgr = {
+        show_hidden = true;
+      };
       plugin.prepend_fetchers = [
         {
           id = "git";
