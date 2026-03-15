@@ -203,6 +203,9 @@
     };
   };
 
+  virtualisation.podman.enable = true;
+  virtualisation.podman.dockerCompat = true;
+
   services.gnome = {
     sushi.enable = true; # Sushi, a quick previewer for nautilus
     # evolution-data-server.enable = true;
