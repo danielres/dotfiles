@@ -1,10 +1,14 @@
 # hyprland-greetd.nix
 
-{ pkgs, ... }: {
+{ pkgs, inputs, ... }:
+let
+  hyprPkgs = inputs.hyprland.packages.${pkgs.system};
+in {
   programs.hyprland = {
     enable = true;
+    package = hyprPkgs.hyprland;
     xwayland.enable = true;
-    portalPackage = pkgs.xdg-desktop-portal-hyprland;
+    portalPackage = hyprPkgs.xdg-desktop-portal-hyprland;
   };
 
   programs.hyprlock = { enable = true; };
@@ -36,7 +40,7 @@
     extraPortals = [
       ## 
       pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal-hyprland
+      hyprPkgs.xdg-desktop-portal-hyprland
     ];
 
     config = { hyprland = { default = [ "hyprland" ]; }; };
