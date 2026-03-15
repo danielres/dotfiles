@@ -32,9 +32,9 @@ in {
 
     # All hyprland plugins:
     # https://search.nixos.org/packages?channel=25.05&query=hyprlandPlugins
-    hyprlandPlugins.hyprbars
-    hyprlandPlugins.hyprexpo
-    hyprlandPlugins.hyprspace
+    # hyprlandPlugins.hyprbars
+    # hyprlandPlugins.hyprexpo
+    # hyprlandPlugins.hyprspace
 
     hypridle
     hyprpaper
@@ -59,8 +59,8 @@ in {
     wofi
   ];
 
-  home.file.".config/hypr/plugins/hyprbars.so".source =
-    "${pkgs.hyprlandPlugins.hyprbars}/lib/libhyprbars.so";
+  # home.file.".config/hypr/plugins/hyprbars.so".source =
+  #   "${pkgs.hyprlandPlugins.hyprbars}/lib/libhyprbars.so";
 
   xdg.desktopEntries = {
     copy_color_hex = {

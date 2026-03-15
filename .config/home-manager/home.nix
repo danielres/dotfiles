@@ -192,9 +192,9 @@
     #   mesa-demos
     nautilus-open-any-terminal
     ncdu
-    neofetch
+    fastfetch
     nixd
-    nixfmt-classic
+    nixfmt
     nodejs_latest
     obsidian
     oh-my-fish
@@ -231,7 +231,8 @@
     wl-color-picker
     xnviewmp
     # xsel
-    youtube-music
+    # youtube-music
+    pear-desktop
     yt-dlp
     ytmdl
     zathura
