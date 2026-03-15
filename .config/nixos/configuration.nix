@@ -223,6 +223,13 @@
   services.udev.packages =
     [ pkgs.ddcutil ]; # Install udev rules to access /dev/i2c-* as user
 
+  # services.ollama = {
+  #   enable = true;
+  #   acceleration = "rocm"; # AMD
+  #   host = "127.0.0.1";
+  #   port = 11434;
+  # };
+
   xdg.mime = {
     enable = true; # generate /etc/xdg/mimeapps.list
     defaultApplications = {
