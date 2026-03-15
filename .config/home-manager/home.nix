@@ -214,7 +214,8 @@
     fastfetch
     nixd
     nixfmt
-    nodejs_latest
+    # nodejs_latest
+    nodejs_24
     obsidian
     oh-my-fish
     oklch-color-picker
