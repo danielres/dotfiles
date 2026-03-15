@@ -215,6 +215,7 @@
     gnome-keyring.enable = true;
   };
 
+  # GVFS for Nautilus (network mounts, trash, etc.)
   services.gvfs.enable = true;
 
   # Monitor brightness 
