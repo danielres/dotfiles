@@ -249,6 +249,7 @@
     wev
     wl-clipboard
     wl-color-picker
+    wlr-randr
     xnviewmp
     # xsel
     # youtube-music
