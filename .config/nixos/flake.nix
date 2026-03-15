@@ -28,7 +28,8 @@
           # ./gnome.nix
           ./system-packages.nix
           ./configuration.nix
-          ./hyprland-greetd.nix
+          # ./hyprland-greetd.nix
+          ./niri-greetd.nix
           ./kde-connect.nix
         ];
       };
@@ -42,10 +43,10 @@
         modules = [
           ##
           ../home-manager/home.nix
-          ../home-manager/home-hyprland.nix
+          # ../home-manager/home-hyprland.nix
+          ../home-manager/home-niri.nix
         ];
       };
     };
   };
 }
-
