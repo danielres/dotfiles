@@ -128,6 +128,7 @@
         wayland
         libdecor
         libva-vdpau-driver
+        rocmPackages.clr.icd # AMD OpenCL ICD
         # libvdpau-va-gl
       ];
     };
