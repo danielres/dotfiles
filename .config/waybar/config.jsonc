@@ -3,9 +3,27 @@
 
   // ---------
 
-  "modules-left":["custom/weather","hyprland/workspaces", "custom/momento_mori"],
+  "modules-left":[
+    "custom/weather",
+    "ext/workspaces",
+    // "dwl/window",
+    "hyprland/workspaces",
+    "custom/momento_mori"
+  ],
+
   "modules-center":["clock"],
   "modules-right":["group/custom","group/screens","group/devices","group/power","tray", "custom/notification"],
+
+  "ext/workspaces": {
+    "format": "{icon}",
+    "ignore-hidden": true,
+    "on-click": "activate",
+    "on-click-right": "deactivate",
+    "sort-by-id": true
+  },
+  "dwl/window": {
+    "format": "[{layout}] {title}"
+  },
 
   // ---------
   "custom/weather": {
