@@ -176,6 +176,10 @@
 
   services.flatpak.enable = true;
 
+  services.input-remapper = {
+    enable = true;
+  };
+
   services.keyd = {
     enable = true;
     keyboards = {
