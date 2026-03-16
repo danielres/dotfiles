@@ -207,6 +207,7 @@
     librewolf
     loupe
     lsof
+    lxqt.lxqt-policykit
     mpv
     #   mesa-demos
     nautilus-open-any-terminal
