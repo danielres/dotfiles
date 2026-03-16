@@ -10,24 +10,31 @@
   imports = [ ];
 
   # nix.settings.auto-optimize-store = true;
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   nix.settings.cores = 0;
   nix.settings.max-jobs = "auto";
 
-  nix.settings.substituters =
-    [ "https://nix-community.cachix.org" "https://cache.nixos.org/" ];
+  nix.settings.substituters = [
+    "https://nix-community.cachix.org"
+    "https://cache.nixos.org/"
+  ];
   nix.settings.trusted-public-keys = [
     "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
   ];
 
   # enables devenv to set up binary caches from cachix
-  nix.settings.trusted-users = [ "root" "daniel" ];
+  nix.settings.trusted-users = [
+    "root"
+    "daniel"
+  ];
 
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable =
-    true; # Easiest to use and most distros use this by default.
+  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
   # Set your time zone.
   # time.timeZone = "Europe/Amsterdam";
@@ -45,7 +52,10 @@
   #   useXkbConfig = true; # use xkb.options in tty.
   # };
 
-  fonts.packages = [ pkgs.nerd-fonts._0xproto pkgs.nerd-fonts.droid-sans-mono ];
+  fonts.packages = [
+    pkgs.nerd-fonts._0xproto
+    pkgs.nerd-fonts.droid-sans-mono
+  ];
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
@@ -152,7 +162,11 @@
     isNormalUser = true;
     description = "daniel";
     #shell = pkgs.fish;
-    extraGroups = [ "networkmanager" "wheel" "input" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "input"
+    ];
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -186,22 +200,24 @@
 
     fish.enable = true;
 
-
     gamescope = {
       enable = true;
       # capSysNice = true;
-      args = [ "-w 800" "-h 600" "-S stretch" "-f" "-e" ];
+      args = [
+        "-w 800"
+        "-h 600"
+        "-S stretch"
+        "-f"
+        "-e"
+      ];
     };
 
     steam = {
       enable = true;
       gamescopeSession.enable = true; # auto‑wrap every Steam launch
-      remotePlay.openFirewall =
-        true; # Open ports in the firewall for Steam Remote Play
-      dedicatedServer.openFirewall =
-        true; # Open ports in the firewall for Source Dedicated Server
-      localNetworkGameTransfers.openFirewall =
-        true; # Open ports in the firewall for Steam Local Network Game Transfers
+      remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+      dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+      localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
     };
   };
 
@@ -220,10 +236,9 @@
   # GVFS for Nautilus (network mounts, trash, etc.)
   services.gvfs.enable = true;
 
-  # Monitor brightness 
+  # Monitor brightness
   hardware.i2c.enable = true; # Optional: enable I2C for DDC/CI
-  services.udev.packages =
-    [ pkgs.ddcutil ]; # Install udev rules to access /dev/i2c-* as user
+  services.udev.packages = [ pkgs.ddcutil ]; # Install udev rules to access /dev/i2c-* as user
 
   # services.ollama = {
   #   enable = true;
@@ -258,7 +273,10 @@
   # services.openssh.enable = true;
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 4000 4001 ];
+  networking.firewall.allowedTCPPorts = [
+    4000
+    4001
+  ];
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
