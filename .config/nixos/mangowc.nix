@@ -7,6 +7,8 @@
   security.pam.services.swaylock = { };
 
   programs.seahorse.enable = true;
+  programs.dms-shell.enable = true;
+
   security.pam.services.greetd.enableGnomeKeyring = true;
   security.pam.services.login.enableGnomeKeyring = true;
 
