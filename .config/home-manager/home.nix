@@ -241,6 +241,7 @@
     tldr
     tuxedo-rs
     unzip
+    valent # Kde connect built on gnome
     vectorcode
     veracrypt
     vidcutter
