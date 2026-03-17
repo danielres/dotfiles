@@ -22,6 +22,13 @@ in
     settings."com/github/stunkymonkey/nautilus-open-any-terminal".terminal = "wezterm";
   };
 
+  # wayland.windowManager.hyprland = {
+  #   enable = true;
+  #   plugins = with pkgs; [
+  #     hyprlandPlugins.hyprbars
+  #   ];
+  # };
+
   home.packages = with pkgs; [
     nautEnv
 
