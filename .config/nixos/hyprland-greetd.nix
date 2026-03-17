@@ -12,9 +12,9 @@ in
     portalPackage = hyprPkgs.xdg-desktop-portal-hyprland;
   };
 
-  programs.hyprlock = {
-    enable = true;
-  };
+  # programs.hyprlock = {
+  #   enable = true;
+  # };
 
   # Allow hyprlock to authenticate
   security.pam.services.hyprlock = { };
