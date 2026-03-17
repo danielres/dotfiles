@@ -7,8 +7,8 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    mangowc.url = "github:mangowm/mango";
-    mangowc.inputs.nixpkgs.follows = "nixpkgs";
+    # mangowc.url = "github:mangowm/mango";
+    # mangowc.inputs.nixpkgs.follows = "nixpkgs";
     hyprland.url = "github:hyprwm/Hyprland";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
@@ -37,7 +37,7 @@
     {
       nixpkgs,
       home-manager,
-      mangowc,
+      # mangowc,
       hyprland,
       ...
     }@inputs:
@@ -47,7 +47,7 @@
           specialArgs = { inherit inputs; };
           system = "x86_64-linux";
           modules = [
-            inputs.mangowc.nixosModules.mango
+            # inputs.mangowc.nixosModules.mango
             ./hardware-configuration.nix
             ./boot.nix
             ./locales.nix
@@ -71,7 +71,7 @@
           # pkgs = nixpkgs.legacyPackages.x86_64-linux;
           extraSpecialArgs = { inherit inputs; };
           modules = [
-            inputs.mangowc.hmModules.mango
+            # inputs.mangowc.hmModules.mango
             ##
             ../home-manager/home.nix
             ../home-manager/home-hyprland.nix
