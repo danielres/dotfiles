@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+sqlite3 "file:$HOME/.mozilla/firefox/7dpt8mh4.default/places.sqlite?mode=ro&immutable=1" \
+  "WITH RECURSIVE
+  parents(id, title, path) AS (
+    SELECT id, COALESCE(title, ''), COALESCE(title, '')
+      FROM moz_bookmarks
+     WHERE guid IN ('toolbar_____', 'menu________', 'unfiled_____', 'mobile______')
+    UNION ALL
+    SELECT mb.id,
+           COALESCE(mb.title, ''),
+           CASE
+             WHEN p.path = '' THEN COALESCE(mb.title, '')
+             WHEN mb.title IS NULL OR mb.title = '' THEN p.path
+             ELSE p.path || '/' || mb.title
+           END
+      FROM moz_bookmarks mb
+      JOIN parents p ON mb.parent = p.id
+  )
+SELECT printf('%s | %s', p.path, mp.url)
+  FROM parents p
+  JOIN moz_places mp ON p.id = mp.id
+ WHERE mp.url LIKE 'http%';" |
+  fuzzel --dmenu --width 150 -p '🔖 Bookmarks' |
+  awk -F'|' 'NF>1{print $NF}' |
+  xargs -r xdg-open

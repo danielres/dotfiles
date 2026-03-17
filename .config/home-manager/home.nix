@@ -126,7 +126,7 @@
   };
 
   programs.yazi = {
-    enable = true;
+    enable = false;
     plugins = {
       projects = pkgs.yaziPlugins.projects;
       glow = pkgs.yaziPlugins.glow;

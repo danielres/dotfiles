@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Redout: Enhanced Edition
+Comment=Play this game on Steam
+Exec=steam steam://rungameid/517710
+Icon=steam_icon_517710
+Terminal=false
+Type=Application
+Categories=Game;

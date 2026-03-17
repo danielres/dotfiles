@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+sqlite3 "file:$HOME/.mozilla/firefox/7dpt8mh4.default/places.sqlite?mode=ro&immutable=1" \
+  "WITH roots(guid,label) AS (VALUES
+  ('toolbar_____', 'Toolbar'),
+  ('menu________','Menu'),
+  ('unfiled_____', 'Other'),
+  ('mobile______','Mobile')
+),
+tree(id,label) AS (
+  SELECT mb.id, r.label FROM moz_bookmarks mb JOIN roots r ON mb.guid=r.guid
+  UNION ALL
+  SELECT mb.id, t.label FROM moz_bookmarks mb JOIN tree t ON mb.parent=t.id
+)
+SELECT printf('[%s] %s\t%s', t.label, COALESCE(mb.title, mp.url), mp.url)
+FROM tree t
+JOIN moz_bookmarks mb ON mb.id=t.id
+JOIN moz_places   mp ON mb.fk=mp.id
+WHERE mp.url LIKE 'http%';" |
+  fuzzel --dmenu -p '🔖 Bookmarks' |
+  cut -f2 |
+  xargs -r xdg-open

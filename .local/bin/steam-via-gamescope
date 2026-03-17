@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+# Start Gamescope as a nested Wayland compositor
+# --nested-refresh 60 \
+gamescope \
+  --output-width 1920 \
+  --output-height 1080 \
+  --force-windows-fullscreen \
+  --force-grab-cursor \
+  --grab \
+  -f \
+  &
+
+# Wait a moment for Gamescope to initialize
+sleep 2
+
+# Set environment for the Gamescope session
+export WAYLAND_DISPLAY=gamescope-0 # or whatever socket Gamescope creates
+export DISPLAY=:1                  # Gamescope's X11 display if using X11 mode
+
+# export GDK_SCALE=2
+# export GDK_DPI_SCALE=2
+
+steam
