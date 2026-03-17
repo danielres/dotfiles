@@ -1,6 +1,6 @@
 # home-hyprland.nix
 
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 let
   # https://discourse.nixos.org/t/has-anyone-tried-to-get-nautilus-working-with-hm-incl-plugins-but-keeping-gnome3-settings-out-of-the-system-wide-config-and-using-a-wm/30385/7
   nautEnv = pkgs.buildEnv {
@@ -12,7 +12,6 @@ let
       nautilus-open-any-terminal
     ];
   };
-  hyprPluginPkgs = inputs.hyprland-plugins.packages.${pkgs.system};
 in
 {
   home.sessionVariables.NAUTILUS_4_EXTENSION_DIR = "${nautEnv}/lib/nautilus/extensions-4";
@@ -36,7 +35,7 @@ in
 
     # All hyprland plugins:
     # https://search.nixos.org/packages?channel=25.05&query=hyprlandPlugins
-    # hyprPluginPkgs.hyprbars
+    # hyprlandPlugins.hyprbars
     # hyprlandPlugins.hyprexpo
     # hyprlandPlugins.hyprspace
 
@@ -64,7 +63,7 @@ in
   ];
 
   # home.file.".config/hypr/plugins/hyprbars.so".source =
-  #   "${hyprPluginPkgs.hyprbars}/lib/libhyprbars.so";
+  #   "${pkgs.hyprlandPlugins.hyprbars}/lib/libhyprbars.so";
 
   xdg.desktopEntries = {
     copy_color_hex = {

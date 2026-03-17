@@ -9,11 +9,11 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     # mangowc.url = "github:mangowm/mango";
     # mangowc.inputs.nixpkgs.follows = "nixpkgs";
-    hyprland.url = "github:hyprwm/Hyprland";
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
+    # hyprland.url = "github:hyprwm/Hyprland";
+    # hyprland-plugins = {
+    #   url = "github:hyprwm/hyprland-plugins";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
     quickshell = {
       # add ?ref=<tag> to track a tag
       url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
@@ -38,7 +38,7 @@
       nixpkgs,
       home-manager,
       # mangowc,
-      hyprland,
+      # hyprland,
       ...
     }@inputs:
     {
