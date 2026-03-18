@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+target_desk="${1:?missing target desk}"
+
+n="$(hyprctl -j monitors | jq 'length')"
+ws="$(hyprctl -j activewindow | jq '.workspace.id')"
+
+pos=$(( (ws - 1) % n + 1 ))
+target=$(( (target_desk - 1) * n + pos ))
+
+hyprctl dispatch movetoworkspacesilent "$target"

@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# switch-to-desk
+
+set -euo pipefail
+
+target_desk="${1:?missing target desk}"
+
+n=$(hyprctl -j monitors | jq length)
+offset=$(( n * (target_desk - 1) ))
+
+for ((i=1; i<=n; i++)); do
+  hyprctl dispatch workspace $((i + offset))
+done
