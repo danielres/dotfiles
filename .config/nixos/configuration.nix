@@ -238,6 +238,9 @@
   # GVFS for Nautilus (network mounts, trash, etc.)
   services.gvfs.enable = true;
 
+  # Needed by noctalia for battery status
+  services.upower.enable = true;
+
   # Monitor brightness
   hardware.i2c.enable = true; # Optional: enable I2C for DDC/CI
   services.udev.packages = [ pkgs.ddcutil ]; # Install udev rules to access /dev/i2c-* as user
