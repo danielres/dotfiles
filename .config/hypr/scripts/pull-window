@@ -4,7 +4,9 @@ current_ws=$(hyprctl activeworkspace -j | jq -r '.id')
 # pkill fuzzel
 
 hyprctl clients -j |
-  sed "s/special:minimized/_/g" |
+  sed "s/special:minimized//g" |
+  sed "s/special:obsidian/󰮊/g" |
+  sed "s/special:music//g" |
   sed "s/WaybarPopup/(floating)/g" |
   jq -r --arg ws "$current_ws" '
       sort_by(.workspace.id)[] |
