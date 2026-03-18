@@ -168,6 +168,7 @@
     discord
     dissent
     easyeffects
+    evtest
     #   duf # disk usage/free utility
     #   eza # a better `ls`
     #   fd # "find" for files
