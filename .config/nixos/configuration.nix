@@ -178,24 +178,6 @@
 
   services.flatpak.enable = true;
 
-  services.input-remapper = {
-    enable = true;
-  };
-
-  services.keyd = {
-    enable = true;
-    keyboards = {
-      logitechMouse = {
-        ids = [ "m:046d:406a" ];
-        settings = {
-          main = {
-            back = "leftmeta";
-          };
-        };
-      };
-    };
-  };
-
   systemd.services.flatpak-repo = {
     wantedBy = [ "multi-user.target" ];
     path = [ pkgs.flatpak ];
