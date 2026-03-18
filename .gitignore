@@ -3,3 +3,4 @@
 .local/bin/loophole
 quickfix-*
 Session.vim
+/.config/noctalia/plugins
