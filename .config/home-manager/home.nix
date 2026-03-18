@@ -182,14 +182,14 @@
     gthumb
     #   glow # terminal markdown viewer
     gnome-control-center
-    gnomeExtensions.bitcoin-markets
-    gnomeExtensions.bluetooth-quick-connect
-    gnomeExtensions.blur-my-shell
-    gnomeExtensions.caffeine
-    gnomeExtensions.clipboard-history
-    gnomeExtensions.color-picker
-    gnomeExtensions.control-monitor-brightness-and-volume-with-ddcutil
-    gnomeExtensions.dash-to-dock
+    # gnomeExtensions.bitcoin-markets
+    # gnomeExtensions.bluetooth-quick-connect
+    # gnomeExtensions.blur-my-shell
+    # gnomeExtensions.caffeine
+    # gnomeExtensions.clipboard-history
+    # gnomeExtensions.color-picker
+    # gnomeExtensions.control-monitor-brightness-and-volume-with-ddcutil
+    # gnomeExtensions.dash-to-dock
     #   gnomeExtensions.emoji-copy
     #   gnomeExtensions.extension-list
     gnomeExtensions.memento-mori
@@ -263,6 +263,7 @@
     zathuraPkgs.zathura_pdf_mupdf
     zellij # for nvim sidekick
     zoxide
+    # zrythm
   ];
 
 }
