@@ -136,8 +136,8 @@
                     "showApplications": true,
                     "showApplicationsHover": false,
                     "showBadge": true,
-                    "showLabelsOnlyWhenOccupied": true,
                     "unfocusedIconsOpacity": 0.61
+                    "showLabelsOnlyWhenOccupied": false,
                 },
                 {
                     "clockColor": "none",
