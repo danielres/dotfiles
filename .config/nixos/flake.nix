@@ -14,11 +14,12 @@
     #   url = "github:hyprwm/hyprland-plugins";
     #   inputs.hyprland.follows = "hyprland";
     # };
+
+    # needed for DMS
     quickshell = {
       # add ?ref=<tag> to track a tag
       url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
-      # THIS IS IMPORTANT
-      # Mismatched system dependencies will lead to crashes and other issues.
+      # THIS IS IMPORTANT - Mismatched system dependencies will lead to crashes and other issues.
       inputs.nixpkgs.follows = "nixpkgs";
     };
     noctalia = {
