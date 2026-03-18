@@ -214,6 +214,7 @@
     nautilus-open-any-terminal
     ncdu
     fastfetch
+    makima
     nixd
     nixfmt
     # nodejs_latest
