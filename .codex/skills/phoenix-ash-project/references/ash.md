@@ -22,7 +22,7 @@
 4. A helper returns updated data in memory, but nothing persists it.
 5. Validation errors are hidden by `{:ok, value} = ...` matches that crash first.
 
-## Preferred Approach In This Repo
+## Preferred Approach
 
 1. Compare the failing code with a known-good AshPhoenix form flow already present in the project, if one exists.
 2. When debugging create or update actions:

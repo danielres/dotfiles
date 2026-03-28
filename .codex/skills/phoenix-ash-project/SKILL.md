@@ -1,6 +1,6 @@
 ---
 name: phoenix-ash-project
-description: Use when working in Phoenix LiveView plus Ash projects that should optimize for navigability, progressive disclosure, strong naming, small API surfaces, and clear responsibility boundaries. Follow the local project instructions first, then use this skill for architectural decisions, naming consistency, Ash actions and code interfaces, AshPhoenix forms, multitenant behavior, modal and focus issues, and maintainable LiveView structure.
+description: Use when working in Phoenix LiveView plus Ash projects that should optimize for navigability, progressive disclosure, strong naming, small API surfaces, and clear responsibility boundaries. Follow the local project instructions first, then use this skill for architectural decisions, naming consistency, Ash actions and code interfaces, AshPhoenix forms, multitenant behavior, Igniter-assisted refactors, modal and focus issues, and maintainable LiveView structure.
 ---
 
 # Phoenix Ash Project
@@ -45,12 +45,13 @@ description: Use when working in Phoenix LiveView plus Ash projects that should 
    1.3. `AshPhoenix.Form`
 2. Verify exact argument shape before diagnosing validation failures.
 3. For tenant-aware resources, confirm the write path receives tenant and actor through the expected API.
-4. Prefer `scope: scope` when that is the established pattern in this repo.
+4. Prefer `scope: scope` when that is the established pattern in the project.
 5. Do not assume a helper persists data unless it clearly writes through an Ash action.
 
 ## How To Route Yourself
 
-1. Read `references/style.md` for architecture, naming, splitting rules, symmetry, and general examples.
+1. Read `references/style.md` for architecture, naming, splitting rules, symmetry, readability conventions, and general examples.
 2. Read `references/ash.md` for code interfaces, forms, actor and tenant flow, multitenancy checks, and Ash-specific examples.
 3. Read `references/liveview.md` for lifecycle, hooks, rendering boundaries, extraction rules, and LiveView-specific examples.
-4. Distinguish intentional structure from rough or transitional code before inferring conventions.
+4. Read `references/igniter.md` when installing deps, upgrading deps, renaming functions, or planning refactors that Igniter can partially automate.
+5. Distinguish intentional structure from rough or transitional code before inferring conventions.

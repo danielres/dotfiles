@@ -16,7 +16,7 @@ Session.vim
 !.codex/rules/
 .codex/rules/**
 !.codex/rules/AGENTS.md
-!.codex/rules/skills/
-.codex/rules/skills/**
-!.codex/rules/skills/[!.]*/
-!.codex/rules/skills/[!.]*/**
+!.codex/skills/
+.codex/skills/**
+!.codex/skills/[!.]*/
+!.codex/skills/[!.]*/**
