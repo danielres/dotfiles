@@ -3,4 +3,8 @@
 .local/bin/loophole
 quickfix-*
 Session.vim
-/.config/noctalia/plugins
+
+# noctalia plugins: only track settings, ignore all else
+.config/noctalia/plugins/**/*
+!.config/noctalia/plugins/**/
+!.config/noctalia/plugins/**/settings.json
