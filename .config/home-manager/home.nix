@@ -225,6 +225,7 @@
     # openshot-qt
     pavucontrol
     powertop
+    pyprland
     python3
     qdirstat
     rclone
