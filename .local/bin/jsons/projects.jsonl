@@ -1,3 +1,4 @@
+{"label": "  kata quickblog",                 "command": "cd /home/daniel/CODE/2024-elixir/2026-03-12-ash-quickblog-kata; direnv allow; direnv exec . neovide"}
 {"label": "  wik2",                           "command": "cd /home/daniel/CODE/2024-elixir/2025-11-14-ash-wik-kata2; direnv allow; direnv exec . neovide"}
 {"label": "  nvim-modular",                   "command": "cd /home/daniel/.config/vim-kickstart-modular/; direnv allow; direnv exec . neovide"}
 {"label": "  wik-events",                     "command": "cd /home/daniel/CODE/2024-elixir/2025-10-55-ash-wik-kata-assent; direnv allow; direnv exec . neovide"}
