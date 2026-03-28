@@ -1,0 +1,28 @@
+{
+  "mainIcon": "layout-grid-filled",
+  "expandDirection": "left",
+  "primaryShowPill": false,
+  "primarySymbolColor": "none",
+  "primaryPillColor": "none",
+  "primarySize": 1,
+  "secondaryShowPill": true,
+  "secondarySymbolColor": "none",
+  "secondaryPillColor": "primary",
+  "secondarySize": 0.9,
+  "borderRadius": 1,
+  "focusBorderColor": "primary",
+  "workspaces": [
+    {
+      "name": "minimized",
+      "icon": "chevron-down"
+    },
+    {
+      "name": "obsidian",
+      "icon": "diamond-filled"
+    },
+    {
+      "name": "music",
+      "icon": "music"
+    }
+  ]
+}
