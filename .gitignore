@@ -8,3 +8,13 @@ Session.vim
 .config/noctalia/plugins/**/*
 !.config/noctalia/plugins/**/
 !.config/noctalia/plugins/**/settings.json
+
+# codex: only track rules/AGENTS.md and non-hidden folders in rules/skills
+.codex/**
+!.codex/rules/
+.codex/rules/**
+!.codex/rules/AGENTS.md
+!.codex/rules/skills/
+.codex/rules/skills/**
+!.codex/rules/skills/[!.]*/
+!.codex/rules/skills/[!.]*/**
