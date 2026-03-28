@@ -5,6 +5,8 @@ quickfix-*
 Session.vim
 
 # noctalia plugins: only track settings, ignore all else
+.config/noctalia/**
+!.config/noctalia/plugins/
 .config/noctalia/plugins/**/*
 !.config/noctalia/plugins/**/
 !.config/noctalia/plugins/**/settings.json
