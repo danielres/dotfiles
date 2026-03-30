@@ -39,7 +39,11 @@ config.enable_wayland = false
 config.default_prog = { "fish", "-l" }
 
 -- ----- Keymaps -----
+local act = wezterm.action
+
 config.keys = {
+	{ key = "PageUp", mods = "SHIFT", action = act.ScrollByPage(-0.35) },
+	{ key = "PageDown", mods = "SHIFT", action = act.ScrollByPage(0.35) },
 	-- disable default ctrl+shift+x for copy mode (conflicks with nvim dial -10 increments)
 	{ key = "X", mods = "CTRL|SHIFT", action = "DisableDefaultAssignment" },
 
