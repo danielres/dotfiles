@@ -4,8 +4,10 @@
 quickfix-*
 Session.vim
 
-# noctalia plugins: only track settings, ignore all else
+# noctalia & plugins: only track settings, ignore all else
 .config/noctalia/**
+!.config/noctalia/custom/
+!.config/noctalia/custom/**
 !.config/noctalia/plugins/
 .config/noctalia/plugins/**/*
 !.config/noctalia/plugins/**/
@@ -20,3 +22,4 @@ Session.vim
 .codex/skills/**
 !.codex/skills/[!.]*/
 !.codex/skills/[!.]*/**
+/.config/noctalia/custom/rates.sh
