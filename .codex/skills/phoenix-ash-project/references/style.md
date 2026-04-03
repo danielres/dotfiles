@@ -6,6 +6,7 @@
 2. Minimize cognitive load for future readers.
 3. Make the codebase easy to navigate, not just locally readable.
 4. Store truth, derive the rest.
+5. Default to directness; abstraction must justify itself.
 
 ## Progressive Disclosure
 
@@ -19,7 +20,12 @@
 1. Prefer code that orchestrates the big picture in one place.
 2. Move detailed logic into smaller doer modules.
 3. Keep one abstraction level per file where practical.
-4. Do not let orchestration files drown in implementation detail.
+4. Prefer one clear orchestration point over several thin wrappers that distribute the same flow.
+5. Prefer data-oriented helper signatures over passing framework objects, unless the helper is framework-specific.
+6. Do not let orchestration files drown in implementation detail.
+7. Keep each layer focused on its actual responsibility.
+8. Reuse logic from the most specific existing owner instead of rebuilding it locally.
+9. Keep helpers local only when they are truly local and would not clarify another module.
 
 ## Local Readability
 
@@ -33,15 +39,17 @@
 2. Favor left-to-right progression over nested call shapes when the pipeline stays readable.
 3. Use pipelines to make value transformation explicit, not just to force every call into pipe form.
 4. Prefer the style that makes the data movement easiest to follow.
+5. When in doubt, prefer deleting a layer over adding one.
 
 ## Splitting Rules
 
-1. Extract early when it clearly improves readability.
+1. Extract when it clearly improves readability.
 2. Extract only for real boundaries.
 3. Do not extract one-use helpers that only move code around or rename obvious code.
-4. Do not split so aggressively that navigation moves from inside files to the filesystem.
-5. A `Helpers` module can hold multiple helpers for one local concern.
-6. Split a helper family only once a stronger boundary becomes meaningful.
+4. Do not generalize for hypothetical future needs unless there is already real pressure.
+5. Do not split so aggressively that navigation moves from inside files to the filesystem.
+6. A `Helpers` module can hold multiple helpers for one local concern.
+7. Split a helper family only once a stronger boundary becomes meaningful.
 
 ## Naming And Symmetry
 
@@ -67,8 +75,18 @@
 
 1. Store primary facts and derive secondary UI states from them when practical.
 2. Avoid parallel tagged state when concrete assigns already express the truth.
-3. Keep UI and logic local to the state where they are valid.
-4. Avoid globally rendered structures that require compensating event logic elsewhere.
+3. Avoid re-deriving the same truth in multiple places when one clear source is already available.
+4. Keep UI and logic local to the state where they are valid.
+5. Avoid globally rendered structures that require compensating event logic elsewhere.
+
+## Common Failure Modes
+
+1. Do not introduce proxy state when concrete data already expresses the truth.
+2. Do not add one-use helpers that only move obvious code around.
+3. Do not spread one flow across several thin orchestration wrappers.
+4. Do not globally render UI that is only valid in one state.
+5. Do not re-derive the same source of truth in multiple places.
+6. Do not generalize for hypothetical reuse before real pressure exists.
 
 ## HEEx Class Style
 
@@ -92,24 +110,39 @@
 
 ## General Examples
 
-1. Object-first naming:
-   1.1. `FormAddChild`
-   1.2. `FlowMoveNode`
-2. Parallel operation naming across layers:
-   2.1. `Changes.AddChild`
-   2.2. `TreeOps.AddChild`
-3. Local readability via rebinding:
-   3.1. `scope = socket.assigns.current_scope`
-   3.2. `page_tree = socket.assigns.page_tree`
-4. Left-to-right flow:
-   4.1. `node |> Wiki.create_page_for_node(scope: scope)`
-   4.2. `page |> Ash.load([:author], scope: scope)`
-5. HEEx class grouping:
-   5.1. `class={["absolute right-2 top-2", "size-4 text-xs", "cursor-pointer", "opacity-50 hover:opacity-100 transition"]}`
-6. Stable ordering:
-   6.1. alphabetized `alias` blocks
-   6.2. alphabetized `attr` declarations
-   6.3. alphabetized component attributes when no stronger grouping exists
+1. Truth over proxy state:
+   1.1. prefer matching on concrete data when it already expresses the state
+   1.2. avoid parallel tagged state that duplicates those facts
+2. Real boundary extraction:
+   2.1. prefer inline code until a helper hides real complexity or names a real responsibility
+   2.2. avoid one-use helpers that only move obvious code around
+3. Directness over ceremony:
+   3.1. prefer the simpler direct version until an abstraction clearly earns its keep
+   3.2. avoid designing for hypothetical flexibility before real pressure exists
+4. Responsibility boundaries:
+   4.1. keep orchestration in the current layer, but reuse specialized logic from the most specific existing owner
+   4.2. keep helpers local only when they are truly local to that file or feature
+5. Single orchestrator over layered orchestration:
+   5.1. prefer one clear orchestrator that sequences the flow in one place
+   5.2. avoid several thin wrappers that each forward part of the same flow
+6. Object-first naming:
+   6.1. `FormAddChild`
+   6.2. `FlowMoveNode`
+7. Parallel operation naming across layers:
+   7.1. `Changes.AddChild`
+   7.2. `TreeOps.AddChild`
+8. Local readability via rebinding:
+   8.1. `scope = socket.assigns.current_scope`
+   8.2. `page_tree = socket.assigns.page_tree`
+9. Left-to-right flow:
+   9.1. `node |> Wiki.create_page_for_node(scope: scope)`
+   9.2. `page |> Ash.load([:author], scope: scope)`
+10. HEEx class grouping:
+   10.1. `class={["absolute right-2 top-2", "size-4 text-xs", "cursor-pointer", "opacity-50 hover:opacity-100 transition"]}`
+11. Stable ordering:
+   11.1. alphabetized `alias` blocks
+   11.2. alphabetized `attr` declarations
+   11.3. alphabetized component attributes when no stronger grouping exists
 
 ## Working Rules
 
