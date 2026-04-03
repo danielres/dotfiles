@@ -5,6 +5,7 @@
 1. Optimize for ease of maintenance over time.
 2. Minimize cognitive load for future readers.
 3. Make the codebase easy to navigate, not just locally readable.
+4. Store truth, derive the rest.
 
 ## Progressive Disclosure
 
@@ -36,9 +37,11 @@
 ## Splitting Rules
 
 1. Extract early when it clearly improves readability.
-2. Do not split so aggressively that navigation moves from inside files to the filesystem.
-3. A `Helpers` module can hold multiple helpers for one local concern.
-4. Split a helper family only once a stronger boundary becomes meaningful.
+2. Extract only for real boundaries.
+3. Do not extract one-use helpers that only move code around or rename obvious code.
+4. Do not split so aggressively that navigation moves from inside files to the filesystem.
+5. A `Helpers` module can hold multiple helpers for one local concern.
+6. Split a helper family only once a stronger boundary becomes meaningful.
 
 ## Naming And Symmetry
 
@@ -46,8 +49,10 @@
 2. Keep operation names stable across parallel layers when the conceptual action is the same.
 3. Let namespaces communicate responsibility boundaries.
 4. Keep module names as direct reflections of file paths by default.
-5. Favor consistency across related APIs even when not strictly required by implementation.
-6. Allow small amounts of redundancy when they improve symmetry and predictability.
+5. Name helpers after their real contract: what they return or what they mutate.
+6. Favor consistency across related APIs even when not strictly required by implementation.
+7. Allow small amounts of redundancy when they improve symmetry and predictability.
+8. In codebases that use the convention, prefer `get_*` for result tuples and `load_*` for nil/empty fallback APIs.
 
 ## Stable Ordering
 
@@ -57,6 +62,13 @@
    2.2. `attr` definitions
    2.3. HEEx component attributes
 3. Use a different order only when a stronger semantic grouping clearly improves readability.
+
+## State And Locality
+
+1. Store primary facts and derive secondary UI states from them when practical.
+2. Avoid parallel tagged state when concrete assigns already express the truth.
+3. Keep UI and logic local to the state where they are valid.
+4. Avoid globally rendered structures that require compensating event logic elsewhere.
 
 ## HEEx Class Style
 
