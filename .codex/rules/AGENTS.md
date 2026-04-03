@@ -79,3 +79,12 @@ Note: Adapt to the project’s framework conventions (e.g., Phoenix LiveView, Ta
 10) Investigation Initiative
 
 - You may proactively inspect project structure and file contents to answer questions without asking for clarification when the answer is discoverable.
+
+
+11) Default Coding Bias
+
+- Store truth, derive the rest.
+- Extract only for real boundaries.
+- Keep code local to where it is valid.
+- Prefer direct, honest code over ceremony.
+- When in doubt, prefer deleting a layer over adding one.
