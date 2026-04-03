@@ -26,6 +26,13 @@
 2. Prefer short local names like `scope` or `page_tree` when they remove repeated long access paths such as `socket.assigns.current_scope`.
 3. Use this to clarify the main flow, not merely to save keystrokes.
 
+## Left-To-Right Flow
+
+1. Prefer subject-on-the-left code when it makes the flow easier to scan.
+2. Favor left-to-right progression over nested call shapes when the pipeline stays readable.
+3. Use pipelines to make value transformation explicit, not just to force every call into pipe form.
+4. Prefer the style that makes the data movement easiest to follow.
+
 ## Splitting Rules
 
 1. Extract early when it clearly improves readability.
@@ -82,12 +89,15 @@
 3. Local readability via rebinding:
    3.1. `scope = socket.assigns.current_scope`
    3.2. `page_tree = socket.assigns.page_tree`
-4. HEEx class grouping:
-   4.1. `class={["absolute right-2 top-2", "size-4 text-xs", "cursor-pointer", "opacity-50 hover:opacity-100 transition"]}`
-5. Stable ordering:
-   5.1. alphabetized `alias` blocks
-   5.2. alphabetized `attr` declarations
-   5.3. alphabetized component attributes when no stronger grouping exists
+4. Left-to-right flow:
+   4.1. `node |> Wiki.create_page_for_node(scope: scope)`
+   4.2. `page |> Ash.load([:author], scope: scope)`
+5. HEEx class grouping:
+   5.1. `class={["absolute right-2 top-2", "size-4 text-xs", "cursor-pointer", "opacity-50 hover:opacity-100 transition"]}`
+6. Stable ordering:
+   6.1. alphabetized `alias` blocks
+   6.2. alphabetized `attr` declarations
+   6.3. alphabetized component attributes when no stronger grouping exists
 
 ## Working Rules
 
