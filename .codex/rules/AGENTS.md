@@ -32,6 +32,8 @@
 2. Clarity & Self-Documentation
 
 - Prefer explicit names, clear data shapes, and straightforward flow so code reads itself.
+- Store truth, derive the rest.
+- Prefer direct, honest code over ceremony.
 - Functions are either doers (focused tasks) or orchestrators (high-level sequencing of doers); keep this
   layering balanced, not over-nested.
 - Comment intent only when non-obvious; avoid noise.
@@ -39,6 +41,8 @@
 3. Separation of Concerns
 
 - Small, focused modules; avoid bloated files and hidden barrels.
+- Extract only for real boundaries.
+- Keep code local to where it is valid.
 - Keep imports/exports explicit; minimal public surface.
 
 4. Correctness via Constraints
@@ -54,6 +58,7 @@
 6. Maintainability
 
 - Predictable, flat-ish layout; clear helper extraction when code grows.
+- When in doubt, prefer deleting a layer over adding one.
 - Avoid unnecessary abstractions or cleverness; keep code easy to follow.
 
 7. Transparency & Hygiene
@@ -80,11 +85,3 @@ Note: Adapt to the project’s framework conventions (e.g., Phoenix LiveView, Ta
 
 - You may proactively inspect project structure and file contents to answer questions without asking for clarification when the answer is discoverable.
 
-
-11) Default Coding Bias
-
-- Store truth, derive the rest.
-- Extract only for real boundaries.
-- Keep code local to where it is valid.
-- Prefer direct, honest code over ceremony.
-- When in doubt, prefer deleting a layer over adding one.
