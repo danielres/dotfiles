@@ -61,6 +61,7 @@
 6. Favor consistency across related APIs even when not strictly required by implementation.
 7. Allow small amounts of redundancy when they improve symmetry and predictability.
 8. In codebases that use the convention, prefer `get_*` for result tuples and `load_*` for nil/empty fallback APIs.
+9. Prefer aliasing stable namespaces over one-off renamed leaf modules when that keeps responsibility clearer, for example alias `Qblog.Wiki.PageTree.TreeOps` and call `TreeOps.RemoveNode.call(...)` instead of aliasing `...RemoveNode` as a special local name.
 
 ## Stable Ordering
 
