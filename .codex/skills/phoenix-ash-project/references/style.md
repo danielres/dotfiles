@@ -77,8 +77,10 @@
 1. Store primary facts and derive secondary UI states from them when practical.
 2. Avoid parallel tagged state when concrete assigns already express the truth.
 3. Avoid re-deriving the same truth in multiple places when one clear source is already available.
-4. Keep UI and logic local to the state where they are valid.
-5. Avoid globally rendered structures that require compensating event logic elsewhere.
+4. In code and data structures we own, decide the expected shape and code directly to it.
+5. Do not add defensive branches for alternate internal shapes unless those shapes are genuinely intended to be supported.
+6. Keep UI and logic local to the state where they are valid.
+7. Avoid globally rendered structures that require compensating event logic elsewhere.
 
 ## Common Failure Modes
 
@@ -87,7 +89,8 @@
 3. Do not spread one flow across several thin orchestration wrappers.
 4. Do not globally render UI that is only valid in one state.
 5. Do not re-derive the same source of truth in multiple places.
-6. Do not generalize for hypothetical reuse before real pressure exists.
+6. Do not add defensive branches for alternate shapes in code and data structures we own unless we truly intend to support them.
+7. Do not generalize for hypothetical reuse before real pressure exists.
 
 ## HEEx Class Style
 
