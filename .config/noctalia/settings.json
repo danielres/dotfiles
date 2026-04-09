@@ -48,7 +48,7 @@
         "contentPadding": 0,
         "density": "default",
         "displayMode": "always_visible",
-        "enableExclusionZoneInset": true,
+        "enableExclusionZoneInset": false,
         "floating": false,
         "fontScale": 1.3,
         "frameRadius": 12,
@@ -142,6 +142,11 @@
                     "textColor": "none"
                 },
                 {
+                    "iconColor": "none",
+                    "id": "KeepAwake",
+                    "textColor": "none"
+                },
+                {
                     "displayMode": "onhover",
                     "iconColor": "none",
                     "id": "Volume",
@@ -149,9 +154,15 @@
                     "textColor": "none"
                 },
                 {
+                    "displayMode": "onhover",
                     "iconColor": "none",
-                    "id": "KeepAwake",
+                    "id": "Bluetooth",
                     "textColor": "none"
+                },
+                {
+                    "defaultSettings": {
+                    },
+                    "id": "plugin:kde-connect"
                 }
             ],
             "left": [
@@ -247,7 +258,7 @@
                     "hideMode": "hidden",
                     "hideWhenIdle": false,
                     "id": "MediaMini",
-                    "maxWidth": 300,
+                    "maxWidth": 150,
                     "panelShowAlbumArt": true,
                     "scrollingMode": "hover",
                     "showAlbumArt": true,
@@ -290,11 +301,6 @@
                 {
                     "id": "Spacer",
                     "width": 20
-                },
-                {
-                    "defaultSettings": {
-                    },
-                    "id": "plugin:kde-connect"
                 },
                 {
                     "blacklist": [
