@@ -67,6 +67,7 @@ in
     wl-clipboard
     wlogout
     wofi
+    wtype # needed by voice-dictate
   ];
 
   # home.file.".config/hypr/plugins/hyprbars.so".source =
