@@ -47,6 +47,7 @@ description: Use when working in Phoenix LiveView plus Ash projects that should 
 3. For tenant-aware resources, confirm the write path receives tenant and actor through the expected API.
 4. Prefer `scope: scope` when that is the established pattern in the project.
 5. Do not assume a helper persists data unless it clearly writes through an Ash action.
+6. Do not hand-write migrations for Ash-managed resource changes. Ash migrations are auto-generated from the resource DSL, so update the resource first, then generate and review the migration and snapshot files.
 
 ## How To Route Yourself
 
