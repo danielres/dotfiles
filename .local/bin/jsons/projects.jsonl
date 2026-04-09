@@ -1,9 +1,13 @@
 {"label": "  kata quickblog",                 "command": "cd /home/daniel/CODE/2024-elixir/2026-03-12-ash-quickblog-kata; direnv allow; direnv exec . neovide"}
+{"label": "  offers",                         "command": "cd /home/daniel/CODE/2026-02-18-offers; direnv allow; direnv exec . neovide"}
 {"label": "  wik2",                           "command": "cd /home/daniel/CODE/2024-elixir/2025-11-14-ash-wik-kata2; direnv allow; direnv exec . neovide"}
 {"label": "  nvim-modular",                   "command": "cd /home/daniel/.config/vim-kickstart-modular/; direnv allow; direnv exec . neovide"}
 {"label": "  wik-events",                     "command": "cd /home/daniel/CODE/2024-elixir/2025-10-55-ash-wik-kata-assent; direnv allow; direnv exec . neovide"}
 {"label": "  obsidian main (kitty)",          "command": "cd /home/daniel/Documents/vaults/main; direnv allow; kitty nvim"}
 {"label": "  obsidian main",                  "command": "cd /home/daniel/Documents/vaults/main; direnv allow; direnv exec . neovide"}
+{"label": "  yt-transcript-fetcher 2024",     "command": "cd /home/daniel/CODE/2024-youtube-transcript-fetcher; direnv allow; direnv exec . neovide"}
+{"label": "  digital garden 2023",            "command": "cd /home/daniel/CODE/TESTS/2023-10-04-digital-garden/digital-garden; direnv allow; direnv exec . neovide"}
+{"label": "  skillsync 'steady' 2023",        "command": "cd /home/daniel/CODE/2023-skillsync/skillsync; direnv allow; direnv exec . neovide"}
 {"label": "  dotfiles",                       "command": "cd /home/daniel/dotfiles; direnv allow; direnv exec . neovide"}
 {"label": "  jsonmenu: jsons",                "command": "cd /home/daniel/dotfiles/.local/bin; direnv allow; direnv exec . neovide jsons"}
 {"label": "  domain-check",                   "command": "firefox -p default --new-window https://github.com/danielres/domain-check-rdap"}
