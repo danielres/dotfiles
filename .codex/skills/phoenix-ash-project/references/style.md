@@ -25,7 +25,9 @@
 6. Do not let orchestration files drown in implementation detail.
 7. Keep each layer focused on its actual responsibility.
 8. Reuse logic from the most specific existing owner instead of rebuilding it locally.
-9. Keep helpers local only when they are truly local and would not clarify another module.
+9. Reuse basic lookups and operations from the real owner instead of recreating them in a higher layer.
+10. Keep helpers local only when they are truly local and would not clarify another module.
+11. When a value changes shape only because of a boundary or framework constraint, perform that adaptation at that boundary, not deeper in the system.
 
 ## Local Readability
 
@@ -45,11 +47,13 @@
 
 1. Extract when it clearly improves readability.
 2. Extract only for real boundaries.
-3. Do not extract one-use helpers that only move code around or rename obvious code.
-4. Do not generalize for hypothetical future needs unless there is already real pressure.
-5. Do not split so aggressively that navigation moves from inside files to the filesystem.
-6. A `Helpers` module can hold multiple helpers for one local concern.
-7. Split a helper family only once a stronger boundary becomes meaningful.
+3. Prefer inline code over one-use trivial helpers.
+4. Use well-named local variables to clarify a short local flow before reaching for a helper extraction.
+5. Do not extract one-use helpers that only move code around or rename obvious code.
+6. Do not generalize for hypothetical future needs unless there is already real pressure.
+7. Do not split so aggressively that navigation moves from inside files to the filesystem.
+8. A `Helpers` module can hold multiple helpers for one local concern.
+9. Split a helper family only once a stronger boundary becomes meaningful.
 
 ## Naming And Symmetry
 
@@ -58,10 +62,15 @@
 3. Let namespaces communicate responsibility boundaries.
 4. Keep module names as direct reflections of file paths by default.
 5. Name helpers after their real contract: what they return or what they mutate.
-6. Favor consistency across related APIs even when not strictly required by implementation.
-7. Allow small amounts of redundancy when they improve symmetry and predictability.
-8. In codebases that use the convention, prefer `get_*` for result tuples and `load_*` for nil/empty fallback APIs.
-9. Prefer aliasing stable namespaces over one-off renamed leaf modules when that keeps responsibility clearer, for example alias `Qblog.Wiki.PageTree.TreeOps` and call `TreeOps.RemoveNode.call(...)` instead of aliasing `...RemoveNode` as a special local name.
+6. Prefer verb-led function names by default, since functions usually perform an action.
+7. Allow noun or transformation names when they are the most direct and obvious reading.
+8. Prefer `x_to_y` naming over `y_from_x` for transformations when the `to` form is shorter and reads more naturally.
+9. Make contracts honest: do not rely on hidden preloaded state or vague naming.
+10. Favor consistency across related APIs even when not strictly required by implementation.
+11. Allow small amounts of redundancy when they improve symmetry and predictability.
+12. In codebases that use the convention, prefer `get_*` for result tuples and `load_*` for nil/empty fallback APIs.
+13. Prefer aliasing stable namespaces over one-off renamed leaf modules when that keeps responsibility clearer, for example alias `Qblog.Wiki.PageTree.TreeOps` and call `TreeOps.RemoveNode.call(...)` instead of aliasing `...RemoveNode` as a special local name.
+14. Prefer qualified names over generic aliases when the qualification materially improves clarity at the call site.
 
 ## Stable Ordering
 
@@ -77,20 +86,24 @@
 1. Store primary facts and derive secondary UI states from them when practical.
 2. Avoid parallel tagged state when concrete assigns already express the truth.
 3. Avoid re-deriving the same truth in multiple places when one clear source is already available.
-4. In code and data structures we own, decide the expected shape and code directly to it.
-5. Do not add defensive branches for alternate internal shapes unless those shapes are genuinely intended to be supported.
-6. Keep UI and logic local to the state where they are valid.
-7. Avoid globally rendered structures that require compensating event logic elsewhere.
+4. Resolve from the closest truth: prefer already-held server data before re-querying.
+5. Pass small stable identifiers across boundaries and resolve richer objects on the server.
+6. In code and data structures we own, decide the expected shape and code directly to it.
+7. Do not add defensive branches for alternate internal shapes unless those shapes are genuinely intended to be supported.
+8. Keep UI and logic local to the state where they are valid.
+9. Avoid globally rendered structures that require compensating event logic elsewhere.
 
 ## Common Failure Modes
 
 1. Do not introduce proxy state when concrete data already expresses the truth.
 2. Do not add one-use helpers that only move obvious code around.
 3. Do not spread one flow across several thin orchestration wrappers.
-4. Do not globally render UI that is only valid in one state.
-5. Do not re-derive the same source of truth in multiple places.
-6. Do not add defensive branches for alternate shapes in code and data structures we own unless we truly intend to support them.
-7. Do not generalize for hypothetical reuse before real pressure exists.
+4. Do not rebuild resource-owned lookups or operations in higher layers.
+5. Do not require hidden preloaded state from callers.
+6. Do not globally render UI that is only valid in one state.
+7. Do not re-derive the same source of truth in multiple places.
+8. Do not add defensive branches for alternate shapes in code and data structures we own unless we truly intend to support them.
+9. Do not generalize for hypothetical reuse before real pressure exists.
 
 ## HEEx Class Style
 
@@ -119,13 +132,15 @@
    1.2. avoid parallel tagged state that duplicates those facts
 2. Real boundary extraction:
    2.1. prefer inline code until a helper hides real complexity or names a real responsibility
-   2.2. avoid one-use helpers that only move obvious code around
+   2.2. prefer well-named local variables over one-use trivial helpers when the flow is already local
+   2.3. avoid one-use helpers that only move obvious code around
 3. Directness over ceremony:
    3.1. prefer the simpler direct version until an abstraction clearly earns its keep
    3.2. avoid designing for hypothetical flexibility before real pressure exists
 4. Responsibility boundaries:
    4.1. keep orchestration in the current layer, but reuse specialized logic from the most specific existing owner
    4.2. keep helpers local only when they are truly local to that file or feature
+   4.3. when a value changes shape only because of a boundary constraint, adapt it at that boundary
 5. Single orchestrator over layered orchestration:
    5.1. prefer one clear orchestrator that sequences the flow in one place
    5.2. avoid several thin wrappers that each forward part of the same flow
@@ -141,12 +156,23 @@
 9. Left-to-right flow:
    9.1. `node |> Wiki.create_page_for_node(scope: scope)`
    9.2. `page |> Ash.load([:author], scope: scope)`
-10. HEEx class grouping:
-   10.1. `class={["absolute right-2 top-2", "size-4 text-xs", "cursor-pointer", "opacity-50 hover:opacity-100 transition"]}`
-11. Stable ordering:
-   11.1. alphabetized `alias` blocks
-   11.2. alphabetized `attr` declarations
-   11.3. alphabetized component attributes when no stronger grouping exists
+10. Verb-led function naming:
+   10.1. prefer `move_block_up`
+   10.2. prefer `destroy_placed_block`
+   10.3. avoid noun-like names for actions when a clear verb exists
+11. Transformation naming:
+   11.1. prefer `param_to_type`
+   11.2. prefer `jpg_to_png`
+   11.3. over heavier `type_from_param` style when the `to` form is clearer
+12. Qualified names over generic aliases:
+   12.1. prefer `Blocks.Components.form`
+   12.2. over a generic local alias like `Components.form` when the fuller name is clearer
+13. HEEx class grouping:
+   13.1. `class={["absolute right-2 top-2", "size-4 text-xs", "cursor-pointer", "opacity-50 hover:opacity-100 transition"]}`
+14. Stable ordering:
+   14.1. alphabetized `alias` blocks
+   14.2. alphabetized `attr` declarations
+   14.3. alphabetized component attributes when no stronger grouping exists
 
 ## Working Rules
 
