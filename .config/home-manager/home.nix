@@ -167,6 +167,7 @@
     direnv
     discord
     dissent
+    dotenv-cli
     easyeffects
     evtest
     #   duf # disk usage/free utility
@@ -199,6 +200,7 @@
     gnumake
     google-chrome
     gtk3
+    home-assistant-cli
     htop
     jq
     # kdenlive

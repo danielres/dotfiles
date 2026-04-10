@@ -1,0 +1,7 @@
+{"label": "   warm", "command": "dotenv -e ~/.env -- hass-cli service call light.turn_on --arguments 'entity_id=light.2_lights,color_temp_kelvin=2000'"}
+{"label": "   cold", "command": "dotenv -e ~/.env -- hass-cli service call light.turn_on --arguments 'entity_id=light.2_lights,color_temp_kelvin=5000'"}
+{"label": "󱩎   01",   "command": "dotenv -e ~/.env -- hass-cli service call light.turn_on --arguments 'entity_id=light.2_lights,brightness=1'"}
+{"label": "󱩎   10",   "command": "dotenv -e ~/.env -- hass-cli service call light.turn_on --arguments 'entity_id=light.2_lights,brightness=10'"}
+{"label": "󱩒   50",   "command": "dotenv -e ~/.env -- hass-cli service call light.turn_on --arguments 'entity_id=light.2_lights,brightness=50'"}
+{"label": "󰛨   100",  "command": "dotenv -e ~/.env -- hass-cli service call light.turn_on --arguments 'entity_id=light.2_lights,brightness=100'"}
+{"label": "󰹏   off",  "command": "dotenv -e ~/.env -- hass-cli service call light.turn_off --arguments 'entity_id=light.2_lights'"}
