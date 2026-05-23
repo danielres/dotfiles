@@ -4,3 +4,12 @@ promptToReturnFromSubprocess: false
 #   pagers:
 #     - colorArg: always
 #       pager: delta --paging=never --features catppuccin-mocha --hyperlinks-file-link-format="lazygit-edit://{path}:{line}" --line-numbers --hyperlinks
+#
+git:
+  pagers:
+    - externalDiffCommand: difft --color=always --display=inline --syntax-highlight=off
+
+gui:
+  theme:
+    selectedLineBgColor:
+      - "#3b4252"
