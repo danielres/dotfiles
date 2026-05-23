@@ -164,6 +164,7 @@
     chromium
     # darktable
     devenv
+    difftastic
     direnv
     discord
     dissent
