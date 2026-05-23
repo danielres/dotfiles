@@ -186,6 +186,9 @@
     '';
   };
 
+  programs.appimage.enable = true;
+  programs.appimage.binfmt = true;
+
   programs = {
     # firefox.enable = true;
 
