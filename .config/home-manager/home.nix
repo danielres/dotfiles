@@ -21,7 +21,8 @@
     ];
     sessionVariables = {
       EDITOR = "nvim";
-      NVIM_APPNAME = "vim-kickstart-modular";
+      # NVIM_APPNAME = "vim-kickstart-modular";
+      NVIM_APPNAME = "vim-custom";
     };
   };
 
