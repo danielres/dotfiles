@@ -9,7 +9,8 @@
 {
   imports = [ ];
 
-  # nix.settings.auto-optimize-store = true;
+  nix.settings.auto-optimize-store = true;
+
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
