@@ -47,6 +47,9 @@ config.keys = {
 	-- disable default ctrl+shift+x for copy mode (conflicks with nvim dial -10 increments)
 	{ key = "X", mods = "CTRL|SHIFT", action = "DisableDefaultAssignment" },
 
+	-- disable default alt+enter for fullcreen
+	{ key = "Return", mods = "ALT", action = "DisableDefaultAssignment" },
+
 	{
 		key = "|",
 		mods = "LEADER|SHIFT",
