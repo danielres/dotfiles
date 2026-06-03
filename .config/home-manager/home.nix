@@ -22,6 +22,7 @@
     ];
     sessionVariables = {
       EDITOR = "nvim";
+      ELIXIR_EDITOR = "neovide +__LINE__ __FILE__";
       # NVIM_APPNAME = "vim-kickstart-modular";
       NVIM_APPNAME = "vim-custom";
     };
