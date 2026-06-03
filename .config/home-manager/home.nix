@@ -171,6 +171,7 @@
     bat
     # bat-extras.core
     brave
+    bubblewrap # part of codex sandboxing prerequisites
     cargo
     calibre
     celluloid
