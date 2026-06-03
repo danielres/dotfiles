@@ -207,9 +207,9 @@
     # gnomeExtensions.dash-to-dock
     #   gnomeExtensions.emoji-copy
     #   gnomeExtensions.extension-list
-    gnomeExtensions.memento-mori
-    gnomeExtensions.middle-click-to-close-in-overview
-    gnomeExtensions.pop-shell
+    # gnomeExtensions.memento-mori
+    # gnomeExtensions.middle-click-to-close-in-overview
+    # gnomeExtensions.pop-shell
     gnome-tweaks
     gnumake
     google-chrome
