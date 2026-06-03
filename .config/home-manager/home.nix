@@ -2,7 +2,8 @@
 
 { pkgs, inputs, ... }:
 {
-  home.stateVersion = "25.05";
+  # TODO: update to 26.11
+  home.stateVersion = "26.11";
   home.sessionVariables = {
     GTK_THEME = "Adwaita:dark";
   };
