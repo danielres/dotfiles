@@ -176,6 +176,7 @@
     calibre
     celluloid
     chromium
+    cloudflared
     # darktable
     devenv
     difftastic
