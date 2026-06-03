@@ -63,7 +63,7 @@ in
     syshud
     waybar
     wttrbar
-    wasistlos
+    # wasistlos
     wl-clipboard
     wlogout
     wofi
