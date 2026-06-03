@@ -50,6 +50,7 @@
           modules = [
             # inputs.mangowc.nixosModules.mango
             ./hardware-configuration.nix
+            ./audio-devices.nix
             ./boot.nix
             ./home-assistant.nix
             ./locales.nix
