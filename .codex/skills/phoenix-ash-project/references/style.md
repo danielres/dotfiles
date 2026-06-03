@@ -28,12 +28,17 @@
 9. Reuse basic lookups and operations from the real owner instead of recreating them in a higher layer.
 10. Keep helpers local only when they are truly local and would not clarify another module.
 11. When a value changes shape only because of a boundary or framework constraint, perform that adaptation at that boundary, not deeper in the system.
+12. Treat required context as a direct dependency, not as optional configuration.
+13. Prefer normal arguments over `opts` when the caller must always supply a value.
 
 ## Local Readability
 
 1. Rebind frequently used values locally when it keeps the main lines of logic shorter and easier to scan.
 2. Prefer short local names like `scope` or `page_tree` when they remove repeated long access paths such as `socket.assigns.current_scope`.
 3. Use this to clarify the main flow, not merely to save keystrokes.
+4. Prefer direct conditionals over negated ones when they read more naturally, for example `if page == nil` over `if page != nil` when the missing-case branch is the clearer entry point.
+5. In LiveView handlers, prefer rebinding repeated assigns like `current_scope`, `tz`, `event_form`, or `event_publications` before the main branch or pipeline.
+6. Prefer one local `socket = ...` build step over mixing repeated `socket.assigns...` access inside branches.
 
 ## Left-To-Right Flow
 
@@ -42,6 +47,11 @@
 3. Use pipelines to make value transformation explicit, not just to force every call into pipe form.
 4. Prefer the style that makes the data movement easiest to follow.
 5. When in doubt, prefer deleting a layer over adding one.
+6. In LiveView event handlers, prefer:
+   6.1. local rebinding first
+   6.2. a `socket =` pipeline or `case`
+   6.3. the simplest possible final return such as `{:noreply, socket}`
+7. Prefer piping from `socket` when building updated socket state, rather than nesting `assign(...)` calls inline inside the return tuple.
 
 ## Splitting Rules
 
@@ -54,6 +64,15 @@
 7. Do not split so aggressively that navigation moves from inside files to the filesystem.
 8. A `Helpers` module can hold multiple helpers for one local concern.
 9. Split a helper family only once a stronger boundary becomes meaningful.
+10. Prefer a small number of medium-sized helpers over either one giant function or many tiny helpers.
+11. Let the main function read as orchestration, usually in a handful of high-level steps.
+12. Extract helpers for real sub-decisions or meaningful branches, not for every short transformation.
+13. If understanding one flow requires jumping through many tiny private helpers, the code is likely over-extracted.
+14. It is acceptable to duplicate one or two tiny bits when that preserves locality and avoids vague shared helpers.
+15. If a helper only hides a single obvious extraction or default, inline it instead.
+16. After any structural refactor, re-audit nearby helpers, wrappers, and modules instead of assuming earlier abstractions still deserve to exist.
+17. Delete transitional abstractions once the architectural reason for them disappears.
+18. Do not preserve a helper, wrapper, or compatibility path only because it was justified earlier in the implementation history.
 
 ## Naming And Symmetry
 
@@ -71,6 +90,12 @@
 12. In codebases that use the convention, prefer `get_*` for result tuples and `load_*` for nil/empty fallback APIs.
 13. Prefer aliasing stable namespaces over one-off renamed leaf modules when that keeps responsibility clearer, for example alias `Qblog.Wiki.PageTree.TreeOps` and call `TreeOps.RemoveNode.call(...)` instead of aliasing `...RemoveNode` as a special local name.
 14. Prefer qualified names over generic aliases when the qualification materially improves clarity at the call site.
+15. For policy checks, make the scope explicit in the name:
+15.1. request or tenant scoped checks should mention `CurrentTenant`
+15.2. record scoped checks should mention `Resource` or the concrete resource name
+15.3. avoid names that hide whether the check reads the current request scope or the current resource record
+16. Prefer names that match the actual input shape, not just the conceptual domain.
+17. Avoid names that imply a different kind of input than the function actually accepts.
 
 ## Stable Ordering
 
@@ -92,6 +117,36 @@
 7. Do not add defensive branches for alternate internal shapes unless those shapes are genuinely intended to be supported.
 8. Keep UI and logic local to the state where they are valid.
 9. Avoid globally rendered structures that require compensating event logic elsewhere.
+10. Prefer policy-backed action outcomes over duplicating authorization logic with separate prechecks when the caller only needs to distinguish allowed, forbidden, and real errors.
+11. Prefer `Ash.can?` for capability questions such as UI rendering and explicit orchestration decisions, not as a default precheck before actions that will be attempted anyway.
+12. Do not add LiveView-side authorization guards merely to reject forged or otherwise unreachable client events when the underlying domain action is already policy-backed and the normal UI does not expose that path.
+13. Prefer the domain layer as the real authority unless the extra UI check materially improves legitimate-user UX or protects a UI-only state transition that has no domain enforcement.
+14. Keep fallback behavior at the boundary where it is needed, not inside the core helper that owns the real contract.
+15. Fail loudly when code we own produces an invalid internal shape; do not silently coerce it into a default.
+16. Review every fallback and compatibility path as suspect after the surrounding architecture changes.
+17. Remove stale compatibility fallbacks once the underlying invariant becomes required.
+
+## Action Contracts
+
+1. One public action should express one honest contract.
+2. Avoid exposing both persistence-shaped inputs and UI-shaped inputs on the same public action unless there are genuinely separate consumers.
+3. If one user-facing input model is the real contract, make that the normal action contract instead of creating artificial `*_local` or `*_ui` variants.
+4. Keep persistence fields as storage details when they are not the real caller-facing API.
+5. Prefer separate actions only when there are truly separate entrypoints with different responsibilities.
+
+## Query Shaping
+
+1. Push sorting, filtering, and shaping into Ash or the database before falling back to Elixir post-processing.
+2. Treat `Enum.sort_by/2`, `Enum.filter/2`, and similar in-memory transforms as a smell when the query or relationship load can express the same thing cleanly.
+3. Use relationship loads, query sorts, preparations, and read actions to encode stable read models.
+4. In-memory post-processing needs explicit justification, not convenience.
+
+## Boundary Discipline
+
+1. Domains should not depend on web-form abstractions merely to make a LiveView thinner.
+2. LiveViews should not own backend transaction or notifier plumbing.
+3. Keep framework-specific adaptation at the framework boundary unless the concern is genuinely part of the domain contract.
+4. Prefer moving orchestration down into the true owner or up into the boundary layer, rather than leaking one layer into another.
 
 ## Common Failure Modes
 
@@ -104,6 +159,8 @@
 7. Do not re-derive the same source of truth in multiple places.
 8. Do not add defensive branches for alternate shapes in code and data structures we own unless we truly intend to support them.
 9. Do not generalize for hypothetical reuse before real pressure exists.
+10. Do not stop at “cleaner than before” when the code can already support the final honest shape.
+11. Do not leave in-memory sorting, speculative helpers, or transitional action names in place after the architectural reason for them is gone.
 
 ## HEEx Class Style
 
@@ -173,6 +230,9 @@
    14.1. alphabetized `alias` blocks
    14.2. alphabetized `attr` declarations
    14.3. alphabetized component attributes when no stronger grouping exists
+15. Policy check naming:
+   15.1. prefer `ActorIsMemberOfCurrentTenantGroup` for tenant scoped checks
+   15.2. prefer `ActorCanManageResourceGroup` for record scoped checks
 
 ## Working Rules
 
