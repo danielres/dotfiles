@@ -261,6 +261,7 @@
     sqlitestudio
     telegram-desktop
     tldr
+    tree-sitter
     tuxedo-rs
     unzip
     valent # Kde connect built on gnome
