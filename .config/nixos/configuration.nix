@@ -256,25 +256,6 @@
   #   port = 11434;
   # };
 
-  services.home-assistant = {
-    enable = true;
-
-    # Keep the packaged integration available even when configured via the UI.
-    extraComponents = [
-      "analytics"
-      "google_translate"
-      "govee_light_local"
-      "isal"
-      "met"
-      "radio_browser"
-      "shopping_list"
-    ];
-
-    config = {
-      default_config = { };
-    };
-  };
-
   xdg.mime = {
     enable = true; # generate /etc/xdg/mimeapps.list
     defaultApplications = {
@@ -304,10 +285,6 @@
   networking.firewall.allowedTCPPorts = [
     4000
     4001
-  ];
-  networking.firewall.allowedUDPPorts = [
-    # 4002 for home-assistant
-    4002
   ];
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];

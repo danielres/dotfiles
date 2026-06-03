@@ -51,6 +51,7 @@
             # inputs.mangowc.nixosModules.mango
             ./hardware-configuration.nix
             ./boot.nix
+            ./home-assistant.nix
             ./locales.nix
             ./hibernate.nix
             ./root.nix
