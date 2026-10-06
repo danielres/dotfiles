@@ -28,6 +28,8 @@
   security.pam.services.login.enableGnomeKeyring = true;
   # ----------------
 
+  # Noctalia Shell has a settings page called "Hooks" in which you can insert
+  # "qs -c noctalia-shell ipc call lockScreen lock" inside the startup hook
   services.greetd = {
     enable = true;
     settings.default_session = {
