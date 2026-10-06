@@ -773,7 +773,7 @@
     },
     "settingsVersion": 59,
     "systemMonitor": {
-        "batteryCriticalThreshold": 5,
+        "batteryCriticalThreshold": 10,
         "batteryWarningThreshold": 20,
         "cpuCriticalThreshold": 90,
         "cpuWarningThreshold": 80,
