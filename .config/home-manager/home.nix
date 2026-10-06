@@ -262,6 +262,7 @@
     stow
     sqlite
     sqlitestudio
+    tailwindcss-language-server
     telegram-desktop
     tldr
     tree-sitter
