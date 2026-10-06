@@ -226,6 +226,7 @@
     lazygit
     delta
     kitty
+    kdePackages.kdenlive
     librewolf
     loupe
     lsof
