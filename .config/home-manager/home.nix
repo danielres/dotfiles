@@ -179,6 +179,7 @@
     celluloid
     chromium
     cloudflared
+    css-variables-language-server
     # darktable
     devenv
     difftastic
