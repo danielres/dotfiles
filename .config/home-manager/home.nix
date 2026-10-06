@@ -263,8 +263,10 @@
     stow
     sqlite
     sqlitestudio
+    svp
     tailwindcss-language-server
     telegram-desktop
+    television
     tldr
     tree-sitter
     tuxedo-rs
